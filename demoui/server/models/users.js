@@ -3,7 +3,6 @@ var Sequelize = require('sequelize');
 var attributes = {
     userid: {
         type: Sequelize.INTEGER,
-        autoIncrement: true,
         primaryKey: true
     },
     username: {

@@ -3,11 +3,11 @@
     <div>
     <Logo />
       <h1 class="title">
-        Demo Project
+        Grocery Store Database
       </h1>
       <div class="links">
         <nuxt-link class="button--grey link" style="margin-left: 15px;" to="/users">View Users</nuxt-link>
-        <nuxt-link class="button--grey link" style="margin-left: 15px;" to="/product">View Product</nuxt-link>
+        <nuxt-link class="button--grey link" style="margin-left: 15px;" to="/product">View Products</nuxt-link>
       </div>
     </div>
   </section>

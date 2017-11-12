@@ -35,4 +35,29 @@ router.get('/product/:productid', function (req, res, next) {
     })
 })
 
+router.post('/product/add', bodyParser.json(), function (req, res, next) {
+  const productid = req.body.data.productid
+  const productname = req.body.data.productname
+  const departmentname = req.body.data.departmentname
+  const pricepercostunit = req.body.data.pricepercostunit
+  const costunit = req.body.data.costunit
+
+  const query = 'INSERT INTO Product (productid, productname, departmentname, pricepercostunit, costunit) VALUES (:productid, :productname, :departmentname, :pricepercostunit, :costunit) ;'
+  connection.query(query,
+    {
+      type: connection.QueryTypes.INSERT,
+      replacements: {
+        productid: productid,
+        productname: productname,
+        departmentname: departmentname,
+        pricepercostunit: pricepercostunit,
+        costunit: costunit
+      }
+    })
+    .then(result => {
+      // result[1] is the number of rows changed
+      res.send('/product')
+    })
+})
+
 export default router
