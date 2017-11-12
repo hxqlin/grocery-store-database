@@ -5,7 +5,7 @@
         <span class="product-productid" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{ product.productid }}</span>
         <span class="product-productname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `(${product.productname})` }}</span>
         <span class="product-productname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `(${product.departmentname})` }}</span>
-        <nuxt-link :to="{ path: `/product/${product.productid}/update`, params: { productid: product.productid }}">Update</nuxt-link>
+        <nuxt-link :to="{ path: `/product/${product.productid}/updatecost`, params: { productid: product.productid }}">Update Cost</nuxt-link>
       </div>
     </div>
   </section>

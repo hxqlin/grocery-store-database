@@ -25,10 +25,10 @@ router.get('/product/:productid', function (req, res, next) {
         productid: productid
       }
     })
-    .then(user => {
-        console.log(user)
-      if (user.length === 1 ) {
-        res.json(user[0])
+    .then(product => {
+        console.log(product)
+      if (product.length === 1 ) {
+        res.json(product[0])
       } else {
         res.status(404).json({})
       }
@@ -52,6 +52,27 @@ router.post('/product/add', bodyParser.json(), function (req, res, next) {
         departmentname: departmentname,
         pricepercostunit: pricepercostunit,
         costunit: costunit
+      }
+    })
+    .then(result => {
+      // result[1] is the number of rows changed
+      res.send('/product')
+    })
+})
+
+router.post('/product/updatecost', bodyParser.json(), function (req, res, next) {
+  const productid = req.body.data.productid
+  const pricepercostunit = req.body.data.pricepercostunit
+  const costunit = req.body.data.costunit
+
+  const query = 'UPDATE Product SET pricepercostunit = :pricepercostunit, costunit = :costunit WHERE productid = :productid ;'
+  connection.query(query,
+    {
+      type: connection.QueryTypes.UPDATE,
+      replacements: {
+        pricepercostunit: pricepercostunit,
+        costunit: costunit,
+        productid: productid
       }
     })
     .then(result => {

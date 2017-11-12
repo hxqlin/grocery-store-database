@@ -1,15 +1,16 @@
 <template>
-  <section class="user-view">
+  <section class="product-view">
     <div class="content">
       <div class="subsection">
+        <span class="product-productid" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{ product.productid }}</span>
         <form style="margin: 15px 15px;">
             <div style="margin: 10px 0;">
-              <span class="user-username">Username: </span>
-              <input type="text" :value="user.username" v-model="user.username"></input>
+              <span class="product-pricepercostunit">Price Per Cost Unit: </span>
+              <input type="text" :value="product.pricepercostunit" v-model="product.pricepercostunit"></input>
             </div>
             <div style="margin: 10px 0;">
-              <span class="user-password">Password: </span>
-              <input type="password" v-model="user.password"></input>
+              <span class="product-costunit">Cost Unit: </span>
+              <input type="costunit" v-model="product.costunit"></input>
             </div>
         </form>
         <button type="button" class="button--grey" @click="submitUpdate">Update</button>
@@ -23,12 +24,12 @@ import axios from '~/plugins/axios'
 
 export default {
   asyncData ({ params, error }) {
-    return axios.get('/api/users/' + params.username)
+    return axios.get('/api/product/' + params.productid)
       .then((res) => {
-        return { user: res.data }
+        return { product: res.data }
       })
       .catch((e) => {
-        error({ statusCode: 404, message: 'User not found' })
+        error({ statusCode: 404, message: 'product not found' })
       })
   },
 
@@ -39,17 +40,17 @@ export default {
   methods: {
     submitUpdate () {
       let self = this
-
-      axios.post('/api/users/update', {
+      console.log(self.product)
+      axios.post('/api/product/updatecost', {
         headers:
           {
             'Content-Type': 'application/json'
           },
         data:
           {
-            userid: self.user.userid,
-            username: self.user.username,
-            password: self.user.password
+            productid: self.product.productid,
+            pricepercostunit: self.product.pricepercostunit,
+            costunit: self.product.costunit
           }})
         .then((res) => {
           // res.data should contain the url for redirecting... bad practice
@@ -63,14 +64,14 @@ export default {
 
   head () {
     return {
-      title: `Update User: ${this.user.username}`
+      title: `Update product: ${this.product.productid}`
     }
   }
 }
 </script>
 
 <style lang="stylus" scoped>
-.user-view
+.product-view
   padding-top 0
 
 .content
@@ -89,11 +90,15 @@ export default {
     margin 25px 10px
     font-size 26px
     font-weight 500
-  .user-username
+  .product-productid
     font-size 24px
     font-weight 500
     color #707070
-  .user-password
+  .product-pricepercostunit
+    font-size 24px
+    font-weight 500
+    color #707070
+  .product-costunit
     font-size 24px
     font-weight 500
     color #707070
