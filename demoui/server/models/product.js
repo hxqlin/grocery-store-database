@@ -9,12 +9,39 @@ var attributes = {
         type: Sequelize.STRING
     },
     productname: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING
     },
     pricepercostunit: {
-        type: Sequelize.FLOAT,
+        type: Sequelize.FLOAT
     },
     costunit: {
+        type: Sequelize.STRING
+    },
+    quantityinstock: {
+        type: Sequelize.INTEGER
+    },
+    brand: {
+        type: Sequelize.STRING
+    }, 
+    productiondate: {
+        type: Sequelize.STRING
+    },
+    bestbeforedate: {
+        type: Sequelize.STRING
+    },
+    PLU: {
+        type: Sequelize.INTEGER
+    },
+    UPC: {
+        type: Sequelize.BIGINTEGER
+    },
+    organic: {
+        type: Sequelize.INTEGER
+    },
+    cut: {
+        type: Sequelize.STRING
+    },
+    animal: {
         type: Sequelize.STRING
     }
 };
