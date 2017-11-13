@@ -29,10 +29,10 @@ var attributes = {
     bestbeforedate: {
         type: Sequelize.STRING
     },
-    PLU: {
+    plu: {
         type: Sequelize.INTEGER
     },
-    UPC: {
+    upc: {
         type: Sequelize.BIGINTEGER
     },
     organic: {

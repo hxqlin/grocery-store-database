@@ -1,15 +1,15 @@
 <template>
-  <section class="product-view">
+  <section class="employees-view">
     <div class="content">
       <div class="subsection">
         <div style="margin: 25px 10px;">
-          <span class="subsection-title" style="vertical-align: middle;">Products in Database</span>
-          <nuxt-link class="button--grey" style="padding: 5px 20px; text-decoration: none;" to="/product/add">Add Product</nuxt-link>
+          <span class="subsection-title" style="vertical-align: middle;">Employees</span>
+          <nuxt-link class="button--grey" style="padding: 5px 20px; text-decoration: none;" to="/employees/add">Add Employee (not implemented)</nuxt-link>
         </div>
         <ul style="list-style-type: none; padding: 0; margin: 0;">
-          <li v-for="(product, index) in product" :key="index" style="padding: 10px 20px; margin: 0 25px; position: relative;">
-            <nuxt-link :to="{ path: `/product/${product.productid}`, params: { productname: product.productname }}">
-              {{ product.productid + ' ' + product.productname }}
+          <li v-for="(employee, index) in employees" :key="index" style="padding: 10px 20px; margin: 0 25px; position: relative;">
+            <nuxt-link :to="{ path: `/employees/${employee.employeeid}`, params: { employeeid: employee.employeeid }}">
+              {{ employee.employeeid + ' ' + employee.employeename }}
             </nuxt-link>
           </li>
         </ul>
@@ -23,20 +23,20 @@ import axios from '~/plugins/axios'
 
 export default {
   async asyncData () {
-    let { data } = await axios.get('/api/product')
-    return { product: data }
+    let { data } = await axios.get('/api/employees')
+    return { employees: data }
   },
 
   head () {
     return {
-      title: 'Product'
+      title: 'Employee'
     }
   }
 }
 </script>
 
 <style lang="stylus" scoped>
-.product-view
+.employees-view
   padding-top 0
 
 .content

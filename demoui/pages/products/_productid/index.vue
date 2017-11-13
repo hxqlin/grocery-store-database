@@ -10,7 +10,13 @@
         <span class="product-productdepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Brand: ${product.brand}` }}</span><br><br>
         <span class="product-productdepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Production Date: ${product.productiondate}` }}</span><br><br>
         <span class="product-productdepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Best Before Date: ${product.bestbeforedate}` }}</span><br><br>
-        <nuxt-link :to="{ path: `/product/${product.productid}/updatecost`, params: { productid: product.productid }}">Update Cost</nuxt-link>
+        <span class="product-productdepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `PLU: ${product.plu}` }}</span><br><br>
+        <span class="product-productdepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `UPC: ${product.upc}` }}</span><br><br>
+        <span class="product-productdepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Organic: ${product.organic}` }}</span><br><br>
+        <span class="product-productdepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Cut: ${product.cut}` }}</span><br><br>
+        <span class="product-productdepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Animal: ${product.animal}` }}</span><br><br>
+        <nuxt-link :to="{ path: `/products/${product.productid}/updatecost`, params: { productid: product.productid }}">Update Cost</nuxt-link><br><br>
+        <nuxt-link :to="{ path: `/products/${product.productid}/updatequantity`, params: { productid: product.productid }}">Update Quantity</nuxt-link>
       </div>
     </div>
   </section>
@@ -22,17 +28,17 @@ import axios from '~/plugins/axios'
 export default {
   productid: 'productid',
   asyncData ({ params, error }) {
-    return axios.get('/api/product/' + params.productid)
+    return axios.get('/api/products/' + params.productid)
       .then((res) => {
         return { product: res.data }
       })
       .catch((e) => {
-        error({ statusCode: 404, message: 'User not found' })
+        error({ statusCode: 404, message: 'Product not found' })
       })
   },
   head () {
     return {
-      title: `User: ${this.product.productid}`
+      title: `Product ${this.product.productid}`
     }
   }
 }
