@@ -2,7 +2,8 @@
   <section class="product-view">
     <div class="content">
       <div class="subsection">
-        <span class="product-productid" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{ product.productid }}</span>
+        <span class="product-productid" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{`Product ${product.productid}` }}</span>
+        <span class="product-productname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `${product.productname}` }}</span><br><br>
         <form style="margin: 15px 15px;">
             <div style="margin: 10px 0;">
               <span class="product-pricepercostunit">Price Per Cost Unit: </span>
@@ -24,7 +25,7 @@ import axios from '~/plugins/axios'
 
 export default {
   asyncData ({ params, error }) {
-    return axios.get('/api/product/' + params.productid)
+    return axios.get('/api/products/' + params.productid)
       .then((res) => {
         return { product: res.data }
       })
@@ -41,7 +42,7 @@ export default {
     submitUpdate () {
       let self = this
       console.log(self.product)
-      axios.post('/api/product/updatecost', {
+      axios.post('/api/products/updatecost', {
         headers:
           {
             'Content-Type': 'application/json'

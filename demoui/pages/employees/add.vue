@@ -1,26 +1,26 @@
 <template>
-  <section class="product-view">
+  <section class="employee-view">
   <div class="content">
     <div class="subsection">
     <form style="margin: 15px 15px;">
       <div style="margin: 10px 0;">
-        <span class="product-productid">Product ID: </span>
-        <input type="text" :value="productid" v-model="productid"></input>
+        <span class="employee-employeeid">Product ID: </span>
+        <input type="text" :value="employeeid" v-model="employeeid"></input>
       </div>
       <div style="margin: 10px 0;">
-        <span class="product-departmentname">Department Name: </span>
+        <span class="employee-departmentname">Department Name: </span>
         <input type="departmentname" v-model="departmentname"></input>
       </div>
       <div style="margin: 10px 0;">
-        <span class="product-productname">Product Name: </span>
-        <input type="text" :value="productname" v-model="productname"></input>
+        <span class="employee-employeename">Product Name: </span>
+        <input type="text" :value="employeename" v-model="employeename"></input>
       </div>
       <div style="margin: 10px 0;">
-        <span class="product-pricepercostunit">Price Per Cost Unit: </span>
+        <span class="employee-pricepercostunit">Price Per Cost Unit: </span>
         <input type="text" :value="pricepercostunit" v-model="pricepercostunit"></input>
       </div>
       <div style="margin: 10px 0;">
-        <span class="product-costunit">Cost Unit: </span>
+        <span class="employee-costunit">Cost Unit: </span>
         <input type="text" :value="costunit" v-model="costunit"></input>
       </div>
     </form>
@@ -37,8 +37,8 @@ export default {
 
   data () {
     return {
-      productid: '',
-      productname: '',
+      employeeid: '',
+      employeename: '',
       departmentname: '',
       pricepercostunit: '',
       costunit: ''
@@ -49,15 +49,15 @@ export default {
     submitInsert () {
       let self = this
 
-      axios.post('/api/product/add', {
+      axios.post('/api/employees/add', {
         headers:
           {
             'Content-Type': 'application/json'
           },
         data:
           {
-            productid: self.productid,
-            productname: self.productname,
+            employeeid: self.employeeid,
+            employeename: self.employeename,
             departmentname: self.departmentname,
             pricepercostunit: self.pricepercostunit,
             costunit: self.costunit
@@ -81,7 +81,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.product-view
+.employee-view
   padding-top 0
 
 .content
@@ -100,23 +100,23 @@ export default {
     margin 25px 10px
     font-size 26px
     font-weight 500
-  .product-productid
+  .employee-employeeid
       font-size 24px
       font-weight 500
       color #707070
-  .product-productname
+  .employee-employeename
     font-size 24px
     font-weight 500
     color #707070
-  .product-departmentname
+  .employee-departmentname
     font-size 24px
     font-weight 500
     color #707070
-  .product-pricepercostunit
+  .employee-pricepercostunit
     font-size 24px
     font-weight 500
     color #707070
-  .product-costunit
+  .employee-costunit
     font-size 24px
     font-weight 500
     color #707070
