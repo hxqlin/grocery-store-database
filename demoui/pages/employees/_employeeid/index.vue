@@ -7,8 +7,8 @@
         <span class="employee-employeeattributes" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Department: ${employee.departmentname}` }}</span><br><br>
         <span class="employee-employeedepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Position: ${employee.position}` }}</span><br><br>
         <span class="employee-employeedepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `SINumber: ${employee.sinumber}` }}</span><br><br>
-        <span class="employee-employeedepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Address: ${employee.address}` }}</span><br><br>
-        <span class="employee-employeedepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Phone: ${employee.phone}` }}</span><br><br>
+        <span class="employee-employeedepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Address: ${employee.employeeaddress}` }}</span><br><br>
+        <span class="employee-employeedepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Phone: ${employee.employeephone}` }}</span><br><br>
         <span class="employee-employeedepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Wage: $${employee.wage}/hr` }}</span><br><br>
         <nuxt-link :to="{ path: `/employees/${employee.employeeid}/updatecost`, params: { employeeid: employee.employeeid }}">Update Info (not implemented)</nuxt-link><br><br>
       </div>
