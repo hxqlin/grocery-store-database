@@ -6,7 +6,7 @@ const router = Router()
 
 /* GET product listing. */
 router.get('/products', function (req, res, next) {
-  const query = 'SELECT * FROM Products ORDER BY productid ASC;'
+  const query = 'SELECT * FROM Product ORDER BY productid ASC;'
   connection.query(query, { type: connection.QueryTypes.SELECT })
     .then(product => {
       console.log(product)
@@ -17,7 +17,7 @@ router.get('/products', function (req, res, next) {
 /* GET product by ID. */
 router.get('/products/:productid', function (req, res, next) {
   const productid = req.params.productid
-  const query = 'SELECT * FROM Products WHERE ProductID = :productid;'
+  const query = 'SELECT * FROM Product WHERE ProductID = :productid;'
   connection.query(query,
     {
       type: connection.QueryTypes.SELECT,
@@ -42,7 +42,7 @@ router.post('/products/add', bodyParser.json(), function (req, res, next) {
   const pricepercostunit = req.body.data.pricepercostunit
   const costunit = req.body.data.costunit
 
-  const query = 'INSERT INTO Products (productid, productname, departmentname, pricepercostunit, costunit) VALUES (:productid, :productname, :departmentname, :pricepercostunit, :costunit) ;'
+  const query = 'INSERT INTO Product (productid, productname, departmentname, pricepercostunit, costunit) VALUES (:productid, :productname, :departmentname, :pricepercostunit, :costunit) ;'
   connection.query(query,
     {
       type: connection.QueryTypes.INSERT,
@@ -65,7 +65,7 @@ router.post('/products/updatecost', bodyParser.json(), function (req, res, next)
   const pricepercostunit = req.body.data.pricepercostunit
   const costunit = req.body.data.costunit
 
-  const query = 'UPDATE Products SET pricepercostunit = :pricepercostunit, costunit = :costunit WHERE productid = :productid ;'
+  const query = 'UPDATE Product SET pricepercostunit = :pricepercostunit, costunit = :costunit WHERE productid = :productid ;'
   connection.query(query,
     {
       type: connection.QueryTypes.UPDATE,
@@ -85,7 +85,7 @@ router.post('/products/updatequantity', bodyParser.json(), function (req, res, n
   const productid = req.body.data.productid
   const quantityinstock = req.body.data.quantityinstock
 
-  const query = 'UPDATE Products SET quantityinstock = :quantityinstock WHERE productid = :productid ;'
+  const query = 'UPDATE Product SET quantityinstock = :quantityinstock WHERE productid = :productid ;'
   connection.query(query,
     {
       type: connection.QueryTypes.UPDATE,

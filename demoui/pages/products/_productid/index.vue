@@ -1,5 +1,5 @@
 <template>
-  <section class="user-view">
+  <section class="product-view">
     <div class="content">
       <div class="subsection">
         <span class="product-productid" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{`Product ${product.productid}` }}</span>

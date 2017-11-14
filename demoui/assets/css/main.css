@@ -28,6 +28,6 @@ a, a:hover, a:focus, a:visited
 }
 
 .subsection > ul {
-  height: 450px;
+  height: 800px;
   overflow-y: scroll;
 }

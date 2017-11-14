@@ -4,7 +4,7 @@
     <div class="subsection">
     <form style="margin: 15px 15px;">
       <div style="margin: 10px 0;">
-        <span class="employee-employeeid">Product ID: </span>
+        <span class="employee-employeeid">Employee ID: </span>
         <input type="text" :value="employeeid" v-model="employeeid"></input>
       </div>
       <div style="margin: 10px 0;">
@@ -12,19 +12,31 @@
         <input type="departmentname" v-model="departmentname"></input>
       </div>
       <div style="margin: 10px 0;">
-        <span class="employee-employeename">Product Name: </span>
+        <span class="employee-employeename">Employee Name: </span>
         <input type="text" :value="employeename" v-model="employeename"></input>
       </div>
       <div style="margin: 10px 0;">
-        <span class="employee-pricepercostunit">Price Per Cost Unit: </span>
-        <input type="text" :value="pricepercostunit" v-model="pricepercostunit"></input>
+        <span class="employee-position">Position: </span>
+        <input type="text" :value="position" v-model="position"></input>
       </div>
       <div style="margin: 10px 0;">
-        <span class="employee-costunit">Cost Unit: </span>
-        <input type="text" :value="costunit" v-model="costunit"></input>
+        <span class="employee-wage">Wage: </span>
+        <input type="text" :value="wage" v-model="wage"></input>
+      </div>
+      <div style="margin: 10px 0;">
+        <span class="employee-SINumber">SINumber: </span>
+        <input type="text" :value="SINumber" v-model="SINumber"></input>
+      </div>
+      <div style="margin: 10px 0;">
+        <span class="employee-employeeaddress">Address: </span>
+        <input type="text" :value="employeeaddress" v-model="employeeaddress"></input>
+      </div>
+      <div style="margin: 10px 0;">
+        <span class="employee-employeephone">Phone: </span>
+        <input type="text" :value="employeephone" v-model="employeephone"></input>
       </div>
     </form>
-    <button type="button" class="button--grey" @click="submitInsert">Add Product</button>
+    <button type="button" class="button--grey" @click="submitInsert">Add Employee</button>
     </div>
   </div>
   </section>
@@ -40,8 +52,11 @@ export default {
       employeeid: '',
       employeename: '',
       departmentname: '',
-      pricepercostunit: '',
-      costunit: ''
+      position: '',
+      wage: '',
+      SINumber: '',
+      employeeaddress: '',
+      employeephone: ''
     }
   },
 
@@ -59,8 +74,11 @@ export default {
             employeeid: self.employeeid,
             employeename: self.employeename,
             departmentname: self.departmentname,
-            pricepercostunit: self.pricepercostunit,
-            costunit: self.costunit
+            position: self.position,
+            wage: self.wage,
+            SINumber: self.SINumber,
+            employeeaddress: self.employeeaddress,
+            employeephone: self.employeephone
           }})
         .then((res) => {
           // res.data should contain the url for redirecting... bad practice
@@ -74,7 +92,7 @@ export default {
 
   head () {
     return {
-      title: `Add New Product`
+      title: `Add New Employee`
     }
   }
 }
@@ -112,11 +130,23 @@ export default {
     font-size 24px
     font-weight 500
     color #707070
-  .employee-pricepercostunit
+  .employee-position
     font-size 24px
     font-weight 500
     color #707070
-  .employee-costunit
+  .employee-wage
+    font-size 24px
+    font-weight 500
+    color #707070
+  .employee-SINumber
+    font-size 24px
+    font-weight 500
+    color #707070
+  .employee-employeeaddress
+    font-size 24px
+    font-weight 500
+    color #707070
+  .employee-employeephone
     font-size 24px
     font-weight 500
     color #707070

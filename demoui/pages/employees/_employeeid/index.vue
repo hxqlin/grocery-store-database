@@ -1,5 +1,5 @@
 <template>
-  <section class="user-view">
+  <section class="employee-view">
     <div class="content">
       <div class="subsection">
         <span class="employee-employeeid" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{`Employee #${employee.employeeid}` }}</span>
@@ -10,7 +10,7 @@
         <span class="employee-employeedepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Address: ${employee.address}` }}</span><br><br>
         <span class="employee-employeedepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Phone: ${employee.phone}` }}</span><br><br>
         <span class="employee-employeedepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Wage: $${employee.wage}/hr` }}</span><br><br>
-        <nuxt-link :to="{ path: `/employees/${employee.employeeid}/updatecost`, params: { employeeid: employee.employeeid }}">Update Info (not implemented)</nuxt-link><br><br>
+        <nuxt-link :to="{ path: `/employees/${employee.employeeid}/update`, params: { employeeid: employee.employeeid }}">Update Info (not implemented)</nuxt-link><br><br>
       </div>
     </div>
   </section>
