@@ -12,11 +12,17 @@ DROP TABLE IF EXISTS ProvidesDelivery;
 DROP TABLE IF EXISTS ProvidedBy;
 DROP TABLE IF EXISTS AisleContains;
 DROP TABLE IF EXISTS Aisles;
+DROP TABLE IF EXISTS Aisle;
 DROP TABLE IF EXISTS Products;
+DROP TABLE IF EXISTS Product;
 DROP TABLE IF EXISTS Employees;
+DROP TABLE IF EXISTS Employee;
 DROP TABLE IF EXISTS Suppliers;
+DROP TABLE IF EXISTS Supplier;
 DROP TABLE IF EXISTS Departments;
+DROP TABLE IF EXISTS Department;
 DROP TABLE IF EXISTS Customers;
+DROP TABLE IF EXISTS Customer;
 
 CREATE TABLE Customers(
     CustomerID INT,
@@ -49,7 +55,7 @@ CREATE TABLE Employees(
     EmployeePhone VARCHAR(255),
     Wage INT,
     PRIMARY KEY(EmployeeID),
-    FOREIGN KEY(DepartmentName) REFERENCES Department(DepartmentName)
+    FOREIGN KEY(DepartmentName) REFERENCES Departments(DepartmentName)
 );
 
 CREATE TABLE Products(
@@ -68,7 +74,7 @@ CREATE TABLE Products(
     Cut VARCHAR(255),
     Animal VARCHAR(255),
     PRIMARY KEY(ProductID),
-    FOREIGN KEY(DepartmentName) REFERENCES Department(DepartmentName)
+    FOREIGN KEY(DepartmentName) REFERENCES Departments(DepartmentName)
 );
 
 CREATE TABLE Aisles(
@@ -81,30 +87,30 @@ CREATE TABLE AisleContains(
     AisleNumber INT,
     ProductID INT,
     PRIMARY KEY(AisleNumber, ProductID),
-    FOREIGN KEY(ProductID) REFERENCES Product(ProductID),
-    FOREIGN KEY(AisleNumber) REFERENCES Aisle(AisleNumber)
+    FOREIGN KEY(ProductID) REFERENCES Products(ProductID),
+    FOREIGN KEY(AisleNumber) REFERENCES Aisles(AisleNumber)
 );
 
 CREATE TABLE ProvidedBy(
     ProductID INT,
     SupplierID INT,
     PRIMARY KEY(SupplierID, ProductID),
-    FOREIGN KEY(SupplierID) REFERENCES Supplier(SupplierID),
-    FOREIGN KEY(ProductID) REFERENCES Product(ProductID)
+    FOREIGN KEY(SupplierID) REFERENCES Suppliers(SupplierID),
+    FOREIGN KEY(ProductID) REFERENCES Products(ProductID)
 );
 
 CREATE TABLE ProvidesDelivery(
     DeliveryID INT,
     SupplierID INT NOT NULL,
     PRIMARY KEY(DeliveryID),
-    FOREIGN KEY(SupplierID) REFERENCES Supplier(SupplierID)
+    FOREIGN KEY(SupplierID) REFERENCES Suppliers(SupplierID)
 );
 
 CREATE TABLE ReceivedFrom(
     ProductID INT,
     DeliveryID INT,
     PRIMARY KEY(ProductID, DeliveryID),
-    FOREIGN KEY(ProductID) REFERENCES Product(ProductID),
+    FOREIGN KEY(ProductID) REFERENCES Products(ProductID),
     FOREIGN KEY(DeliveryID) REFERENCES ProvidesDelivery(DeliveryID)
 );
 
@@ -112,13 +118,12 @@ CREATE TABLE Purchases(
     TransactionID INT,
     ProductID INT,
     Quantity INT,
-    CustomerName VARCHAR(255),
-    CustomerEmail VARCHAR(255),
+    CustomerID INT,
     PurchaseDate VARCHAR(255),
     Total FLOAT,
     PRIMARY KEY(TransactionID),
-    FOREIGN KEY(ProductID) REFERENCES Product(ProductID),
-    FOREIGN KEY(CustomerName, CustomerEmail) REFERENCES Customer(CustomerName, CustomerEmail)
+    FOREIGN KEY(ProductID) REFERENCES Products(ProductID),
+    FOREIGN KEY(CustomerID) REFERENCES Customers(CustomerID)
 );
 
 -- start of customer insertion
@@ -457,63 +462,63 @@ INSERT INTO PROVIDEDBY VALUES(424,10);
 INSERT INTO PROVIDEDBY VALUES(425,7);
 
 -- Purchases
-INSERT INTO PURCHASES VALUES(1, 1, 1, 'Harry Potter', 'theboywholived@gmail.com', '11-01-2017', 1.59);
-INSERT INTO PURCHASES VALUES(2, 3, 3, 'Harry Potter', 'theboywholived@gmail.com', '11-07-2017', 3.57);
-INSERT INTO PURCHASES VALUES(3, 5, 2, 'Lily Potter', 'lpotter@gmail.com', '12-01-2017', 2.78);
-INSERT INTO PURCHASES VALUES(4, 7, 9, 'Lily Potter', 'lpotter@gmail.com', '11-03-2017', 8.91);
-INSERT INTO PURCHASES VALUES(5, 9, 6, 'James Potter', 'jpotter@gmail.com', '12-17-2017', 7.74);
-INSERT INTO PURCHASES VALUES(6, 11, 4, 'James Potter', 'jpotter@gmail.com', '12-21-2017', 15.96);
-INSERT INTO PURCHASES VALUES(7, 13, 2, 'Hermione Granger', 'hgranger@icloud.com', '11-19-2017', 1.98);
-INSERT INTO PURCHASES VALUES(8, 15, 1, 'Hermione Granger', 'hgranger@icloud.com', '11-11-2017', 1.59);
-INSERT INTO PURCHASES VALUES(9, 17, 8, 'Ron Weasley', 'roonilwazlib@hotmail.com', '11-21-2017', 10.32);
-INSERT INTO PURCHASES VALUES(10, 19, 6, 'Ron Weasley', 'roonilwazlib@hotmail.com', '12-25-2017', 5.94);
-INSERT INTO PURCHASES VALUES(11, 21, 3, 'Ginny Weasley', 'ginnyw@gmail.com', '11-02-2017', 4.47);
-INSERT INTO PURCHASES VALUES(12, 23, 10, 'Ginny Weasley', 'ginnyw@gmail.com', '12-07-2017', 9.90);
-INSERT INTO PURCHASES VALUES(13, 25, 1, 'Fred Weasley', 'fweasley@gmail.com', '12-15-2017', 1.29);
-INSERT INTO PURCHASES VALUES(14, 27, 7, 'Fred Weasley', 'fweasley@gmail.com', '11-09-2017', 9.03);
-INSERT INTO PURCHASES VALUES(15, 29, 6, 'George Weasley', 'gweasley@gmail.com', '11-10-2017', 7.14);
-INSERT INTO PURCHASES VALUES(16, 31, 2, 'George Weasley', 'gweasley@gmail.com', '12-11-2017', 7.98);
-INSERT INTO PURCHASES VALUES(17, 101, 3, 'Arthur Weasley', 'aweasley@gmail.com', '12-14-2017', 6.87);
-INSERT INTO PURCHASES VALUES(18, 103, 5, 'Arthur Weasley', 'aweasley@gmail.com', '11-16-2017', 11.45);
-INSERT INTO PURCHASES VALUES(19, 105, 6, 'Molly Weasley', 'mweasley@gmail.com', '12-16-2017', 13.74);
-INSERT INTO PURCHASES VALUES(20, 107, 3, 'Molly Weasley', 'mweasley@gmail.com', '11-08-2017', 6.87);
-INSERT INTO PURCHASES VALUES(21, 109, 1, 'Percy Weasley', 'pweasley@gmail.com', '12-04-2017', 2.99);
-INSERT INTO PURCHASES VALUES(22, 111, 8, 'Percy Weasley', 'pweasley@gmail.com', '11-03-2017', 18.32);
-INSERT INTO PURCHASES VALUES(23, 113, 4, 'Bill Weasley', 'bweasley@gmail.com', '12-19-2017', 19.88);
-INSERT INTO PURCHASES VALUES(24, 115, 2, 'Bill Weasley', 'bweasley@gmail.com', '12-18-2017', 7.94);
-INSERT INTO PURCHASES VALUES(25, 117, 3, 'Charlie Weasley', 'cweasley@gmail.com', '11-18-2017', 9.87);
-INSERT INTO PURCHASES VALUES(26, 119, 9, 'Charlie Weasley', 'cweasley@gmail.com', '12-16-2017', 20.61);
-INSERT INTO PURCHASES VALUES(27, 150, 1, 'Lord Voldemort', 'tmriddle@hotmail.com', '11-30-2017', 3.99);
-INSERT INTO PURCHASES VALUES(28, 152, 7, 'Lord Voldemort', 'tmriddle@hotmail.com', '12-31-2017', 41.93);
-INSERT INTO PURCHASES VALUES(29, 201, 1, 'Draco Malfoy', 'mini_mr_malfoy@gmail.com', '11-30-2017', 6.99);
-INSERT INTO PURCHASES VALUES(30, 203, 3, 'Draco Malfoy', 'mini_mr_malfoy@gmail.com', '12-01-2017', 23.97);
-INSERT INTO PURCHASES VALUES(31, 205, 13, 'Lucius Malfoy', 'lmalfoy@gmail.com', '11-12-2017', 90.87);
-INSERT INTO PURCHASES VALUES(32, 207, 7, 'Lucius Malfoy', 'lmalfoy@gmail.com', '12-15-2017', 55.93);
-INSERT INTO PURCHASES VALUES(33, 209, 1, 'Narcissa Malfoy', 'nmalfoy@gmail.com', '12-03-2017', 6.99);
-INSERT INTO PURCHASES VALUES(34, 211, 2, 'Narcissa Malfoy', 'nmalfoy@gmail.com', '11-17-2017', 15.98);
-INSERT INTO PURCHASES VALUES(35, 301, 6, 'Neville Longbottom', 'longbottom@live.com', '12-13-2017', 23.94);
-INSERT INTO PURCHASES VALUES(36, 303, 4, 'Neville Longbottom', 'longbottom@live.com', '12-22-2017', 19.96);
-INSERT INTO PURCHASES VALUES(37, 305, 2, 'Dudley Dursley', 'ddursley@hotmail.com', '11-22-2017', 9.98);
-INSERT INTO PURCHASES VALUES(38, 307, 8, 'Dudley Dursley', 'ddursley@hotmail.com', '11-29-2017', 7.92);
-INSERT INTO PURCHASES VALUES(39, 401, 4, 'Vernon Dursley', 'vdursley@hotmail.com', '11-01-2017', 5.16);
-INSERT INTO PURCHASES VALUES(40, 403, 6, 'Vernon Dursley', 'vdursley@hotmail.com', '12-27-2017', 5.94);
-INSERT INTO PURCHASES VALUES(41, 405, 9, 'Petunia Dursley', 'pdursley@hotmail.com', '12-18-2017', 5.31);
-INSERT INTO PURCHASES VALUES(42, 407, 2, 'Petunia Dursley', 'pdursley@hotmail.com', '11-16-2017', 9.18);
-INSERT INTO PURCHASES VALUES(43, 409, 1, 'Severus Snape', 'snivellus@gmail.com', '11-13-2017', 0.69);
-INSERT INTO PURCHASES VALUES(44, 411, 10, 'Severus Snape', 'snivellus@gmail.com', '12-02-2017', 6.90);
-INSERT INTO PURCHASES VALUES(45, 413, 7, 'Rubeus Hagrid', 'rhagrid@hotmail.com', '11-03-2017', 4.83);
-INSERT INTO PURCHASES VALUES(46, 415, 6, 'Rubeus Hagrid', 'rhagrid@hotmail.com', '12-07-2017', 4.14);
-INSERT INTO PURCHASES VALUES(47, 417, 1, 'Minverva McGonagall', 'mmcgonagall@gmail.com', '11-11-2017', 0.69);
-INSERT INTO PURCHASES VALUES(48, 419, 2, 'Minverva McGonagall', 'mmcgonagall@gmail.com', '12-16-2017', 1.38);
-INSERT INTO PURCHASES VALUES(49, 421, 7, 'Albus Dumbledore', 'adumbledore@gmail.com', '12-22-2017', 4.83);
-INSERT INTO PURCHASES VALUES(50, 423, 3, 'Albus Dumbledore', 'adumbledore@gmail.com', '12-21-2017', 8.97);
-INSERT INTO PURCHASES VALUES(51, 425, 4, 'Hedwig', 'im_actually_an_owl@hotmail.com', '11-26-2017', 15.96);
-INSERT INTO PURCHASES VALUES(52, 400, 1, 'Hedwig', 'im_actually_an_owl@hotmail.com', '12-18-2017', 1.19);
-INSERT INTO PURCHASES VALUES(53, 402, 6, 'Crookshanks', 'cat@icloud.com', '11-16-2017', 5.34);
-INSERT INTO PURCHASES VALUES(54, 404, 13, 'Crookshanks', 'cat@icloud.com', '12-13-2017', 6.37);
-INSERT INTO PURCHASES VALUES(55, 406, 2, 'Sirius Black', 'sblack@gmail.com', '11-17-2017', 7.98);
-INSERT INTO PURCHASES VALUES(56, 408, 9, 'Sirius Black', 'sblack@gmail.com', '12-01-2017', 14.31);
-INSERT INTO PURCHASES VALUES(57, 410, 12, 'Lavender Brown', 'lbrown@hotmail.com', '12-04-2017', 8.28);
-INSERT INTO PURCHASES VALUES(58, 412, 1, 'Lavender Brown', 'lbrown@hotmail.com', '11-14-2017', 0.69);
-INSERT INTO PURCHASES VALUES(59, 414, 14, 'Colin Creevey', 'ccreevey@gmail.com', '12-24-2017', 9.66);
-INSERT INTO PURCHASES VALUES(60, 416, 5, 'Colin Creevey', 'ccreevey@gmail.com', '11-24-2017', 3.45);
+INSERT INTO PURCHASES VALUES(1, 1, 1, 1, '11-01-2017', 1.59);
+INSERT INTO PURCHASES VALUES(2, 3, 3, 1, '11-07-2017', 3.57);
+INSERT INTO PURCHASES VALUES(3, 5, 2, 2, '12-01-2017', 2.78);
+INSERT INTO PURCHASES VALUES(4, 7, 9, 2, '11-03-2017', 8.91);
+INSERT INTO PURCHASES VALUES(5, 9, 6, 3, '12-17-2017', 7.74);
+INSERT INTO PURCHASES VALUES(6, 11, 4, 3, '12-21-2017', 15.96);
+INSERT INTO PURCHASES VALUES(7, 13, 2, 4, '11-19-2017', 1.98);
+INSERT INTO PURCHASES VALUES(8, 15, 1, 4, '11-11-2017', 1.59);
+INSERT INTO PURCHASES VALUES(9, 17, 8, 5, '11-21-2017', 10.32);
+INSERT INTO PURCHASES VALUES(10, 19, 6, 5, '12-25-2017', 5.94);
+INSERT INTO PURCHASES VALUES(11, 21, 3, 6, '11-02-2017', 4.47);
+INSERT INTO PURCHASES VALUES(12, 23, 10, 6, '12-07-2017', 9.90);
+INSERT INTO PURCHASES VALUES(13, 25, 1, 7, '12-15-2017', 1.29);
+INSERT INTO PURCHASES VALUES(14, 27, 7, 7, '11-09-2017', 9.03);
+INSERT INTO PURCHASES VALUES(15, 29, 6, 8, '11-10-2017', 7.14);
+INSERT INTO PURCHASES VALUES(16, 31, 2, 8, '12-11-2017', 7.98);
+INSERT INTO PURCHASES VALUES(17, 101, 3, 9, '12-14-2017', 6.87);
+INSERT INTO PURCHASES VALUES(18, 103, 5, 9, '11-16-2017', 11.45);
+INSERT INTO PURCHASES VALUES(19, 105, 6, 10, '12-16-2017', 13.74);
+INSERT INTO PURCHASES VALUES(20, 107, 3, 10, '11-08-2017', 6.87);
+INSERT INTO PURCHASES VALUES(21, 109, 1, 11, '12-04-2017', 2.99);
+INSERT INTO PURCHASES VALUES(22, 111, 8, 11, '11-03-2017', 18.32);
+INSERT INTO PURCHASES VALUES(23, 113, 4, 12, '12-19-2017', 19.88);
+INSERT INTO PURCHASES VALUES(24, 115, 2, 12, '12-18-2017', 7.94);
+INSERT INTO PURCHASES VALUES(25, 117, 3, 13, '11-18-2017', 9.87);
+INSERT INTO PURCHASES VALUES(26, 119, 9, 13, '12-16-2017', 20.61);
+INSERT INTO PURCHASES VALUES(27, 150, 1, 14, '11-30-2017', 3.99);
+INSERT INTO PURCHASES VALUES(28, 152, 7, 14, '12-31-2017', 41.93);
+INSERT INTO PURCHASES VALUES(29, 201, 1, 15, '11-30-2017', 6.99);
+INSERT INTO PURCHASES VALUES(30, 203, 3, 15, '12-01-2017', 23.97);
+INSERT INTO PURCHASES VALUES(31, 205, 13, 16, '11-12-2017', 90.87);
+INSERT INTO PURCHASES VALUES(32, 207, 7, 16, '12-15-2017', 55.93);
+INSERT INTO PURCHASES VALUES(33, 209, 1, 17, '12-03-2017', 6.99);
+INSERT INTO PURCHASES VALUES(34, 211, 2, 17, '11-17-2017', 15.98);
+INSERT INTO PURCHASES VALUES(35, 301, 6, 18, '12-13-2017', 23.94);
+INSERT INTO PURCHASES VALUES(36, 303, 4, 18, '12-22-2017', 19.96);
+INSERT INTO PURCHASES VALUES(37, 305, 2, 19, '11-22-2017', 9.98);
+INSERT INTO PURCHASES VALUES(38, 307, 8, 19, '11-29-2017', 7.92);
+INSERT INTO PURCHASES VALUES(39, 401, 4, 20, '11-01-2017', 5.16);
+INSERT INTO PURCHASES VALUES(40, 403, 6, 20, '12-27-2017', 5.94);
+INSERT INTO PURCHASES VALUES(41, 405, 9, 21, '12-18-2017', 5.31);
+INSERT INTO PURCHASES VALUES(42, 407, 2, 21, '11-16-2017', 9.18);
+INSERT INTO PURCHASES VALUES(43, 409, 1, 22, '11-13-2017', 0.69);
+INSERT INTO PURCHASES VALUES(44, 411, 10, 22, '12-02-2017', 6.90);
+INSERT INTO PURCHASES VALUES(45, 413, 7, 23, '11-03-2017', 4.83);
+INSERT INTO PURCHASES VALUES(46, 415, 6, 23, '12-07-2017', 4.14);
+INSERT INTO PURCHASES VALUES(47, 417, 1, 24, '11-11-2017', 0.69);
+INSERT INTO PURCHASES VALUES(48, 419, 2, 24, '12-16-2017', 1.38);
+INSERT INTO PURCHASES VALUES(49, 421, 7, 25, '12-22-2017', 4.83);
+INSERT INTO PURCHASES VALUES(50, 423, 3, 25, '12-21-2017', 8.97);
+INSERT INTO PURCHASES VALUES(51, 425, 4, 26, '11-26-2017', 15.96);
+INSERT INTO PURCHASES VALUES(52, 400, 1, 26, '12-18-2017', 1.19);
+INSERT INTO PURCHASES VALUES(53, 402, 6, 27, '11-16-2017', 5.34);
+INSERT INTO PURCHASES VALUES(54, 404, 13, 27, '12-13-2017', 6.37);
+INSERT INTO PURCHASES VALUES(55, 406, 2, 28, '11-17-2017', 7.98);
+INSERT INTO PURCHASES VALUES(56, 408, 9, 28, '12-01-2017', 14.31);
+INSERT INTO PURCHASES VALUES(57, 410, 12, 29, '12-04-2017', 8.28);
+INSERT INTO PURCHASES VALUES(58, 412, 1, 29, '11-14-2017', 0.69);
+INSERT INTO PURCHASES VALUES(59, 414, 14, 30, '12-24-2017', 9.66);
+INSERT INTO PURCHASES VALUES(60, 416, 5, 30, '11-24-2017', 3.45);
