@@ -6,7 +6,7 @@
         <span class="customer-customername" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `${customer.customername}` }}</span><br><br>
         <span class="customer-customerattributes" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Phone: ${customer.customerphone}` }}</span><br><br>
         <span class="customer-customercustomerphone" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Email: ${customer.email}` }}</span><br><br>
-        <nuxt-link :to="{ path: `/customers/${customer.customerid}/updatecost`, params: { customerid: customer.customerid }}">Update Info (not implemented)</nuxt-link><br><br>
+        <nuxt-link :to="{ path: `/customers/${customer.customerid}/updateinfo`, params: { customerid: customer.customerid }}">Update Info</nuxt-link><br><br>
       </div>
     </div>
   </section>

@@ -34,4 +34,27 @@ router.get('/customers/:customerid', function (req, res, next) {
     })
 })
 
+router.post('/customers/updateinfo', bodyParser.json(), function (req, res, next) {
+    const customerid = req.body.data.customerid
+    const customername = req.body.data.customername
+    const customerphone = req.body.data.customerphone
+    const customeremail = req.body.data.customeremail
+  
+    const query = 'UPDATE Customers SET customername = :customername, customerphone = :customerphone, customeremail = :customeremail WHERE customerid = :customerid ;'
+    connection.query(query,
+      {
+        type: connection.QueryTypes.UPDATE,
+        replacements: {
+          customername: customername,
+          customerphone: customerphone,
+          customerid: customerid,
+          customeremail: customeremail
+        }
+      })
+      .then(result => {
+        // result[1] is the number of rows changed
+        res.send('/customers')
+      })
+  })
+
 export default router
