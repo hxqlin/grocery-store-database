@@ -37,15 +37,26 @@ router.get('/employees/:employeeid', function (req, res, next) {
 router.post('/employees/add', bodyParser.json(), function (req, res, next) {
   const employeeid = req.body.data.employeeid
   const employeename = req.body.data.employeename
-  const password = req.body.data.password
+  const departmentname = req.body.data.departmentname
+  const position = req.body.data.position
+  const sinumber = req.body.data.sinumber
+  const employeeaddress = req.body.data.employeeaddress
+  const employeephone = req.body.data.employeephone
+  const wage = req.body.data.wage
 
-  const query = 'INSERT INTO Employees (employeename, password) VALUES (:employeename, :password) ;'
+  const query = 'INSERT INTO Employees VALUES (:employeeid, :employeename, :departmentname, :position, :sinumber, :employeeaddress, :employeephone, :wage);'
   connection.query(query,
     {
       type: connection.QueryTypes.INSERT,
       replacements: {
-        employeename: employeename,
-        password: password
+          employeeid: employeeid,
+          employeename: employeename,
+          departmentname: departmentname,
+          position: position,
+          sinumber: sinumber,
+          employeeaddress: employeeaddress,
+          emplloyeephone: employeephone,
+          wage: wage
       }
     })
     .then(result => {

@@ -19,10 +19,11 @@ DROP TABLE IF EXISTS Departments;
 DROP TABLE IF EXISTS Customers;
 
 CREATE TABLE Customers(
+    CustomerID INT,
     CustomerName VARCHAR(255),
     CustomerPhone VARCHAR(255),
     CustomerEmail VARCHAR(255),
-    PRIMARY KEY(CustomerName, CustomerEmail)
+    PRIMARY KEY(CustomerID)
 );
 
 CREATE TABLE Departments(
@@ -121,36 +122,36 @@ CREATE TABLE Purchases(
 );
 
 -- start of customer insertion
-INSERT INTO CUSTOMERS VALUES('Harry Potter', '000 731 1980', 'theboywholived@gmail.com');
-INSERT INTO CUSTOMERS VALUES('Lily Potter', '000 731 1980', 'lpotter@gmail.com');
-INSERT INTO CUSTOMERS VALUES('James Potter', '000 731 1980', 'jpotter@gmail.com');
-INSERT INTO CUSTOMERS VALUES('Hermione Granger', '555 123 1979', 'hgranger@icloud.com');
-INSERT INTO CUSTOMERS VALUES('Ron Weasley', '604 301 1979', 'roonilwazlib@hotmail.com');
-INSERT INTO CUSTOMERS VALUES('Ginny Weasley', '778 872 1928', 'ginnyw@gmail.com');
-INSERT INTO CUSTOMERS VALUES('Fred Weasley', '604 976 3693', 'fweasley@gmail.com');
-INSERT INTO CUSTOMERS VALUES('George Weasley', '604 976 3693', 'gweasley@gmail.com');
-INSERT INTO CUSTOMERS VALUES('Arthur Weasley', '604 976 3693', 'aweasley@gmail.com');
-INSERT INTO CUSTOMERS VALUES('Molly Weasley', '604 976 3693', 'mweasley@gmail.com');
-INSERT INTO CUSTOMERS VALUES('Percy Weasley', '604 976 3693', 'pweasley@gmail.com');
-INSERT INTO CUSTOMERS VALUES('Bill Weasley', '604 976 3693', 'bweasley@gmail.com');
-INSERT INTO CUSTOMERS VALUES('Charlie Weasley', '604 976 3693', 'cweasley@gmail.com');
-INSERT INTO CUSTOMERS VALUES('Lord Voldemort', '778 192 3928', 'tmriddle@hotmail.com');
-INSERT INTO CUSTOMERS VALUES('Draco Malfoy', '908 392 1928', 'mini_mr_malfoy@gmail.com');
-INSERT INTO CUSTOMERS VALUES('Lucius Malfoy', '908 392 1928', 'lmalfoy@gmail.com');
-INSERT INTO CUSTOMERS VALUES('Narcissa Malfoy', '908 392 1928', 'nmalfoy@gmail.com');
-INSERT INTO CUSTOMERS VALUES('Neville Longbottom', '498 192 3091', 'longbottom@live.com');
-INSERT INTO CUSTOMERS VALUES('Dudley Dursley', '930 409 9380', 'ddursley@hotmail.com');
-INSERT INTO CUSTOMERS VALUES('Vernon Dursley', '930 409 9380', 'vdursley@hotmail.com');
-INSERT INTO CUSTOMERS VALUES('Petunia Dursley', '930 409 9380', 'pdursley@hotmail.com');
-INSERT INTO CUSTOMERS VALUES('Severus Snape', '928 182 0493', 'snivellus@gmail.com');
-INSERT INTO CUSTOMERS VALUES('Rubeus Hagrid', '458 392 1029', 'rhagrid@hotmail.com');
-INSERT INTO CUSTOMERS VALUES('Minverva McGonagall', '893 928 0933', 'mmcgonagall@gmail.com');
-INSERT INTO CUSTOMERS VALUES('Albus Dumbledore', '920 849 9145', 'adumbledore@gmail.com');
-INSERT INTO CUSTOMERS VALUES('Hedwig', '839 920 1234', 'im_actually_an_owl@hotmail.com');
-INSERT INTO CUSTOMERS VALUES('Crookshanks', '555 983 0298', 'cat@icloud.com');
-INSERT INTO CUSTOMERS VALUES('Sirius Black', '649 563 4723', 'sblack@gmail.com');
-INSERT INTO CUSTOMERS VALUES('Lavender Brown', '604 983 6941', 'lbrown@hotmail.com');
-INSERT INTO CUSTOMERS VALUES('Colin Creevey', '778 961 6435', 'ccreevey@gmail.com');
+INSERT INTO CUSTOMERS VALUES(1, 'Harry Potter', '000 731 1980', 'theboywholived@gmail.com');
+INSERT INTO CUSTOMERS VALUES(2, 'Lily Potter', '000 731 1980', 'lpotter@gmail.com');
+INSERT INTO CUSTOMERS VALUES(3, 'James Potter', '000 731 1980', 'jpotter@gmail.com');
+INSERT INTO CUSTOMERS VALUES(4, 'Hermione Granger', '555 123 1979', 'hgranger@icloud.com');
+INSERT INTO CUSTOMERS VALUES(5, 'Ron Weasley', '604 301 1979', 'roonilwazlib@hotmail.com');
+INSERT INTO CUSTOMERS VALUES(6, 'Ginny Weasley', '778 872 1928', 'ginnyw@gmail.com');
+INSERT INTO CUSTOMERS VALUES(7, 'Fred Weasley', '604 976 3693', 'fweasley@gmail.com');
+INSERT INTO CUSTOMERS VALUES(8, 'George Weasley', '604 976 3693', 'gweasley@gmail.com');
+INSERT INTO CUSTOMERS VALUES(9, 'Arthur Weasley', '604 976 3693', 'aweasley@gmail.com');
+INSERT INTO CUSTOMERS VALUES(10, 'Molly Weasley', '604 976 3693', 'mweasley@gmail.com');
+INSERT INTO CUSTOMERS VALUES(11, 'Percy Weasley', '604 976 3693', 'pweasley@gmail.com');
+INSERT INTO CUSTOMERS VALUES(12, 'Bill Weasley', '604 976 3693', 'bweasley@gmail.com');
+INSERT INTO CUSTOMERS VALUES(13, 'Charlie Weasley', '604 976 3693', 'cweasley@gmail.com');
+INSERT INTO CUSTOMERS VALUES(14, 'Lord Voldemort', '778 192 3928', 'tmriddle@hotmail.com');
+INSERT INTO CUSTOMERS VALUES(15, 'Draco Malfoy', '908 392 1928', 'mini_mr_malfoy@gmail.com');
+INSERT INTO CUSTOMERS VALUES(16, 'Lucius Malfoy', '908 392 1928', 'lmalfoy@gmail.com');
+INSERT INTO CUSTOMERS VALUES(17, 'Narcissa Malfoy', '908 392 1928', 'nmalfoy@gmail.com');
+INSERT INTO CUSTOMERS VALUES(18, 'Neville Longbottom', '498 192 3091', 'longbottom@live.com');
+INSERT INTO CUSTOMERS VALUES(19, 'Dudley Dursley', '930 409 9380', 'ddursley@hotmail.com');
+INSERT INTO CUSTOMERS VALUES(20, 'Vernon Dursley', '930 409 9380', 'vdursley@hotmail.com');
+INSERT INTO CUSTOMERS VALUES(21, 'Petunia Dursley', '930 409 9380', 'pdursley@hotmail.com');
+INSERT INTO CUSTOMERS VALUES(22, 'Severus Snape', '928 182 0493', 'snivellus@gmail.com');
+INSERT INTO CUSTOMERS VALUES(23, 'Rubeus Hagrid', '458 392 1029', 'rhagrid@hotmail.com');
+INSERT INTO CUSTOMERS VALUES(24, 'Minverva McGonagall', '893 928 0933', 'mmcgonagall@gmail.com');
+INSERT INTO CUSTOMERS VALUES(25, 'Albus Dumbledore', '920 849 9145', 'adumbledore@gmail.com');
+INSERT INTO CUSTOMERS VALUES(26, 'Hedwig', '839 920 1234', 'im_actually_an_owl@hotmail.com');
+INSERT INTO CUSTOMERS VALUES(27, 'Crookshanks', '555 983 0298', 'cat@icloud.com');
+INSERT INTO CUSTOMERS VALUES(28, 'Sirius Black', '649 563 4723', 'sblack@gmail.com');
+INSERT INTO CUSTOMERS VALUES(29, 'Lavender Brown', '604 983 6941', 'lbrown@hotmail.com');
+INSERT INTO CUSTOMERS VALUES(30, 'Colin Creevey', '778 961 6435', 'ccreevey@gmail.com');
 
 -- start of supplier insertion
 INSERT INTO SUPPLIERS VALUES(1, 'Saputo Dairy Products Canada', '6800 Lougheed Highway, Burnaby, BC V5A 1W2', '1 800 672 8866');

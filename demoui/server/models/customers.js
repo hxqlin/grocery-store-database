@@ -1,30 +1,18 @@
 var Sequelize = require('sequelize');
 
 var attributes = {
-    employeeid: {
+    customerid: {
         type: Sequelize.INTEGER,
         primaryKey: true
     },
-    employeename: {
+    customername: {
         type: Sequelize.STRING
     },
-    departmentname: {
+    customerphone: {
         type: Sequelize.STRING
     },
-    position: {
+    customeremail: {
         type: Sequelize.STRING
-    },
-    sinumber: {
-        type: Sequelize.BIGINTEGER
-    },
-    employeeaddress: {
-        type: Sequelize.STRING
-    },
-    employeephone: {
-        type: Sequelize.STRING
-    },
-    wage: {
-        type: Sequelize.INTEGER
     }
 };
 
