@@ -12,11 +12,11 @@
         <input type="text" :value="customername" v-model="customername"></input>
       </div>
       <div style="margin: 10px 0;">
-        <span class="customer-phone">Customer Phone: </span>
+        <span class="customer-customerphone">Customer Phone: </span>
         <input type="customerphone" v-model="customerphone"></input>
       </div>
       <div style="margin: 10px 0;">
-        <span class="customer-email">Customer Email: </span>
+        <span class="customer-customeremail">Customer Email: </span>
         <input type="customeremail" v-model="customeremail"></input>
       </div>
     </form>
@@ -35,7 +35,8 @@ export default {
     return {
       customerid: '',
       customername: '',
-      phone: ''
+      customerphone: '',
+      customeremail: ''
     }
   },
 
@@ -97,7 +98,15 @@ export default {
     font-size 24px
     font-weight 500
     color #707070
-  .customer-phone
+  .customer-customerphone
+    font-size 24px
+    font-weight 500
+    color #707070
+  .customer-customerid
+    font-size 24px
+    font-weight 500
+    color #707070
+  .customer-customeremail
     font-size 24px
     font-weight 500
     color #707070
