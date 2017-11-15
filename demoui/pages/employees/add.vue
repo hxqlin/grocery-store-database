@@ -19,21 +19,24 @@
         <span class="employee-position">Position: </span>
         <input type="text" :value="position" v-model="position"></input>
       </div>
+
+
+      <div style="margin: 10px 0;">
+        <span class="employee-wage">Wage: </span>
+        <input type="text" :value="wage" v-model="wage"></input>
+      </div>
       <div style="margin: 10px 0;">
         <span class="employee-sinumber">SINumber: </span>
         <input type="text" :value="sinumber" v-model="sinumber"></input>
       </div>
       <div style="margin: 10px 0;">
         <span class="employee-employeeaddress">Address: </span>
-        <input type="text" :value="sinumber" v-model="employeeaddress"></input>
+        <input type="text" :value="employeeaddress" v-model="employeeaddress"></input>
       </div>
       <div style="margin: 10px 0;">
-        <span class="employee-sinumber">SINumber: </span>
-        <input type="text" :value="sinumber" v-model="sinumber"></input>
-      </div>
-      <div style="margin: 10px 0;">
-        <span class="employee-sinumber">SINumber: </span>
-        <input type="text" :value="sinumber" v-model="sinumber"></input>
+        <span class="employee-employeephone">Phone: </span>
+        <input type="text" :value="employeephone" v-model="employeephone"></input>
+
       </div>
     </form>
     <button type="button" class="button--grey" @click="submitInsert">Add Employee</button>
@@ -53,10 +56,12 @@ export default {
       employeename: '',
       departmentname: '',
       position: '',
+
+      wage: '',
       sinumber: '',
       employeeaddress: '',
-      employeephone: '',
-      wage: ''
+      employeephone: ''
+
     }
   },
 
@@ -75,10 +80,12 @@ export default {
             employeename: self.employeename,
             departmentname: self.departmentname,
             position: self.position,
+
+            wage: self.wage,
             sinumber: self.sinumber,
             employeeaddress: self.employeeaddress,
-            employeephone: self.employeephone,
-            wage: self.wage
+            employeephone: self.employeephone
+
           }})
         .then((res) => {
           // res.data should contain the url for redirecting... bad practice
@@ -131,10 +138,26 @@ export default {
     font-weight 500
     color #707070
   .employee-position
+
     font-size 24px
     font-weight 500
     color #707070
+  .employee-wage
+    font-size 24px
+    font-weight 500
+    color #707070
+
   .employee-sinumber
+    font-size 24px
+    font-weight 500
+    color #707070
+
+  .employee-employeeaddress
+    font-size 24px
+    font-weight 500
+    color #707070
+  .employee-employeephone
+
     font-size 24px
     font-weight 500
     color #707070

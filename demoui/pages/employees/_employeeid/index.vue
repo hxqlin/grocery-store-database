@@ -1,16 +1,16 @@
 <template>
-  <section class="user-view">
+  <section class="employee-view">
     <div class="content">
       <div class="subsection">
-        <span class="employee-employeeid" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{`Employee #${employee.employeeid}` }}</span>
-        <span class="employee-employeename" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `${employee.employeename}` }}</span><br><br>
-        <span class="employee-employeeattributes" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Department: ${employee.departmentname}` }}</span><br><br>
-        <span class="employee-employeedepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Position: ${employee.position}` }}</span><br><br>
-        <span class="employee-employeedepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `SINumber: ${employee.sinumber}` }}</span><br><br>
-        <span class="employee-employeedepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Address: ${employee.employeeaddress}` }}</span><br><br>
-        <span class="employee-employeedepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Phone: ${employee.employeephone}` }}</span><br><br>
-        <span class="employee-employeedepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Wage: $${employee.wage}/hr` }}</span><br><br>
-        <nuxt-link :to="{ path: `/employees/${employee.employeeid}/updatecost`, params: { employeeid: employee.employeeid }}">Update Info (not implemented)</nuxt-link><br><br>
+        <span class="employee-employeeid" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{`Employee #${employees.employeeid}` }}</span>
+        <span class="employee-employeename" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `${employees.employeename}` }}</span><br><br>
+        <span class="employee-employeeattributes" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Department: ${employees.departmentname}` }}</span><br><br>
+        <span class="employee-employeedepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Position: ${employees.position}` }}</span><br><br>
+        <span class="employee-employeedepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `SINumber: ${employees.sinumber}` }}</span><br><br>
+        <span class="employee-employeedepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Address: ${employees.employeeaddress}` }}</span><br><br>
+        <span class="employee-employeedepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Phone: ${employees.employeephone}` }}</span><br><br>
+        <span class="employee-employeedepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Wage: $${employees.wage}/hr` }}</span><br><br>
+        <nuxt-link :to="{ path: `/employees/${employees.employeeid}/update`, params: { employeeid: employees.employeeid }}">Update Info (not implemented)</nuxt-link><br><br>
       </div>
     </div>
   </section>
@@ -24,7 +24,7 @@ export default {
   asyncData ({ params, error }) {
     return axios.get('/api/employees/' + params.employeeid)
       .then((res) => {
-        return { employee: res.data }
+        return { employees: res.data }
       })
       .catch((e) => {
         error({ statusCode: 404, message: 'Product not found' })
@@ -32,7 +32,7 @@ export default {
   },
   head () {
     return {
-      title: `Employee ${this.employee.employeeid}`
+      title: `Employee ${this.employees.employeeid}`
     }
   }
 }
