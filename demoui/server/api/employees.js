@@ -6,7 +6,7 @@ const router = Router()
 
 /* GET employees listing. */
 router.get('/employees', function (req, res, next) {
-  const query = 'SELECT * FROM Employee ORDER BY employeeid ASC;'
+  const query = 'SELECT * FROM Employees ORDER BY employeeid ASC;'
   connection.query(query, { type: connection.QueryTypes.SELECT })
     .then(employees => {
       console.log(employees)
@@ -17,7 +17,7 @@ router.get('/employees', function (req, res, next) {
 /* GET employee by ID. */
 router.get('/employees/:employeeid', function (req, res, next) {
   const employeeid = req.params.employeeid
-  const query = 'SELECT * FROM Employee WHERE employeeid = :employeeid ;'
+  const query = 'SELECT * FROM Employees WHERE employeeid = :employeeid ;'
   connection.query(query,
     {
       type: connection.QueryTypes.SELECT,
@@ -25,9 +25,9 @@ router.get('/employees/:employeeid', function (req, res, next) {
         employeeid: employeeid
       }
     })
-    .then(employee => {
-      if (employee.length === 1 ) {
-        res.json(employee[0])
+    .then(employees => {
+      if (employees.length === 1 ) {
+        res.json(employees[0])
       } else {
         res.status(404).json({})
       }
@@ -44,7 +44,7 @@ router.post('/employees/add', bodyParser.json(), function (req, res, next) {
   const employeeaddress = req.body.data.employeeaddress
   const employeephone  = req.body.data.employeephone
 
-  const query = 'INSERT INTO Employee (employeeid, employeename, departmentname, position, wage, SINumber, employeeaddress, employeephone) VALUES (:employeeid, :employeename, :departmentname, :position, :wage, :SINumber, :employeeaddress, :employeephone) ;'
+  const query = 'INSERT INTO Employees (employeeid, employeename, departmentname, position, wage, SINumber, employeeaddress, employeephone) VALUES (:employeeid, :employeename, :departmentname, :position, :wage, :SINumber, :employeeaddress, :employeephone) ;'
   connection.query(query,
     {
       type: connection.QueryTypes.INSERT,
@@ -74,7 +74,7 @@ router.post('/employees/update', bodyParser.json(), function (req, res, next) {
   const employeeaddress = req.body.data.employeeaddress
   const employeephone = req.body.data.employeephone
 
-  const query = 'UPDATE Employee SET employeename = :employeename, departmentname = :departmentname, position = :position, wage = :wage, employeephone = :employeephone, employeeaddress = :employeeaddress WHERE employeeid = :employeeid ;'
+  const query = 'UPDATE Employees SET employeename = :employeename, departmentname = :departmentname, position = :position, wage = :wage, employeephone = :employeephone, employeeaddress = :employeeaddress WHERE employeeid = :employeeid ;'
   connection.query(query,
     {
       type: connection.QueryTypes.UPDATE,

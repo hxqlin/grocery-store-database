@@ -52,7 +52,7 @@ export default {
   asyncData ({ params, error }) {
     return axios.get('/api/employees/' + params.employeeid)
       .then((res) => {
-        return { employee: res.data }
+        return { employees: res.data }
       })
       .catch((e) => {
         error({ statusCode: 404, message: 'Employee not found' })
@@ -74,13 +74,13 @@ export default {
           },
         data:
           {
-            employeeid: self.employee.employeeid,
-            employeename: self.employee.employeename,
-            departmentname: self.employee.departmentname,
-            position: self.employee.position,
-            wage: self.employee.wage,
-            employeeaddress: self.employee.employeeaddress,
-            employeephone: self.employee.employeephone
+            employeeid: self.employees.employeeid,
+            employeename: self.employees.employeename,
+            departmentname: self.employees.departmentname,
+            position: self.employees.position,
+            wage: self.employees.wage,
+            employeeaddress: self.employees.employeeaddress,
+            employeephone: self.employees.employeephone
           }})
         .then((res) => {
           // res.data should contain the url for redirecting... bad practice
@@ -94,7 +94,7 @@ export default {
 
   head () {
     return {
-      title: `Update Employee: ${this.employee.employeeid}`
+      title: `Update Employee: ${this.employees.employeeid}`
     }
   }
 }

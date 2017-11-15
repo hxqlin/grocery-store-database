@@ -24,7 +24,7 @@ export default {
   asyncData ({ params, error }) {
     return axios.get('/api/employees/' + params.employeeid)
       .then((res) => {
-        return { employee: res.data }
+        return { employees: res.data }
       })
       .catch((e) => {
         error({ statusCode: 404, message: 'Product not found' })
@@ -32,7 +32,7 @@ export default {
   },
   head () {
     return {
-      title: `Employee ${this.employee.employeeid}`
+      title: `Employee ${this.employees.employeeid}`
     }
   }
 }
