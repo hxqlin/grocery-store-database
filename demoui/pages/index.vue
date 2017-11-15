@@ -9,6 +9,7 @@
         <nuxt-link class="button--grey link" style="margin-left: 15px;" to="/users">View Users</nuxt-link>
         <nuxt-link class="button--grey link" style="margin-left: 15px;" to="/products">View Products</nuxt-link>
         <nuxt-link class="button--grey link" style="margin-left: 15px;" to="/employees">View Employees</nuxt-link>
+        <nuxt-link class="button--grey link" style="margin-left: 15px;" to="/customers">View Customers</nuxt-link>
       </div>
     </div>
   </section>

@@ -37,18 +37,21 @@ router.get('/employees/:employeeid', function (req, res, next) {
 router.post('/employees/add', bodyParser.json(), function (req, res, next) {
   const employeeid = req.body.data.employeeid
   const employeename = req.body.data.employeename
-  const departmentname  = req.body.data.departmentname
-  const position = req.body.data.position
-  const wage = req.body.data.wage
-  const SINumber = req.body.data.SINumber
-  const employeeaddress = req.body.data.employeeaddress
-  const employeephone  = req.body.data.employeephone
 
-  const query = 'INSERT INTO Employees (employeeid, employeename, departmentname, position, wage, SINumber, employeeaddress, employeephone) VALUES (:employeeid, :employeename, :departmentname, :position, :wage, :SINumber, :employeeaddress, :employeephone) ;'
+  const departmentname = req.body.data.departmentname
+  const position = req.body.data.position
+  const sinumber = req.body.data.sinumber
+  const employeeaddress = req.body.data.employeeaddress
+  const employeephone = req.body.data.employeephone
+  const wage = req.body.data.wage
+
+  const query = 'INSERT INTO Employees VALUES (:employeeid, :employeename, :departmentname, :position, :sinumber, :employeeaddress, :employeephone, :wage);'
+
   connection.query(query,
     {
       type: connection.QueryTypes.INSERT,
       replacements: {
+
         employeename: employeename,
         employeeid: employeeid, 
         departmentname: departmentname, 
@@ -86,6 +89,7 @@ router.post('/employees/update', bodyParser.json(), function (req, res, next) {
         employeeaddress: employeeaddress,
         employeephone: employeephone,
         employeeid: employeeid
+
       }
     })
     .then(result => {
