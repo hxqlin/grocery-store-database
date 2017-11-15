@@ -9,6 +9,10 @@ var Products = connection.define('products', ProductMeta.attributes, ProductMeta
 var EmployeeMeta = require('./employees');
 var Employees = connection.define('employees', EmployeeMeta.attributes, EmployeeMeta.options);
 
+var CustomerMeta = require('./customers');
+var Customers = connection.define('customers', CustomerMeta.attributes, CustomerMeta.options);
+
 module.exports.Users = Users;
 module.exports.Products = Products;
 module.exports.Employees = Employees;
+module.exports.Customers = Customers;
