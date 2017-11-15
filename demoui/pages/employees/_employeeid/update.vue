@@ -2,38 +2,38 @@
   <section class="employee-view">
     <div class="content">
       <div class="subsection">
-      <span class="employee-employeeid" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{`Employee ${employee.employeeid}` }}
+      <span class="employee-employeeid" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{`Employee ${employees.employeeid}` }}
         </span>
-        <span class="employee-employeename" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `${employee.employeename}` }}
+        <span class="employee-employeename" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `${employees.employeename}` }}
         </span><br><br>
 
         <form style="margin: 15px 15px;">
             
             <div style="margin: 10px 0;">
               <span class="employee-departmentname">Department Name: </span>
-              <input type="departmentname" :value="employee.departmentname" v-model="employee.departmentname"></input>
+              <input type="departmentname" :value="employees.departmentname" v-model="employees.departmentname"></input>
             </div>
             <div style="margin: 10px 0;">
               <span class="employee-employeename">Employee Name: </span>
-              <input type="text" :value="employee.employeename" v-model="employee.employeename"></input>
+              <input type="text" :value="employees.employeename" v-model="employees.employeename"></input>
             </div>
             <div style="margin: 10px 0;">
               <span class="employee-position">Position: </span>
-              <input type="text" :value="employee.position" v-model="employee.position"></input>
+              <input type="text" :value="employees.position" v-model="employees.position"></input>
             </div>
             <div style="margin: 10px 0;">
               <span class="employee-wage">Wage: </span>
-              <input type="text" :value="employee.wage" v-model="employee.wage"></input>
+              <input type="text" :value="employees.wage" v-model="employees.wage"></input>
             </div>
             
 
             <div style="margin: 10px 0;">
               <span class="employee-employeeaddress">Address: </span>
-              <input type="text" :value="employee.employeeaddress" v-model="employee.employeeaddress"></input>
+              <input type="text" :value="employees.employeeaddress" v-model="employees.employeeaddress"></input>
             </div>
             <div style="margin: 10px 0;">
               <span class="employee-employeephone">Phone: </span>
-              <input type="text" :value="employee.employeephone" v-model="employee.employeephone"></input>
+              <input type="text" :value="employees.employeephone" v-model="employees.employeephone"></input>
             </div>
 
 

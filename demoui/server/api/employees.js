@@ -57,7 +57,7 @@ router.post('/employees/add', bodyParser.json(), function (req, res, next) {
         departmentname: departmentname, 
         position: position, 
         wage: wage, 
-        SINumber: SINumber, 
+        sinumber: sinumber, 
         employeeaddress: employeeaddress, 
         employeephone: employeephone
       }
