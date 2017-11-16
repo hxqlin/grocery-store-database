@@ -12,7 +12,11 @@ var Employees = connection.define('employees', EmployeeMeta.attributes, Employee
 var CustomerMeta = require('./customers');
 var Customers = connection.define('customers', CustomerMeta.attributes, CustomerMeta.options);
 
+var DepartmentsMeta = require('./departments');
+var Departments = connection.define('departments', DepartmentsMeta.attributes, DepartmentsMeta.options);
+
 module.exports.Users = Users;
 module.exports.Products = Products;
 module.exports.Employees = Employees;
 module.exports.Customers = Customers;
+module.exports.Departments = Departments;
