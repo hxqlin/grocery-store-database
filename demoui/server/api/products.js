@@ -42,7 +42,7 @@ router.post('/products/add', bodyParser.json(), function (req, res, next) {
   const pricepercostunit = req.body.data.pricepercostunit
   const costunit = req.body.data.costunit
 
-  const query = 'INSERT INTO Products (productid, productname, departmentname, pricepercostunit, costunit) VALUES (:productid, :productname, :departmentname, :pricepercostunit, :costunit) ;'
+  const query = 'INSERT INTO Products (productname, departmentname, pricepercostunit, costunit) VALUES (:productname, :departmentname, :pricepercostunit, :costunit) ;'
   connection.query(query,
     {
       type: connection.QueryTypes.INSERT,
