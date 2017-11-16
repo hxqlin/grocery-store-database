@@ -26,6 +26,7 @@ router.get('/customers/:customerid', function (req, res, next) {
       }
     })
     .then(customer => {
+      console.log(customer)
       if (customer.length === 1 ) {
         res.json(customer[0])
       } else {

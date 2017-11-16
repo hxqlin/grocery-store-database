@@ -25,12 +25,13 @@ DROP TABLE IF EXISTS Customers;
 DROP TABLE IF EXISTS Customer;
 
 CREATE TABLE Customers(
-    CustomerID INT,
+    CustomerID SERIAL,
     CustomerName VARCHAR(255),
     CustomerPhone VARCHAR(255),
     CustomerEmail VARCHAR(255),
     PRIMARY KEY(CustomerID)
 );
+
 
 CREATE TABLE Departments(
     DepartmentName VARCHAR(255),
@@ -38,7 +39,7 @@ CREATE TABLE Departments(
 );
 
 CREATE TABLE Suppliers(
-    SupplierID INT,
+    SupplierID Serial,
     SupplierName VARCHAR(255) NOT NULL,
     SupplierAddress VARCHAR(255),
     SupplierPhone VARCHAR(255) NOT NULL,
@@ -46,11 +47,11 @@ CREATE TABLE Suppliers(
 );
 
 CREATE TABLE Employees(
-    EmployeeID INT,
+    EmployeeID Serial,
     EmployeeName VARCHAR(255) NOT NULL,
     DepartmentName VARCHAR(255),
     Position VARCHAR(255),
-    SINumber BIGINT NOT NULL,
+    sinumber BIGINT NOT NULL,
     EmployeeAddress VARCHAR(255),
     EmployeePhone VARCHAR(255),
     Wage INT,
@@ -59,7 +60,7 @@ CREATE TABLE Employees(
 );
 
 CREATE TABLE Products(
-    ProductID INT,
+    ProductID Serial,
     ProductName VARCHAR(255) NOT NULL,
     PricePerCostUnit FLOAT NOT NULL,
     CostUnit VARCHAR(255) NOT NULL,
@@ -100,7 +101,7 @@ CREATE TABLE ProvidedBy(
 );
 
 CREATE TABLE ProvidesDelivery(
-    DeliveryID INT,
+    DeliveryID Serial,
     SupplierID INT NOT NULL,
     PRIMARY KEY(DeliveryID),
     FOREIGN KEY(SupplierID) REFERENCES Suppliers(SupplierID)
@@ -115,7 +116,7 @@ CREATE TABLE ReceivedFrom(
 );
 
 CREATE TABLE Purchases(
-    TransactionID INT,
+    TransactionID Serial,
     ProductID INT,
     Quantity INT,
     CustomerID INT,
@@ -125,6 +126,14 @@ CREATE TABLE Purchases(
     FOREIGN KEY(ProductID) REFERENCES Products(ProductID),
     FOREIGN KEY(CustomerID) REFERENCES Customers(CustomerID)
 );
+
+ALTER SEQUENCE Customers_CustomerID_seq restart with 1000;
+ALTER SEQUENCE Suppliers_SupplierID_seq restart with 1000;
+ALTER SEQUENCE Employees_EmployeeID_seq restart with 1000;
+ALTER SEQUENCE Products_ProductID_seq restart with 1000;
+ALTER SEQUENCE ProvidesDelivery_DeliveryID_seq restart with 1000;
+ALTER SEQUENCE Purchases_TransactionID_seq restart with 1000;
+
 
 -- start of customer insertion
 INSERT INTO CUSTOMERS VALUES(1, 'Harry Potter', '000 731 1980', 'theboywholived@gmail.com');
@@ -655,7 +664,7 @@ INSERT INTO RECEIVEDFROM VALUES(208,46);
 INSERT INTO RECEIVEDFROM VALUES(209,50);
 INSERT INTO RECEIVEDFROM VALUES(210,53);
 INSERT INTO RECEIVEDFROM VALUES(211,56);
-INSERT INTO RECEIVEDFROM VALUES(212,69);
+INSERT INTO RECEIVEDFROM VALUES(212,59);
 INSERT INTO RECEIVEDFROM VALUES(400,13);
 INSERT INTO RECEIVEDFROM VALUES(401,19);
 INSERT INTO RECEIVEDFROM VALUES(402,28);
