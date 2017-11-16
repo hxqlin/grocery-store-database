@@ -3,10 +3,8 @@
   <div class="content">
     <div class="subsection">
     <form style="margin: 15px 15px;">
-      <div style="margin: 10px 0;">
-        <span class="product-productid">Product ID: </span>
-        <input type="text" :value="productid" v-model="productid"></input>
-      </div>
+      
+
       <div style="margin: 10px 0;">
         <span class="product-departmentname">Department Name: </span>
         <input type="departmentname" v-model="departmentname"></input>
@@ -100,10 +98,7 @@ export default {
     margin 25px 10px
     font-size 26px
     font-weight 500
-  .product-productid
-      font-size 24px
-      font-weight 500
-      color #707070
+
   .product-productname
     font-size 24px
     font-weight 500

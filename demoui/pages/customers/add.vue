@@ -3,10 +3,7 @@
   <div class="content">
     <div class="subsection">
     <form style="margin: 15px 15px;">
-      <div style="margin: 10px 0;">
-        <span class="customer-customerid">Customer ID: </span>
-        <input type="text" :value="customerid" v-model="customerid"></input>
-      </div>
+      
       <div style="margin: 10px 0;">
         <span class="customer-customername">Customer Name: </span>
         <input type="text" :value="customername" v-model="customername"></input>
@@ -102,10 +99,7 @@ export default {
     font-size 24px
     font-weight 500
     color #707070
-  .customer-customerid
-    font-size 24px
-    font-weight 500
-    color #707070
+
   .customer-customeremail
     font-size 24px
     font-weight 500

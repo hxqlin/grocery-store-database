@@ -3,10 +3,7 @@
   <div class="content">
     <div class="subsection">
     <form style="margin: 15px 15px;">
-      <div style="margin: 10px 0;">
-        <span class="employee-employeeid">Employee ID: </span>
-        <input type="text" :value="employeeid" v-model="employeeid"></input>
-      </div>
+      
       <div style="margin: 10px 0;">
         <span class="employee-employeename">Employee Name: </span>
         <input type="employeename" v-model="employeename"></input>
@@ -52,7 +49,6 @@ export default {
 
   data () {
     return {
-      employeeid: '',
       employeename: '',
       departmentname: '',
       position: '',
@@ -76,7 +72,6 @@ export default {
           },
         data:
           {
-            employeeid: self.employeeid,
             employeename: self.employeename,
             departmentname: self.departmentname,
             position: self.position,
@@ -125,10 +120,7 @@ export default {
     margin 25px 10px
     font-size 26px
     font-weight 500
-  .employee-employeeid
-      font-size 24px
-      font-weight 500
-      color #707070
+
   .employee-employeename
     font-size 24px
     font-weight 500

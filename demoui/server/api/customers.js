@@ -58,19 +58,17 @@ router.post('/customers/updateinfo', bodyParser.json(), function (req, res, next
   })
 
   router.post('/customers/add', bodyParser.json(), function (req, res, next) {
-    const customerid = req.body.data.customerid
     const customername = req.body.data.customername
     const customerphone = req.body.data.customerphone
     const customeremail = req.body.data.customeremail
   
-    const query = 'INSERT INTO customers (customerid, customername, customerphone, customeremail) VALUES (:customerid, :customername, :customerphone, :customeremail) ;'
+    const query = 'INSERT INTO customers (customername, customerphone, customeremail) VALUES (:customername, :customerphone, :customeremail) ;'
     connection.query(query,
       {
         type: connection.QueryTypes.INSERT,
         replacements: {
           customername: customername,
           customerphone: customerphone,
-          customerid: customerid,
           customeremail: customeremail
         }
       })
