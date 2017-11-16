@@ -9,6 +9,7 @@
         <nuxt-link to="/products">Products</nuxt-link>
         <nuxt-link to="/employees">Employees</nuxt-link>
         <nuxt-link to="/customers">Customers</nuxt-link>
+        <nuxt-link to="/departments">Departments</nuxt-link>
         <a class="github" href="https://github.com/belinghy/cpsc304" target="_blank" rel="noopener">
           Github
         </a>
