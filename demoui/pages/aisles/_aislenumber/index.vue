@@ -1,0 +1,67 @@
+<template>
+  <section class="user-view">
+    <div class="content">
+      <div class="subsection">
+        <span class="aisle-aislenumber" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{`Aisle #${aisle.aislenumber}` }}</span>
+        <span class="aisle-aislename" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `${aisle.aislename}` }}</span><br><br>
+        <nuxt-link :to="{ path: `/aisles/${aisle.aislenumber}/updateinfo`, params: { aislenumber: aisle.aislenumber }}">Update Info</nuxt-link><br><br>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script>
+import axios from '~/plugins/axios'
+
+export default {
+  aislenumber: 'aislenumber',
+  asyncData ({ params, error }) {
+    return axios.get('/api/aisles/' + params.aislenumber)
+      .then((res) => {
+        return { aisle: res.data }
+      })
+      .catch((e) => {
+        error({ statusCode: 404, message: 'Aisle not found' })
+      })
+  },
+  head () {
+    return {
+      title: `Aisle ${this.aisle.aislenumber}`
+    }
+  }
+}
+</script>
+
+<style lang="stylus" scoped>
+.user-view
+  padding-top 0
+
+.content
+  position absolute
+  width 100%
+
+.subsection
+  background-color #fff
+  border-radius 2px
+  margin 25px 0
+  transition all .5s cubic-bezier(.55,0,.1,1)
+  padding 10px 30px 10px 30px
+  position relative
+  line-height 20px
+  .subsection-title
+    margin 25px 10px
+    font-size 26px
+    font-weight 500
+  .aisle-aislenumber
+    font-size 24px
+    font-weight 500
+  .aisle-aislename
+    font-size 24px
+    font-weight 500
+    color #707070
+  a
+    text-decoration underline
+    &:hover
+      color #515ec4
+
+</style>
