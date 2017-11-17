@@ -122,7 +122,7 @@ CREATE TABLE Purchases(
     CustomerID INT,
     PurchaseDate VARCHAR(255),
     Total FLOAT,
-    PRIMARY KEY(TransactionID),
+    PRIMARY KEY(TransactionID, ProductID),
     FOREIGN KEY(ProductID) REFERENCES Products(ProductID),
     FOREIGN KEY(CustomerID) REFERENCES Customers(CustomerID)
 );
