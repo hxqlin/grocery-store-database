@@ -9,7 +9,7 @@
         <ul style="list-style-type: none; padding: 0; margin: 0;">
           <li v-for="(department, index) in departments" :key="index" style="padding: 10px 20px; margin: 0 25px; position: relative;">
             <nuxt-link :to="{ path: `/departments/${department.departmentname}`, params: { departmentname: department.departmentname }}">
-              {{ department.departmentname }}
+              {{department.departmentname }}
             </nuxt-link>
           </li>
         </ul>

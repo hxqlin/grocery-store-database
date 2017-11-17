@@ -2,9 +2,14 @@
   <section class="user-view">
     <div class="content">
       <div class="subsection">
-        <span class="aisle-aislenumber" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{`Aisle #${aisle.aislenumber}` }}</span>
-        <span class="aisle-aislename" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `${aisle.aislename}` }}</span><br><br>
-        <nuxt-link :to="{ path: `/aisles/${aisle.aislenumber}/updateinfo`, params: { aislenumber: aisle.aislenumber }}">Update Info</nuxt-link><br><br>
+        <span class="aisle-aislenumber" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{`Aisle #${products[0].aislenumber}` }}</span>
+        <span class="aisle-aislename" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `${products[0].aislename}` }}</span><br><br>
+        <nuxt-link :to="{ path: `/aisles/${products[0].aislenumber}/updateinfo`, params: { aislenumber: products[0].aislenumber }}">Update Info</nuxt-link><br><br>
+        <li v-for="(product, index) in products" :key="index" style="padding: 10px 20px; margin: 0 25px; position: relative;">
+          <nuxt-link :to="{ path: `/products/${product.productid}`, params: { productid: product.productid }}">
+            {{product.productid + ' - ' + product.productname + ' (' +  product.quantityinstock + ' in stock)'}}
+          </nuxt-link>
+        </li>
       </div>
     </div>
   </section>
@@ -18,7 +23,7 @@ export default {
   asyncData ({ params, error }) {
     return axios.get('/api/aisles/' + params.aislenumber)
       .then((res) => {
-        return { aisle: res.data }
+        return { products: res.data }
       })
       .catch((e) => {
         error({ statusCode: 404, message: 'Aisle not found' })
@@ -26,7 +31,7 @@ export default {
   },
   head () {
     return {
-      title: `Aisle ${this.aisle.aislenumber}`
+      title: `Aisle ${this.products[0].aislenumber}`
     }
   }
 }
