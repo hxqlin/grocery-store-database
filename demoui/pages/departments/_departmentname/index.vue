@@ -2,8 +2,13 @@
   <section class="user-view">
     <div class="content">
       <div class="subsection">
-        <span class="departments-departmentname" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{`${departments.departmentname}` }}</span>
-        <nuxt-link :to="{ path: `/departments/${departments.departmentname}/updateinfo`, params: { departmentname: departments.departmentname }}">Update Info</nuxt-link><br><br>
+          <span class="departments-departmentname" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{`${aisles[0].departmentname}` }}</span>
+          <nuxt-link :to="{ path: `/departments/${aisles[0].departmentname}/updateinfo`, params: { departmentname: aisles[0].departmentname }}">Update Info</nuxt-link><br><br>
+          <li v-for="(aisle, index) in aisles" :key="index" style="padding: 10px 20px; margin: 0 25px; position: relative;">
+              <nuxt-link :to="{ path: `/aisles/${aisle.aislenumber}`, params: { aislenumber: aisle.aislenumber }}">
+                  {{'Go To Aisle #' + aisle.aislenumber }}
+              </nuxt-link>
+          </li>
       </div>
     </div>
   </section>
@@ -17,15 +22,15 @@ export default {
   asyncData ({ params, error }) {
     return axios.get('/api/departments/' + params.departmentname)
       .then((res) => {
-        return { departments: res.data }
+        return { aisles: res.data }
       })
       .catch((e) => {
-        error({ statusCode: 404, message: 'Department not found' })
+        error({ statusCode: 404, message: 'Department is not found' })
       })
   },
   head () {
     return {
-      title: `Department ${this.departments.departmentname}`
+      title: `Department- ${this.aisles[0].departmentname}`
     }
   }
 }
@@ -54,7 +59,9 @@ export default {
   .departments-departmentname
     font-size 24px
     font-weight 500
-
+  .aisles-aislenumber
+  font-size 24px
+  font-weight 500
   a
     text-decoration underline
     &:hover

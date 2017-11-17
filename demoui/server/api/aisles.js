@@ -14,24 +14,25 @@ router.get('/aisles', function (req, res, next) {
     })
 })
 
-/* GET aisle by ID. */
+/* GET products by AisleNumber. */
 router.get('/aisles/:aislenumber', function (req, res, next) {
-  const aislenumber = req.params.aislenumber
-  const query = 'SELECT * FROM Aisles WHERE aislenumber = :aislenumber ;'
-  connection.query(query,
-    {
-      type: connection.QueryTypes.SELECT,
-      replacements: {
-        aislenumber: aislenumber
-      }
-    })
-    .then(aisle => {
-      if (aisle.length === 1 ) {
-        res.json(aisle[0])
-      } else {
-        res.status(404).json({})
-      }
-    })
+    const aislenumber = req.params.aislenumber
+    const query = 'SELECT DISTINCT P.ProductID, P.ProductName, P.QuantityInStock, AC.AisleNumber, A.AisleName FROM AisleContains AC, Products P, Aisles A WHERE :aislenumber = A.AisleNumber AND A.AisleNumber = AC.AisleNumber AND P.ProductID = AC.ProductID ORDER BY P.ProductID ASC;'
+    connection.query(query,
+        {
+            type: connection.QueryTypes.SELECT,
+            replacements: {
+                aislenumber: aislenumber
+            }
+        })
+        .then(products => {
+            console.log("Here are the products")
+            console.log(products)
+            if(products.length === 0)
+                res.status(404).json({})
+            else
+                res.json(products)
+        })
 })
 
 router.post('/aisles/updateinfo', bodyParser.json(), function (req, res, next) {
