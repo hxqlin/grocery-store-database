@@ -2,11 +2,14 @@
   <section class="user-view">
     <div class="content">
       <div class="subsection">
-        <span class="customer-customerid" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{`Customer #${customer.customerid}` }}</span>
-        <span class="customer-customername" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `${customer.customername}` }}</span><br><br>
-        <span class="customer-customerattributes" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Phone: ${customer.customerphone}` }}</span><br><br>
-        <span class="customer-customercustomerphone" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Email: ${customer.customeremail}` }}</span><br><br>
-        <nuxt-link :to="{ path: `/customers/${customer.customerid}/updateinfo`, params: { customerid: customer.customerid }}">Update Info</nuxt-link><br><br>
+        <span class="customer-customerid" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{`Customer #${transactions[0].customerid}` }}</span>
+        <span class="customer-customername" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `${transactions[0].customername}` }}</span><br><br>
+        <span class="customer-customerattributes" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Phone: ${transactions[0].customerphone}` }}</span><br><br>
+        <span class="customer-customercustomerphone" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Email: ${transactions[0].customeremail}` }}</span><br><br>
+        <nuxt-link :to="{ path: `/customers/${transactions[0].customerid}/updateinfo`, params: { customerid: transactions[0].customerid }}">Update Info</nuxt-link><br><br>
+        <li v-for="(transaction, index) in transactions.slice(1, transactions.length)" :key="index" style="padding: 10px 20px; margin: 0 25px; position: relative;">
+          <span class="customer-transactions" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Transaction #${transaction.transactionid + " on " + transaction.purchasedate + ": " + transaction.productname + " x" + transaction.quantity + " totaling $" + transaction.total}` }}</span><br><br>
+        </li>
       </div>
     </div>
   </section>
@@ -20,7 +23,7 @@ export default {
   asyncData ({ params, error }) {
     return axios.get('/api/customers/' + params.customerid)
       .then((res) => {
-        return { customer: res.data }
+        return { transactions: res.data }
       })
       .catch((e) => {
         error({ statusCode: 404, message: 'Product not found' })
@@ -28,7 +31,7 @@ export default {
   },
   head () {
     return {
-      title: `Customer ${this.customer.customerid}`
+      title: `Customer ${this.transactions[0].customerid}`
     }
   }
 }

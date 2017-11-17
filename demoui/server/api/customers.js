@@ -16,22 +16,39 @@ router.get('/customers', function (req, res, next) {
 
 /* GET customer by ID. */
 router.get('/customers/:customerid', function (req, res, next) {
-  const customerid = req.params.customerid
-  const query = 'SELECT * FROM Customers WHERE customerid = :customerid ;'
-  connection.query(query,
-    {
-      type: connection.QueryTypes.SELECT,
-      replacements: {
-        customerid: customerid
-      }
-    })
-    .then(customer => {
-      if (customer.length === 1 ) {
-        res.json(customer[0])
-      } else {
-        res.status(404).json({})
-      }
-    })
+    const customerid = req.params.customerid
+    const query = 'SELECT Pu.transactionid, Pu.purchasedate, Pu.quantity, Pu.total, Pr.productid, Pr.productname, Pr.brand FROM Customers C, Purchases Pu, Products Pr WHERE :customerid = C.CustomerID AND C.CustomerID = Pu.CustomerID AND Pu.ProductID = Pr.ProductID;;'
+    connection.query(query,
+        {
+            type: connection.QueryTypes.SELECT,
+            replacements: {
+                customerid: customerid
+            }
+        })
+        .then(transactions => {
+            connection.query('SELECT * FROM Customers WHERE :customerid = customerid;',
+                {
+                    type: connection.QueryTypes.SELECT,
+                    replacements: {
+                        customerid: customerid
+                    }
+                }).then(customer => {
+
+                let cid = customer[0].customerid;
+                let cname = customer[0].customername;
+                let cemail = customer[0].customeremail;
+                let cphone = customer[0].customerphone;
+                let itemToAdd = {
+                    'customerid': cid,
+                    'customername': cname,
+                    'customerphone': cphone,
+                    'customeremail': cemail
+                };
+                transactions.splice(0, 0, itemToAdd)
+                console.log(transactions)
+                res.json(transactions)
+            })
+        })
 })
 
 router.post('/customers/updateinfo', bodyParser.json(), function (req, res, next) {

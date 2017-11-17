@@ -5,7 +5,7 @@
         <span class="aisle-aislenumber" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{`Aisle #${products[0].aislenumber}` }}</span>
         <span class="aisle-aislename" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `${products[0].aislename}` }}</span><br><br>
         <nuxt-link :to="{ path: `/aisles/${products[0].aislenumber}/updateinfo`, params: { aislenumber: products[0].aislenumber }}">Update Info</nuxt-link><br><br>
-        <li v-for="(product, index) in products" :key="index" style="padding: 10px 20px; margin: 0 25px; position: relative;">
+        <li v-for="(product, index) in products.slice(1, products.length)" :key="index" style="padding: 10px 20px; margin: 0 25px; position: relative;">
           <nuxt-link :to="{ path: `/products/${product.productid}`, params: { productid: product.productid }}">
             {{product.productid + ' - ' + product.productname + ' (' +  product.quantityinstock + ' in stock)'}}
           </nuxt-link>
@@ -63,7 +63,6 @@ export default {
   .aisle-aislename
     font-size 24px
     font-weight 500
-    color #707070
   a
     text-decoration underline
     &:hover

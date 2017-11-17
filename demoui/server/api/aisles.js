@@ -26,12 +26,24 @@ router.get('/aisles/:aislenumber', function (req, res, next) {
             }
         })
         .then(products => {
-            console.log("Here are the products")
-            console.log(products)
-            if(products.length === 0)
-                res.status(404).json({})
-            else
+            connection.query('SELECT * FROM Aisles WHERE :aislenumber = aislenumber;',
+                {
+                    type: connection.QueryTypes.SELECT,
+                    replacements: {
+                        aislenumber: aislenumber
+                    }
+                }).then(aisles => {
+
+                let anumber = aisles[0].aislenumber;
+                let aname = aisles[0].aislename;
+                let itemToAdd = {
+                    'aislenumber': anumber,
+                    'aislename': aname
+                };
+                products.splice(0, 0, itemToAdd)
+                console.log(products)
                 res.json(products)
+            })
         })
 })
 
