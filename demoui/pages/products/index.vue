@@ -29,7 +29,7 @@ export default {
 
   head () {
     return {
-      title: 'Product'
+      title: 'Products'
     }
   }
 }

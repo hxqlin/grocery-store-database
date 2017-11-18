@@ -29,7 +29,7 @@ export default {
 
   head () {
     return {
-      title: 'Customer'
+      title: 'Customers'
     }
   }
 }
