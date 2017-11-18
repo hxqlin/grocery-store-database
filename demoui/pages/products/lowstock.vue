@@ -8,7 +8,7 @@
         <ul style="list-style-type: none; padding: 0; margin: 0;">
           <li v-for="(product, index) in products" :key="index" style="padding: 10px 20px; margin: 0 25px; position: relative;">
             <nuxt-link :to="{ path: `/products/${product.productid}`, params: { productname: product.productname }}">
-              {{ product.productid + ' ' + product.productname + ' (' + product.quantityinstock + 'in stock)' }}
+              {{product.productid + ' - ' + product.productname + ' (' +  product.quantityinstock + ' in stock)'}}
             </nuxt-link>
           </li>
         </ul>
