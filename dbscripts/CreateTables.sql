@@ -12,6 +12,7 @@ DROP TABLE IF EXISTS ProvidesDelivery;
 DROP TABLE IF EXISTS ProvidedBy;
 DROP TABLE IF EXISTS AisleContains;
 DROP TABLE IF EXISTS Aisles;
+DROP VIEW IF EXISTS LowStock;
 DROP TABLE IF EXISTS Products;
 DROP TABLE IF EXISTS Employees;
 DROP TABLE IF EXISTS Suppliers;
@@ -71,6 +72,11 @@ CREATE TABLE Products(
     PRIMARY KEY(ProductID),
     FOREIGN KEY(DepartmentName) REFERENCES Departments(DepartmentName)
 );
+
+CREATE VIEW LowStock AS
+SELECT ProductID, ProductName, DepartmentName, QuantityInStock
+FROM Products
+WHERE QuantityInStock < 7;
 
 CREATE TABLE Aisles(
     AisleNumber INT,
@@ -209,121 +215,121 @@ INSERT INTO EMPLOYEES VALUES(15, 'Ed Knorr', 'Produce', 'Stocker', 931236761, '9
 
 -- start of product insertion
 -- produce
-INSERT INTO PRODUCTS VALUES(1, 'Apples (Ambrosia)', 1.59, 'lb', 'Produce', 25, null, '12-01-2017', '12-15-2017', 3438, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(2, 'Apples (Fuji)', 1.49, 'lb', 'Produce', 30, null, '12-09-2017', '12-23-2017', 4129, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(1, 'Apples (Ambrosia)', 1.59, 'lb', 'Produce', 256, null, '12-01-2017', '12-15-2017', 3438, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(2, 'Apples (Fuji)', 1.49, 'lb', 'Produce', 31, null, '12-09-2017', '12-23-2017', 4129, null, 0, null, null);
 INSERT INTO PRODUCTS VALUES(3, 'Apples (Gala)', 1.19, 'lb', 'Produce', 30, null, '12-07-2017', '12-21-2017', 4133, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(4, 'Apples (Gala)', 1.29, 'lb', 'Produce', 15, null, '12-05-2017', '12-19-2017', 94133, null, 1, null, null);
+INSERT INTO PRODUCTS VALUES(4, 'Apples (Gala)', 1.29, 'lb', 'Produce', 5, null, '12-05-2017', '12-19-2017', 94133, null, 1, null, null);
 INSERT INTO PRODUCTS VALUES(5, 'Apples (Granny Smith)', 1.39, 'lb', 'Produce', 15, null, '12-05-2017', '12-19-2017', 4017, null, 0, null, null);
 INSERT INTO PRODUCTS VALUES(6, 'Bananas', 0.79, 'lb', 'Produce', 50, null, '12-19-2017', '12-23-2017', 4011, null, 0, null, null);
 INSERT INTO PRODUCTS VALUES(7, 'Bananas', 0.99, 'lb', 'Produce', 50, null, '12-19-2017', '12-23-2017', 94011, null, 1, null, null);
-INSERT INTO PRODUCTS VALUES(8, 'Oranges (Navel)', 1.19, 'lb', 'Produce', 30, null, '12-10-2017', '12-24-2017', 4012, null, 1, null, null);
-INSERT INTO PRODUCTS VALUES(9, 'Oranges (Valencia)', 1.29, 'lb', 'Produce', 20, null, '12-06-2017', '12-25-2017', 4013, null, 1, null, null);
+INSERT INTO PRODUCTS VALUES(8, 'Oranges (Navel)', 1.19, 'lb', 'Produce', 3, null, '12-10-2017', '12-24-2017', 4012, null, 1, null, null);
+INSERT INTO PRODUCTS VALUES(9, 'Oranges (Valencia)', 1.29, 'lb', 'Produce', 21, null, '12-06-2017', '12-25-2017', 4013, null, 1, null, null);
 INSERT INTO PRODUCTS VALUES(10, 'Strawberries', 4.99, 'lb', 'Produce', 20, null, '12-10-2017', '12-13-2017', 3355, null, 0, null, null);
 INSERT INTO PRODUCTS VALUES(11, 'Blueberries', 3.99, 'lb', 'Produce', 60, null, '12-10-2017', '12-13-2017', 4240, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(12, 'Raspberries', 3.49, 'lb', 'Produce', 20, null, '12-10-2017', '12-13-2017', 4244, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(12, 'Raspberries', 3.49, 'lb', 'Produce', 2, null, '12-10-2017', '12-13-2017', 4244, null, 0, null, null);
 
 INSERT INTO PRODUCTS VALUES(13, 'Lettuce (Iceberg)', 0.99, 'ct', 'Produce', 20, null, '12-01-2017', '12-08-2017', 4061, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(14, 'Lettuce (Romaine)', 1.29, 'ct', 'Produce', 20, null, '12-02-2017', '12-09-2017', 3097, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(15, 'Spinach', 1.59, 'bunch', 'Produce', 20, null, '12-10-2017', '12-13-2017', 4090, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(16, 'Watercress', 1.99, 'bunch', 'Produce', 20, null, '12-10-2017', '12-13-2017', 4815, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(17, 'Bok Choy (Baby)', 1.29, 'bunch', 'Produce', 20, null, '12-10-2017', '12-13-2017', 4545, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(18, 'Bok Choy (Shanghai)', 0.99, 'bunch', 'Produce', 20, null, '12-10-2017', '12-13-2017', 3163, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(14, 'Lettuce (Romaine)', 1.29, 'ct', 'Produce', 23, null, '12-02-2017', '12-09-2017', 3097, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(15, 'Spinach', 1.59, 'bunch', 'Produce', 21, null, '12-10-2017', '12-13-2017', 4090, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(16, 'Watercress', 1.99, 'bunch', 'Produce', 2, null, '12-10-2017', '12-13-2017', 4815, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(17, 'Bok Choy (Baby)', 1.29, 'bunch', 'Produce', 14, null, '12-10-2017', '12-13-2017', 4545, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(18, 'Bok Choy (Shanghai)', 0.99, 'bunch', 'Produce', 15, null, '12-10-2017', '12-13-2017', 3163, null, 0, null, null);
 
-INSERT INTO PRODUCTS VALUES(19, 'Potatoes (Russet)', 0.99, 'lb', 'Produce', 20, null, '12-01-2017', '12-30-2017', 4072, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(20, 'Potatoes (Red)', 1.29, 'lb', 'Produce', 20, null, '12-02-2017', '12-31-2017', 4073, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(21, 'Potatoes (Sweet)', 1.49, 'lb', 'Produce', 20, null, '12-01-2017', '12-30-2017', 4726, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(22, 'Squash (Acorn)', 0.99, 'lb', 'Produce', 20, null, '11-01-2017', '12-31-2017', 3143, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(23, 'Squash (Kabocha)', 0.99, 'lb', 'Produce', 20, null, '11-01-2017', '12-31-2017', 4769, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(24, 'Squash (Butternut)', 0.99, 'lb', 'Produce', 20, null, '11-01-2017', '12-31-2017', 4759, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(19, 'Potatoes (Russet)', 0.99, 'lb', 'Produce', 2, null, '12-01-2017', '12-30-2017', 4072, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(20, 'Potatoes (Red)', 1.29, 'lb', 'Produce', 22, null, '12-02-2017', '12-31-2017', 4073, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(21, 'Potatoes (Sweet)', 1.49, 'lb', 'Produce', 10, null, '12-01-2017', '12-30-2017', 4726, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(22, 'Squash (Acorn)', 0.99, 'lb', 'Produce', 14, null, '11-01-2017', '12-31-2017', 3143, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(23, 'Squash (Kabocha)', 0.99, 'lb', 'Produce', 10, null, '11-01-2017', '12-31-2017', 4769, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(24, 'Squash (Butternut)', 0.99, 'lb', 'Produce', 4, null, '11-01-2017', '12-31-2017', 4759, null, 0, null, null);
 INSERT INTO PRODUCTS VALUES(25, 'Carrots (Loose)', 1.29, 'lb', 'Produce', 20, null, '12-01-2017', '12-30-2017', 4562, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(26, 'Carrots (Loose)', 1.49, 'lb', 'Produce', 20, null, '12-01-2017', '12-30-2017', 94562, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(26, 'Carrots (Loose)', 1.49, 'lb', 'Produce', 34, null, '12-01-2017', '12-30-2017', 94562, null, 0, null, null);
 INSERT INTO PRODUCTS VALUES(27, 'Onions (Red)', 1.29, 'lb', 'Produce', 20, null, '11-01-2017', '12-31-2017', 4082, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(28, 'Onions (Yellow)', 1.29, 'lb', 'Produce', 20, null, '11-01-2017', '12-31-2017', 4093, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(29, 'Onions (White)', 1.19, 'lb', 'Produce', 20, null, '11-01-2017', '12-31-2017', 4663, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(30, 'Onions (Pearl)', 2.49, 'lb', 'Produce', 20, null, '11-01-2017', '12-31-2017', 4660, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(28, 'Onions (Yellow)', 1.29, 'lb', 'Produce', 5, null, '11-01-2017', '12-31-2017', 4093, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(29, 'Onions (White)', 1.19, 'lb', 'Produce', 4, null, '11-01-2017', '12-31-2017', 4663, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(30, 'Onions (Pearl)', 2.49, 'lb', 'Produce', 27, null, '11-01-2017', '12-31-2017', 4660, null, 0, null, null);
 INSERT INTO PRODUCTS VALUES(31, 'Garlic', 3.99, 'lb', 'Produce', 20, null, '11-01-2017', '12-31-2017', 3399, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(32, 'Ginger', 2.49, 'lb', 'Produce', 20, null, '11-01-2017', '12-31-2017', 4612, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(32, 'Ginger', 2.49, 'lb', 'Produce', 12, null, '11-01-2017', '12-31-2017', 4612, null, 0, null, null);
 
 -- dairy (need to fix UPC & PRODUCTS IDs)
-INSERT INTO PRODUCTS VALUES(100, 'Milk (Skim)', 2.29, 'L', 'Eggs and Dairy', 10, 'Dairyland', '12-01-2017', '12-14-2017', null, 068700125003, 0, null, null);
-INSERT INTO PRODUCTS VALUES(101, 'Milk (1%)', 2.29, 'L', 'Eggs and Dairy', 10, 'Dairyland', '12-01-2017', '12-14-2017', null, 068700125004, 0, null, null);
-INSERT INTO PRODUCTS VALUES(102, 'Milk (2%)', 2.29, 'L', 'Eggs and Dairy', 10, 'Dairyland', '12-01-2017', '12-14-2017', null, 068700125005, 0, null, null);
-INSERT INTO PRODUCTS VALUES(103, 'Milk (Whole)', 2.29, 'L', 'Eggs and Dairy', 10, 'Dairyland', '12-01-2017', '12-14-2017', null, 068700125006, 0, null, null);
+INSERT INTO PRODUCTS VALUES(100, 'Milk (Skim)', 2.29, 'L', 'Eggs and Dairy', 7, 'Dairyland', '12-01-2017', '12-14-2017', null, 068700125003, 0, null, null);
+INSERT INTO PRODUCTS VALUES(101, 'Milk (1%)', 2.29, 'L', 'Eggs and Dairy', 8, 'Dairyland', '12-01-2017', '12-14-2017', null, 068700125004, 0, null, null);
+INSERT INTO PRODUCTS VALUES(102, 'Milk (2%)', 2.29, 'L', 'Eggs and Dairy', 3, 'Dairyland', '12-01-2017', '12-14-2017', null, 068700125005, 0, null, null);
+INSERT INTO PRODUCTS VALUES(103, 'Milk (Whole)', 2.29, 'L', 'Eggs and Dairy', 4, 'Dairyland', '12-01-2017', '12-14-2017', null, 068700125006, 0, null, null);
 INSERT INTO PRODUCTS VALUES(104, 'Half and Half (10%)', 2.99, 'L', 'Eggs and Dairy', 10, 'Dairyland', '12-01-2017', '12-14-2017', null, 068700125007, 0, null, null);
 INSERT INTO PRODUCTS VALUES(105, 'Milk (Skim)', 2.29, 'L', 'Eggs and Dairy', 10, 'Dairyland', '12-01-2017', '12-14-2017', null, 068700125008, 1, null, null);
-INSERT INTO PRODUCTS VALUES(106, 'Milk (1%)', 2.29, 'L', 'Eggs and Dairy', 10, 'Dairyland', '12-01-2017', '12-14-2017', null, 068700125009, 1, null, null);
-INSERT INTO PRODUCTS VALUES(107, 'Milk (2%)', 2.29, 'L', 'Eggs and Dairy', 10, 'Dairyland', '12-01-2017', '12-14-2017', null, 068700125010, 1, null, null);
-INSERT INTO PRODUCTS VALUES(108, 'Milk (Whole)', 2.29, 'L', 'Eggs and Dairy', 10, 'Dairyland', '12-01-2017', '12-14-2017', null, 068700125011, 1, null, null);
-INSERT INTO PRODUCTS VALUES(109, 'Milk (2% Chocolate)', 2.99, 'L', 'Eggs and Dairy', 10, 'Dairyland', '12-01-2017', '12-14-2017', null, 068700125011, 1, null, null);
-INSERT INTO PRODUCTS VALUES(110, 'Milk (Soy)', 2.29, 'L', 'Eggs and Dairy', 10, 'Silk', '12-01-2017', '12-20-2017', null, 068700125012, 1, null, null);
-INSERT INTO PRODUCTS VALUES(111, 'Milk (Unsweetened Soy)', 2.29, 'L', 'Eggs and Dairy', 10, 'Silk', '12-01-2017', '12-20-2017', null, 068700125013, 1, null, null);
-INSERT INTO PRODUCTS VALUES(112, 'Yogurt (Vanilla, 6-pack)', 3.97, 'ct', 'Eggs and Dairy', 10, 'Silk', '12-01-2017', '12-20-2017', null, 068700125012, 0, null, null);
-INSERT INTO PRODUCTS VALUES(113, 'Yogurt (Vanilla, 6-pack)', 4.97, 'ct', 'Eggs and Dairy', 10, 'Silk', '12-01-2017', '12-20-2017', null, 068700125012, 1, null, null);
+INSERT INTO PRODUCTS VALUES(106, 'Milk (1%)', 2.29, 'L', 'Eggs and Dairy', 1, 'Dairyland', '12-01-2017', '12-14-2017', null, 068700125009, 1, null, null);
+INSERT INTO PRODUCTS VALUES(107, 'Milk (2%)', 2.29, 'L', 'Eggs and Dairy', 11, 'Dairyland', '12-01-2017', '12-14-2017', null, 068700125010, 1, null, null);
+INSERT INTO PRODUCTS VALUES(108, 'Milk (Whole)', 2.29, 'L', 'Eggs and Dairy', 12, 'Dairyland', '12-01-2017', '12-14-2017', null, 068700125011, 1, null, null);
+INSERT INTO PRODUCTS VALUES(109, 'Milk (2% Chocolate)', 2.99, 'L', 'Eggs and Dairy', 100, 'Dairyland', '12-01-2017', '12-14-2017', null, 068700125011, 1, null, null);
+INSERT INTO PRODUCTS VALUES(110, 'Milk (Soy)', 2.29, 'L', 'Eggs and Dairy', 5, 'Silk', '12-01-2017', '12-20-2017', null, 068700125012, 1, null, null);
+INSERT INTO PRODUCTS VALUES(111, 'Milk (Unsweetened Soy)', 2.29, 'L', 'Eggs and Dairy', 4, 'Silk', '12-01-2017', '12-20-2017', null, 068700125013, 1, null, null);
+INSERT INTO PRODUCTS VALUES(112, 'Yogurt (Vanilla, 6-pack)', 3.97, 'ct', 'Eggs and Dairy', 1, 'Silk', '12-01-2017', '12-20-2017', null, 068700125012, 0, null, null);
+INSERT INTO PRODUCTS VALUES(113, 'Yogurt (Vanilla, 6-pack)', 4.97, 'ct', 'Eggs and Dairy', 3, 'Silk', '12-01-2017', '12-20-2017', null, 068700125012, 1, null, null);
 INSERT INTO PRODUCTS VALUES(114, 'Yogurt (Strawberry, 6-pack)', 3.97, 'ct', 'Eggs and Dairy', 10, 'Silk', '12-01-2017', '12-20-2017', null, 068700125013, 0, null, null);
 INSERT INTO PRODUCTS VALUES(115, 'Yogurt (Fat-free, 6-pack)', 3.97, 'ct', 'Eggs and Dairy', 10, 'Silk', '12-01-2017', '12-20-2017', null, 068700125012, 0, null, null);
 INSERT INTO PRODUCTS VALUES(116, 'Butter (Salted)', 3.29, 'L', 'Eggs and Dairy', 10, 'Silk', '12-01-2017', '12-20-2017', null, 068700125013, 0, null, null);
-INSERT INTO PRODUCTS VALUES(117, 'Butter (Unsalted)', 3.29, 'L', 'Eggs and Dairy', 10, 'Silk', '12-01-2017', '12-20-2017', null, 068700125012, 0, null, null);
-INSERT INTO PRODUCTS VALUES(118, 'Cheese (Mozzarella)', 2.29, 'L', 'Eggs and Dairy', 10, 'Silk', '12-01-2017', '12-20-2017', null, 068700125013, 0, null, null);
-INSERT INTO PRODUCTS VALUES(119, 'Cheese (Cheddar)', 2.29, 'L', 'Eggs and Dairy', 10, 'Silk', '12-01-2017', '12-20-2017', null, 068700125013, 0, null, null);
+INSERT INTO PRODUCTS VALUES(117, 'Butter (Unsalted)', 3.29, 'L', 'Eggs and Dairy', 16, 'Silk', '12-01-2017', '12-20-2017', null, 068700125012, 0, null, null);
+INSERT INTO PRODUCTS VALUES(118, 'Cheese (Mozzarella)', 2.29, 'L', 'Eggs and Dairy', 17, 'Silk', '12-01-2017', '12-20-2017', null, 068700125013, 0, null, null);
+INSERT INTO PRODUCTS VALUES(119, 'Cheese (Cheddar)', 2.29, 'L', 'Eggs and Dairy', 12, 'Silk', '12-01-2017', '12-20-2017', null, 068700125013, 0, null, null);
 INSERT INTO PRODUCTS VALUES(120, 'Cheese (Parmesan)', 2.29, 'L', 'Eggs and Dairy', 10, 'Silk', '12-01-2017', '12-20-2017', null, 068700125013, 0, null, null);
 
 -- eggs
-INSERT INTO PRODUCTS VALUES(150, 'Eggs (12 count)', 3.99, 'pack', 'Eggs and Dairy', 10, 'Kirkland Signature', '12-01-2017', '12-20-2017', null, 062639410124, 0, null, null);
+INSERT INTO PRODUCTS VALUES(150, 'Eggs (12 count)', 3.99, 'pack', 'Eggs and Dairy', 11, 'Kirkland Signature', '12-01-2017', '12-20-2017', null, 062639410124, 0, null, null);
 INSERT INTO PRODUCTS VALUES(151, 'Eggs (Brown, 12 count)', 4.99, 'pack', 'Eggs and Dairy', 10, 'Golden Valley', '12-01-2017', '12-20-2017', null, 062639410125, 0, null, null);
-INSERT INTO PRODUCTS VALUES(152, 'Eggs (Omega-3, 12 count)', 5.99, 'pack', 'Eggs and Dairy', 10, 'Born 3 Omega-3', '12-01-2017', '12-20-2017', null, 666933900420, 0, null, null);
+INSERT INTO PRODUCTS VALUES(152, 'Eggs (Omega-3, 12 count)', 5.99, 'pack', 'Eggs and Dairy', 32, 'Born 3 Omega-3', '12-01-2017', '12-20-2017', null, 666933900420, 0, null, null);
 
 -- meat
-INSERT INTO PRODUCTS VALUES(200, 'Chicken Breast', 5.99, 'lb', 'Meat and Seafood', 10, 'Kirkland Signature', '12-01-2017', '12-03-2017', null, 233841823921, 0, null, 'Chicken');
-INSERT INTO PRODUCTS VALUES(201, 'Chicken Breast', 6.99, 'lb', 'Meat and Seafood', 10, 'Green Way', '12-05-2017', '12-07-2017', null, 233841823920, 1, null, 'Chicken');
-INSERT INTO PRODUCTS VALUES(202, 'Chicken Thighs', 4.99, 'lb', 'Meat and Seafood', 10, 'Kirkland Signature', '12-01-2017', '12-03-2017', null, 233841823919, 0, null, 'Chicken');
-INSERT INTO PRODUCTS VALUES(203, 'Stew Meat', 7.99, 'lb', 'Meat and Seafood', 10, 'Kirkland Signature', '12-05-2017', '12-08-2017', null, 233841823910, 0, 'Chuck', 'Beef');
-INSERT INTO PRODUCTS VALUES(204, 'Ground Beef', 4.99, 'lb', 'Meat and Seafood', 10, 'Kirkland Signature', '12-01-2017', '12-03-2017', null, 233841823821, 0, null, 'Beef');
+INSERT INTO PRODUCTS VALUES(200, 'Chicken Breast', 5.99, 'lb', 'Meat and Seafood', 11, 'Kirkland Signature', '12-01-2017', '12-03-2017', null, 233841823921, 0, null, 'Chicken');
+INSERT INTO PRODUCTS VALUES(201, 'Chicken Breast', 6.99, 'lb', 'Meat and Seafood', 2, 'Green Way', '12-05-2017', '12-07-2017', null, 233841823920, 1, null, 'Chicken');
+INSERT INTO PRODUCTS VALUES(202, 'Chicken Thighs', 4.99, 'lb', 'Meat and Seafood', 13, 'Kirkland Signature', '12-01-2017', '12-03-2017', null, 233841823919, 0, null, 'Chicken');
+INSERT INTO PRODUCTS VALUES(203, 'Stew Meat', 7.99, 'lb', 'Meat and Seafood', 15, 'Kirkland Signature', '12-05-2017', '12-08-2017', null, 233841823910, 0, 'Chuck', 'Beef');
+INSERT INTO PRODUCTS VALUES(204, 'Ground Beef', 4.99, 'lb', 'Meat and Seafood', 16, 'Kirkland Signature', '12-01-2017', '12-03-2017', null, 233841823821, 0, null, 'Beef');
 INSERT INTO PRODUCTS VALUES(205, 'Steak', 6.99, 'lb', 'Meat and Seafood', 10, 'Western Canadian', '12-05-2017', '12-07-2017', null, 233841823822, 0, 'Sirloin', 'Beef');
-INSERT INTO PRODUCTS VALUES(206, 'Steak', 7.99, 'lb', 'Meat and Seafood', 10, 'Western Canadian', '12-01-2017', '12-03-2017', null, 233841823823, 0, 'Flank', 'Beef');
+INSERT INTO PRODUCTS VALUES(206, 'Steak', 7.99, 'lb', 'Meat and Seafood', 17, 'Western Canadian', '12-01-2017', '12-03-2017', null, 233841823823, 0, 'Flank', 'Beef');
 INSERT INTO PRODUCTS VALUES(207, 'Steak', 7.99, 'lb', 'Meat and Seafood', 10, 'Western Canadian', '12-05-2017', '12-08-2017', null, 233841823824, 0, 'Tenderloin', 'Beef');
-INSERT INTO PRODUCTS VALUES(208, 'Cod Fillets', 6.99, 'lb', 'Meat and Seafood', 10, null, '12-05-2017', '12-08-2017', null, 233841823825, 0, 'Fillet', 'Cod');
-INSERT INTO PRODUCTS VALUES(209, 'Sole Fillets', 6.99, 'lb', 'Meat and Seafood', 10, null, '12-05-2017', '12-08-2017', null, 233841823826, 0, 'Fillet', 'Sole');
-INSERT INTO PRODUCTS VALUES(210, 'Tilapia (Fresh)', 6.99, 'lb', 'Meat and Seafood', 10, null, '12-05-2017', '12-08-2017', null, 233841823827, 0, null, 'Tilapia');
+INSERT INTO PRODUCTS VALUES(208, 'Cod Fillets', 6.99, 'lb', 'Meat and Seafood', 30, null, '12-05-2017', '12-08-2017', null, 233841823825, 0, 'Fillet', 'Cod');
+INSERT INTO PRODUCTS VALUES(209, 'Sole Fillets', 6.99, 'lb', 'Meat and Seafood', 12, null, '12-05-2017', '12-08-2017', null, 233841823826, 0, 'Fillet', 'Sole');
+INSERT INTO PRODUCTS VALUES(210, 'Tilapia (Fresh)', 6.99, 'lb', 'Meat and Seafood', 4, null, '12-05-2017', '12-08-2017', null, 233841823827, 0, null, 'Tilapia');
 INSERT INTO PRODUCTS VALUES(211, 'Salmon (Fresh)', 7.99, 'lb', 'Meat and Seafood', 10, null, '12-05-2017', '12-08-2017', null, 233841823828, 0, 'Fillet', 'Salmon');
 INSERT INTO PRODUCTS VALUES(212, 'Salmon (Fresh)', 8.99, 'lb', 'Meat and Seafood', 10, null, '12-05-2017', '12-08-2017', null, 233841823829, 1, 'Fillet', 'Salmon');
 
 -- baked goods
-INSERT INTO PRODUCTS VALUES(300, 'Bread (White)', 2.99, 'ct', 'Baked Goods', 5, 'Villagio', '12-01-2017', '12-06-2017', null, 006872100350, 0, null, null);
-INSERT INTO PRODUCTS VALUES(301, 'Bread (Whole Wheat)', 3.99, 'ct', 'Baked Goods', 5, 'Pepperidge Farms', '12-01-2017', '12-06-2017', null, 014100071013, 0, null, null);
-INSERT INTO PRODUCTS VALUES(302, 'Everything Bagel (6 count)', 4.99, 'pack', 'Baked Goods', 5, 'Sara Lee', '12-01-2017', '12-06-2017', null, 072945610033, 0, null, null);
-INSERT INTO PRODUCTS VALUES(303, 'Mini Cinnamon Raisin Bagel (6 count)', 4.99, 'pack', 'Baked Goods', 5, 'Pepperidge Farms', '12-01-2017', '12-06-2017', null, 014100092599, 0, null, null);
-INSERT INTO PRODUCTS VALUES(304, 'Bread (Rye)', 3.99, 'ct', 'Baked Goods', 5, 'Silver Hills Bakery', '12-01-2017', '12-06-2017', null, 014100071013, 1, null, null);
-INSERT INTO PRODUCTS VALUES(305, 'Bread (Spelt)', 4.99, 'ct', 'Baked Goods', 5, 'Silver Hills Bakery', '12-01-2017', '12-06-2017', null, 072945610033, 1, null, null);
-INSERT INTO PRODUCTS VALUES(306, 'Sprouted Bagel (6 count)', 4.99, 'pack', 'Baked Goods', 5, 'Silver Hills Bakery', '12-01-2017', '12-06-2017', null, 014100092599, 1, null, null);
-INSERT INTO PRODUCTS VALUES(307, 'Doughnut', 0.99, 'ct', 'Baked Goods', 5, 'Bake Shop', '12-01-2017', '12-03-2017', null, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(300, 'Bread (White)', 2.99, 'ct', 'Baked Goods', 4, 'Villagio', '12-01-2017', '12-06-2017', null, 006872100350, 0, null, null);
+INSERT INTO PRODUCTS VALUES(301, 'Bread (Whole Wheat)', 3.99, 'ct', 'Baked Goods', 7, 'Pepperidge Farms', '12-01-2017', '12-06-2017', null, 014100071013, 0, null, null);
+INSERT INTO PRODUCTS VALUES(302, 'Everything Bagel (6 count)', 4.99, 'pack', 'Baked Goods', 15, 'Sara Lee', '12-01-2017', '12-06-2017', null, 072945610033, 0, null, null);
+INSERT INTO PRODUCTS VALUES(303, 'Mini Cinnamon Raisin Bagel (6 count)', 4.99, 'pack', 'Baked Goods', 25, 'Pepperidge Farms', '12-01-2017', '12-06-2017', null, 014100092599, 0, null, null);
+INSERT INTO PRODUCTS VALUES(304, 'Bread (Rye)', 3.99, 'ct', 'Baked Goods', 9, 'Silver Hills Bakery', '12-01-2017', '12-06-2017', null, 014100071013, 1, null, null);
+INSERT INTO PRODUCTS VALUES(305, 'Bread (Spelt)', 4.99, 'ct', 'Baked Goods', 20, 'Silver Hills Bakery', '12-01-2017', '12-06-2017', null, 072945610033, 1, null, null);
+INSERT INTO PRODUCTS VALUES(306, 'Sprouted Bagel (6 count)', 4.99, 'pack', 'Baked Goods', 22, 'Silver Hills Bakery', '12-01-2017', '12-06-2017', null, 014100092599, 1, null, null);
+INSERT INTO PRODUCTS VALUES(307, 'Doughnut', 0.99, 'ct', 'Baked Goods', 3, 'Bake Shop', '12-01-2017', '12-03-2017', null, null, 0, null, null);
 
 -- pantry items
-INSERT INTO PRODUCTS VALUES(400, 'All-Purpose Flour (Original)', 1.19, 'lb', 'Pantry Items', 30, 'Robin Hood', '10-01-2017', '12-31-2017', null, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(400, 'All-Purpose Flour (Original)', 1.19, 'lb', 'Pantry Items', 32, 'Robin Hood', '10-01-2017', '12-31-2017', null, null, 0, null, null);
 INSERT INTO PRODUCTS VALUES(401, 'All-Purpose Flour (Whole Wheat)', 1.29, 'lb', 'Pantry Items', 30, 'Robin Hood', '10-01-2017', '12-31-2017', null, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(402, 'White Sugar', 0.89, 'lb', 'Pantry Items', 30, 'Rogers', '10-01-2017', '12-31-2017', null, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(403, 'Brown Sugar', 0.99, 'lb', 'Pantry Items', 30, 'Rogers', '10-01-2017', '12-31-2017', null, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(404, 'Iodized Table Salt', 0.49, 'lb', 'Pantry Items', 30, 'Windsor', '10-01-2017', '12-31-2017', null, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(405, 'Black Pepper', 0.59, 'lb', 'Pantry Items', 30, 'Windsor', '10-01-2017', '12-31-2017', null, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(406, 'Ground Cinnamon', 3.99, 'lb', 'Pantry Items', 30, 'Club House', '10-01-2017', '12-31-2017', null, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(407, 'Chili Flakes', 4.59, 'lb', 'Pantry Items', 30, 'Club House', '10-01-2017', '12-31-2017', null, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(408, 'White Rice', 1.59, 'lb', 'Pantry Items', 30, 'Rooster', '10-01-2017', '12-31-2017', null, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(409, 'Scoobi Do Pasta', 0.69, 'lb', 'Pantry Items', 30, 'Italpasta', '10-01-2017', '12-31-2017', null, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(410, 'Fusili', 0.69, 'lb', 'Pantry Items', 30, 'Italpasta', '10-01-2017', '12-31-2017', null, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(411, 'Penne Rigate', 0.69, 'lb', 'Pantry Items', 30, 'Italpasta', '10-01-2017', '12-31-2017', null, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(412, 'Elbow Pasta', 0.69, 'lb', 'Pantry Items', 30, 'Italpasta', '10-01-2017', '12-31-2017', null, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(413, 'Spaghetti', 0.69, 'lb', 'Pantry Items', 30, 'Italpasta', '10-01-2017', '12-31-2017', null, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(414, 'Linguini', 0.69, 'lb', 'Pantry Items', 30, 'Italpasta', '10-01-2017', '12-31-2017', null, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(415, 'Spaghettini', 0.69, 'lb', 'Pantry Items', 30, 'Italpasta', '10-01-2017', '12-31-2017', null, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(416, 'Farfalle', 0.69, 'lb', 'Pantry Items', 30, 'Italpasta', '10-01-2017', '12-31-2017', null, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(417, 'Ditali', 0.69, 'lb', 'Pantry Items', 30, 'Italpasta', '10-01-2017', '12-31-2017', null, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(418, 'Fusili', 0.69, 'lb', 'Pantry Items', 30, 'Barilla', '10-01-2017', '12-31-2017', null, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(419, 'Penne Rigate', 0.69, 'lb', 'Pantry Items', 30, 'Barilla', '10-01-2017', '12-31-2017', null, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(420, 'Elbow Pasta', 0.69, 'lb', 'Pantry Items', 30, 'Barilla', '10-01-2017', '12-31-2017', null, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(421, 'Spaghetti', 0.69, 'lb', 'Pantry Items', 30, 'Barilla', '10-01-2017', '12-31-2017', null, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(422, 'Linguini', 0.69, 'lb', 'Pantry Items', 30, 'Barilla', '10-01-2017', '12-31-2017', null, null, 0, null, null);
-INSERT INTO PRODUCTS VALUES(423, 'Sriracha Chili Sauce', 2.99, 'ct', 'Pantry Items', 10, 'Huy Fong', '11-01-2017', '12-31-2017', null, 024463061095, 0, null, null);
-INSERT INTO PRODUCTS VALUES(424, 'Tomato Ketchup', 3.99, 'ct', 'Pantry Items', 10, 'Heinz', '11-01-2017', '12-31-2017', null, 013000001243, 0, null, null);
-INSERT INTO PRODUCTS VALUES(425, 'Soy Sauce', 3.99, 'ct', 'Pantry Items', 10, 'Kikkoman', '11-01-2017', '12-31-2017', null, 041390000829, 0, null, null);
+INSERT INTO PRODUCTS VALUES(402, 'White Sugar', 0.89, 'lb', 'Pantry Items', 3, 'Rogers', '10-01-2017', '12-31-2017', null, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(403, 'Brown Sugar', 0.99, 'lb', 'Pantry Items', 20, 'Rogers', '10-01-2017', '12-31-2017', null, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(404, 'Iodized Table Salt', 0.49, 'lb', 'Pantry Items', 34, 'Windsor', '10-01-2017', '12-31-2017', null, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(405, 'Black Pepper', 0.59, 'lb', 'Pantry Items', 31, 'Windsor', '10-01-2017', '12-31-2017', null, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(406, 'Ground Cinnamon', 3.99, 'lb', 'Pantry Items', 10, 'Club House', '10-01-2017', '12-31-2017', null, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(407, 'Chili Flakes', 4.59, 'lb', 'Pantry Items', 20, 'Club House', '10-01-2017', '12-31-2017', null, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(408, 'White Rice', 1.59, 'lb', 'Pantry Items', 12, 'Rooster', '10-01-2017', '12-31-2017', null, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(409, 'Scoobi Do Pasta', 0.69, 'lb', 'Pantry Items', 20, 'Italpasta', '10-01-2017', '12-31-2017', null, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(410, 'Fusili', 0.69, 'lb', 'Pantry Items', 21, 'Italpasta', '10-01-2017', '12-31-2017', null, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(411, 'Penne Rigate', 0.69, 'lb', 'Pantry Items', 31, 'Italpasta', '10-01-2017', '12-31-2017', null, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(412, 'Elbow Pasta', 0.69, 'lb', 'Pantry Items', 4, 'Italpasta', '10-01-2017', '12-31-2017', null, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(413, 'Spaghetti', 0.69, 'lb', 'Pantry Items', 5, 'Italpasta', '10-01-2017', '12-31-2017', null, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(414, 'Linguini', 0.69, 'lb', 'Pantry Items', 6, 'Italpasta', '10-01-2017', '12-31-2017', null, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(415, 'Spaghettini', 0.69, 'lb', 'Pantry Items', 10, 'Italpasta', '10-01-2017', '12-31-2017', null, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(416, 'Farfalle', 0.69, 'lb', 'Pantry Items', 20, 'Italpasta', '10-01-2017', '12-31-2017', null, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(417, 'Ditali', 0.69, 'lb', 'Pantry Items', 33, 'Italpasta', '10-01-2017', '12-31-2017', null, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(418, 'Fusili', 0.69, 'lb', 'Pantry Items', 26, 'Barilla', '10-01-2017', '12-31-2017', null, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(419, 'Penne Rigate', 0.69, 'lb', 'Pantry Items', 20, 'Barilla', '10-01-2017', '12-31-2017', null, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(420, 'Elbow Pasta', 0.69, 'lb', 'Pantry Items', 40, 'Barilla', '10-01-2017', '12-31-2017', null, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(421, 'Spaghetti', 0.69, 'lb', 'Pantry Items', 10, 'Barilla', '10-01-2017', '12-31-2017', null, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(422, 'Linguini', 0.69, 'lb', 'Pantry Items', 32, 'Barilla', '10-01-2017', '12-31-2017', null, null, 0, null, null);
+INSERT INTO PRODUCTS VALUES(423, 'Sriracha Chili Sauce', 2.99, 'ct', 'Pantry Items', 300, 'Huy Fong', '11-01-2017', '12-31-2017', null, 024463061095, 0, null, null);
+INSERT INTO PRODUCTS VALUES(424, 'Tomato Ketchup', 3.99, 'ct', 'Pantry Items', 100, 'Heinz', '11-01-2017', '12-31-2017', null, 013000001243, 0, null, null);
+INSERT INTO PRODUCTS VALUES(425, 'Soy Sauce', 3.99, 'ct', 'Pantry Items', 4, 'Kikkoman', '11-01-2017', '12-31-2017', null, 041390000829, 0, null, null);
 
 -- aisles
 INSERT INTO AISLES VALUES(1, 'Fruits');

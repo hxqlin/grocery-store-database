@@ -14,6 +14,16 @@ router.get('/products', function (req, res, next) {
     })
 })
 
+/* GET low stock product listing. */
+router.get('/products/lowstock', function (req, res, next) {
+  const query = 'SELECT * FROM LowStock;'
+  connection.query(query, { type: connection.QueryTypes.SELECT })
+  .then(product => {
+    console.log(product)
+    res.json(product)
+  })
+})
+
 /* GET product by ID. */
 router.get('/products/:productid', function (req, res, next) {
   const productid = req.params.productid
@@ -35,6 +45,7 @@ router.get('/products/:productid', function (req, res, next) {
     })
 })
 
+/* POST a new product. */
 router.post('/products/add', bodyParser.json(), function (req, res, next) {
   const productid = req.body.data.productid
   const productname = req.body.data.productname
@@ -60,6 +71,7 @@ router.post('/products/add', bodyParser.json(), function (req, res, next) {
     })
 })
 
+/* POST an updated cost for a product. */
 router.post('/products/updatecost', bodyParser.json(), function (req, res, next) {
   const productid = req.body.data.productid
   const pricepercostunit = req.body.data.pricepercostunit
@@ -81,6 +93,7 @@ router.post('/products/updatecost', bodyParser.json(), function (req, res, next)
     })
 })
 
+/* POST an updated quantity for a product. */
 router.post('/products/updatequantity', bodyParser.json(), function (req, res, next) {
   const productid = req.body.data.productid
   const quantityinstock = req.body.data.quantityinstock

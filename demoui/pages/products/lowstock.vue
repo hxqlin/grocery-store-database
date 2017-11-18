@@ -3,14 +3,12 @@
     <div class="content">
       <div class="subsection">
         <div style="margin: 25px 10px;">
-          <span class="subsection-title" style="vertical-align: middle;">Products in Database</span>
-          <nuxt-link class="button--grey" style="padding: 5px 20px; text-decoration: none;" to="/products/add">Add Product</nuxt-link>
-          <nuxt-link class="button--grey" style="padding: 5px 20px; text-decoration: none;" to="/products/lowstock">Low Stock Report</nuxt-link>
-        </div>
+          <span class="subsection-title" style="vertical-align: middle;">Low Stock Products</span>
+         </div>
         <ul style="list-style-type: none; padding: 0; margin: 0;">
           <li v-for="(product, index) in products" :key="index" style="padding: 10px 20px; margin: 0 25px; position: relative;">
             <nuxt-link :to="{ path: `/products/${product.productid}`, params: { productname: product.productname }}">
-              {{ product.productid + ' ' + product.productname }}
+              {{ product.productid + ' ' + product.productname + ' ' + 'Quantity In Stock: ' + product.quantityinstock }}
             </nuxt-link>
           </li>
         </ul>
@@ -24,13 +22,13 @@ import axios from '~/plugins/axios'
 
 export default {
   async asyncData () {
-    let { data } = await axios.get('/api/products')
+    let { data } = await axios.get('/api/products/lowstock')
     return { products: data }
   },
 
   head () {
     return {
-      title: 'Products'
+      title: 'Low Stock Products'
     }
   }
 }

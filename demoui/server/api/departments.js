@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 
 const router = Router()
 
-/* GET customers listing. */
+/* GET departments listing. */
 router.get('/departments', function (req, res, next) {
   const query = 'SELECT * FROM Departments ORDER BY departmentname ASC;'
   connection.query(query, { type: connection.QueryTypes.SELECT })
@@ -34,6 +34,27 @@ router.get('/departments/:departmentname', function (req, res, next) {
         })
 })
 
+/* GET aisle by DepartmentName. */
+router.get('/departments/:departmentname', function (req, res, next) {
+  const departmentname = req.params.departmentname
+  const query = 'SELECT DISTINCT A.AisleName, AC.AisleNumber, P.DepartmentName FROM AisleContains AC, Products P, Aisles A WHERE :departmentname = P.DepartmentName AND P.ProductID = AC.ProductID AND AC.AisleNumber = A.AisleNumber ORDER BY AC.AisleNumber ASC;'
+  connection.query(query,
+      {
+          type: connection.QueryTypes.SELECT,
+          replacements: {
+              departmentname: departmentname
+          }
+      })
+      .then(aisles => {
+          let itemToAdd = {'departmentname': departmentname}
+          aisles.splice(0,0,itemToAdd)
+          console.log("AISLES")
+          console.log(aisles)
+          res.json(aisles)
+      })
+})
+
+/* POST updated name for a department.*/
 router.post('/departments/updateinfo', bodyParser.json(), function (req, res, next) {
     const departmentname = req.body.data.departmentname
 
@@ -51,6 +72,7 @@ router.post('/departments/updateinfo', bodyParser.json(), function (req, res, ne
       })
   })
 
+  /* POST a new department.*/
   router.post('/departments/add', bodyParser.json(), function (req, res, next) {
     const departmentname = req.body.data.departmentname
   
