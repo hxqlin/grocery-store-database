@@ -6,6 +6,7 @@ import employees from './employees'
 import customers from './customers'
 import departments from './departments'
 import aisles from './aisles'
+import suppliers from './suppliers'
 
 const router = Router()
 
@@ -16,5 +17,6 @@ router.use(employees)
 router.use(customers)
 router.use(departments)
 router.use(aisles)
+router.use(suppliers)
 
 export default router

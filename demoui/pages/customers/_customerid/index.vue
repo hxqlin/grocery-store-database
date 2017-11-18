@@ -4,8 +4,8 @@
       <div class="subsection">
         <span class="customer-customerid" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{`Customer #${transactions[0].customerid}` }}</span>
         <span class="customer-customername" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `${transactions[0].customername}` }}</span><br><br>
-        <span class="customer-customerattributes" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Phone: ${transactions[0].customerphone}` }}</span><br><br>
-        <span class="customer-customercustomerphone" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Email: ${transactions[0].customeremail}` }}</span><br><br>
+        <span class="customer-customerphone" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Phone: ${transactions[0].customerphone}` }}</span><br><br>
+        <span class="customer-customeremail" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Email: ${transactions[0].customeremail}` }}</span><br><br>
         <nuxt-link :to="{ path: `/customers/${transactions[0].customerid}/updateinfo`, params: { customerid: transactions[0].customerid }}">Update Info</nuxt-link><br><br>
         <li v-for="(transaction, index) in transactions.slice(1, transactions.length)" :key="index" style="padding: 10px 20px; margin: 0 25px; position: relative;">
           <span class="customer-transactions" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Transaction #${transaction.transactionid + " on " + transaction.purchasedate + ": " + transaction.productname + " x" + transaction.quantity + " totaling $" + transaction.total}` }}</span><br><br>
