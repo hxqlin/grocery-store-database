@@ -17,7 +17,7 @@ router.get('/customers', function (req, res, next) {
 /* GET customer by ID. */
 router.get('/customers/:customerid', function (req, res, next) {
     const customerid = req.params.customerid
-    const query = 'SELECT Pu.transactionid, Pu.purchasedate, Pu.quantity, Pu.total, Pr.productid, Pr.productname, Pr.brand FROM Customers C, Purchases Pu, Products Pr WHERE :customerid = C.CustomerID AND C.CustomerID = Pu.CustomerID AND Pu.ProductID = Pr.ProductID;;'
+    const query = 'SELECT Pu.transactionid, Pu.purchasedate, Pu.quantity, Pu.total, Pr.productid, Pr.productname, Pr.brand FROM Customers C, Purchases Pu, Products Pr WHERE :customerid = C.CustomerID AND C.CustomerID = Pu.CustomerID AND Pu.ProductID = Pr.ProductID;'
     connection.query(query,
         {
             type: connection.QueryTypes.SELECT,
@@ -49,6 +49,23 @@ router.get('/customers/:customerid', function (req, res, next) {
                 res.json(transactions)
             })
         })
+})
+
+router.post('/customers/delete', bodyParser.json(), function (req, res, next) {
+  const customerid = req.body.data.customerid
+
+  const query = 'DELETE FROM Customers WHERE customerid = :customerid ;'
+  connection.query(query,
+    {
+      type: connection.QueryTypes.UPDATE,
+      replacements: {
+        customerid: customerid
+      }
+    })
+    .then(result => {
+      // result[1] is the number of rows changed
+      res.send('/customers')
+    })
 })
 
 router.post('/customers/updateinfo', bodyParser.json(), function (req, res, next) {

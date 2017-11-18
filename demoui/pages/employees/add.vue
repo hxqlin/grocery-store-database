@@ -52,7 +52,6 @@ export default {
       employeename: '',
       departmentname: '',
       position: '',
-
       wage: '',
       sinumber: '',
       employeeaddress: '',
@@ -75,7 +74,6 @@ export default {
             employeename: self.employeename,
             departmentname: self.departmentname,
             position: self.position,
-
             wage: self.wage,
             sinumber: self.sinumber,
             employeeaddress: self.employeeaddress,

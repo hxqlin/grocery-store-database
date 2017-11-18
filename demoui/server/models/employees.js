@@ -2,7 +2,7 @@ var Sequelize = require('sequelize');
 
 var attributes = {
     employeeid: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.SERIAL,
         primaryKey: true
     },
     employeename: {
