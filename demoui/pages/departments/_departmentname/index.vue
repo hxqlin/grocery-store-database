@@ -3,7 +3,7 @@
     <div class="content">
       <div class="subsection">
           <span class="departments-departmentname" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{`${aisles[0].departmentname}` }}<br><br></span>
-          <nuxt-link class="":to="{ path: `/departments/${aisles[0].departmentname}/updateinfo`, params: { departmentname: aisles[0].departmentname }}">Update Info</nuxt-link><br><br>
+          <!-- <nuxt-link class="":to="{ path: `/departments/${aisles[0].departmentname}/updateinfo`, params: { departmentname: aisles[0].departmentname }}">Update Info</nuxt-link><br><br> -->
           <li v-for="(aisle, index) in aisles.slice(1, aisles.length)" :key="index" style="padding: 10px 20px; margin: 0 25px; position: relative;">
               <nuxt-link :to="{ path: `/aisles/${aisle.aislenumber}`, params: { aislenumber: aisle.aislenumber }}">
                   {{'Go To Aisle #' + aisle.aislenumber + ' (' + aisle.aislename + ')'}}

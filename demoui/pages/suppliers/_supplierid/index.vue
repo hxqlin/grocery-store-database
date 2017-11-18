@@ -8,11 +8,13 @@
                 <span class="supplier-supplieraddress" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Address: ${products[0].supplieraddress}` }}</span><br><br>
                 <nuxt-link :to="{ path: `/suppliers/${products[0].supplierid}/updateinfo`, params: { supplierid: products[0].supplierid }}">Update Info</nuxt-link><br><br><br><br>
                 <span class="supplier-suppliermessage" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Products Supplied:` }}</span><br><br>
+               <ul style="list-style-type: none; padding: 0; margin: 0;">
                 <li v-for="(product, index) in products.slice(1, products.length)" :key="index" style="padding: 10px 20px; margin: 0 25px; position: relative;">
                     <nuxt-link :to="{ path: `/products/${product.productid}`, params: { productid: product.productid }}">
                         {{product.productid + ' - ' + product.productname + ' (' +  product.quantityinstock + ' in stock)'}}
                     </nuxt-link>
                 </li>
+               </ul>
             </div>
         </div>
     </section>

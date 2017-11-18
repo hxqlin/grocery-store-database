@@ -8,7 +8,6 @@
         <!-- <nuxt-link to="/users">Users</nuxt-link> -->
         <nuxt-link to="/products">Products</nuxt-link>
         <nuxt-link to="/aisles">Aisles</nuxt-link>
-        <nuxt-link to="/departments">Departments</nuxt-link>
         <nuxt-link to="/employees">Employees</nuxt-link>
         <nuxt-link to="/customers">Customers</nuxt-link>
         <nuxt-link to="/departments">Departments</nuxt-link>
