@@ -5,15 +5,15 @@
         <router-link to="/" exact>
           <img class="logo" src="~/assets/img/happy.png" alt="logo">
         </router-link>
-        <nuxt-link to="/users">Users</nuxt-link>
+        <!-- <nuxt-link to="/users">Users</nuxt-link> -->
         <nuxt-link to="/products">Products</nuxt-link>
         <nuxt-link to="/aisles">Aisles</nuxt-link>
+        <nuxt-link to="/departments">Departments</nuxt-link>
         <nuxt-link to="/employees">Employees</nuxt-link>
         <nuxt-link to="/customers">Customers</nuxt-link>
         <nuxt-link to="/departments">Departments</nuxt-link>
         <nuxt-link to="/suppliers">Suppliers</nuxt-link>
-        <a class="github" href="https://github.com/belinghy/cpsc304" target="_blank" rel="noopener">
-          Github
+        <a class="github" href="https://github.com/hxqlin/grocery-store-database" target="_blank" rel="noopener">
         </a>
       </nav>
     </div>

@@ -96,5 +96,22 @@ router.post('/employees/update', bodyParser.json(), function (req, res, next) {
     })
 })
 
+router.post('/employees/delete', bodyParser.json(), function (req, res, next) {
+  const employeeid = req.body.data.employeeid
+
+  const query = 'DELETE FROM Employees WHERE employeeid = :employeeid ;'
+  connection.query(query,
+    {
+      type: connection.QueryTypes.UPDATE,
+      replacements: {
+        employeeid: employeeid
+      }
+    })
+    .then(result => {
+      // result[1] is the number of rows changed
+      res.send('/employees')
+    })
+})
+
 
 export default router

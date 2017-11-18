@@ -51,6 +51,23 @@ router.get('/customers/:customerid', function (req, res, next) {
         })
 })
 
+router.post('/customers/delete', bodyParser.json(), function (req, res, next) {
+  const customerid = req.body.data.customerid
+
+  const query = 'DELETE FROM Customers WHERE customerid = :customerid ;'
+  connection.query(query,
+    {
+      type: connection.QueryTypes.UPDATE,
+      replacements: {
+        customerid: customerid
+      }
+    })
+    .then(result => {
+      // result[1] is the number of rows changed
+      res.send('/customers')
+    })
+})
+
 router.post('/customers/updateinfo', bodyParser.json(), function (req, res, next) {
     const customerid = req.body.data.customerid
     const customername = req.body.data.customername

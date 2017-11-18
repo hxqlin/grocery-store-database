@@ -10,7 +10,7 @@
         <span class="employee-employeedepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Address: ${employees.employeeaddress}` }}</span><br><br>
         <span class="employee-employeedepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Phone: ${employees.employeephone}` }}</span><br><br>
         <span class="employee-employeedepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Wage: $${employees.wage}/hr` }}</span><br><br>
-        <nuxt-link :to="{ path: `/employees/${employees.employeeid}/update`, params: { employeeid: employees.employeeid }}">Update Info (not implemented)</nuxt-link><br><br>
+        <nuxt-link :to="{ path: `/employees/${employees.employeeid}/update`, params: { employeeid: employees.employeeid }}">Update Info</nuxt-link><br><br>
       </div>
     </div>
   </section>
