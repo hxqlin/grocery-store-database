@@ -11,8 +11,9 @@
         <nuxt-link to="/departments">Departments</nuxt-link>
         <nuxt-link to="/employees">Employees</nuxt-link>
         <nuxt-link to="/customers">Customers</nuxt-link>
+        <nuxt-link to="/departments">Departments</nuxt-link>
+        <nuxt-link to="/suppliers">Suppliers</nuxt-link>
         <a class="github" href="https://github.com/hxqlin/grocery-store-database" target="_blank" rel="noopener">
-          Source Code
         </a>
       </nav>
     </div>

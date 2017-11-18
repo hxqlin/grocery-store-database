@@ -18,9 +18,13 @@ var Departments = connection.define('departments', DepartmentsMeta.attributes, D
 var AislesMeta = require('./aisles');
 var Aisles = connection.define('aisles', AislesMeta.attributes, AislesMeta.options);
 
+var SuppliersMeta = require('./suppliers');
+var Suppliers = connection.define('suppliers', SuppliersMeta.attributes, SuppliersMeta.options);
+
 module.exports.Users = Users;
 module.exports.Products = Products;
 module.exports.Employees = Employees;
 module.exports.Customers = Customers;
 module.exports.Departments = Departments;
 module.exports.Aisles = Aisles;
+module.exports.Suppliers = Suppliers;
