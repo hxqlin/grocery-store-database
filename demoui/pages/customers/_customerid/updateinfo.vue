@@ -2,19 +2,19 @@
   <section class="customer-view">
     <div class="content">
       <div class="subsection">
-        <span class="customer-customerid" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{`Customer ${customer.customerid}` }}</span>
+        <span class="customer-customerid" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{`Customer ${customer[0].customerid}` }}</span>
         <form style="margin: 15px 15px;">
             <div style="margin: 10px 0;">
               <span class="customer-customername">Customer Name: </span>
-              <input type="text" :value="customer.customername" v-model="customer.customername"></input>
+              <input type="text" :value="customer[0].customername" v-model="customer[0].customername"></input>
             </div>
             <div style="margin: 10px 0;">
               <span class="customer-customerphone">Phone: </span>
-              <input type="customerphone" v-model="customer.customerphone"></input>
+              <input type="customerphone" v-model="customer[0].customerphone"></input>
             </div>
             <div style="margin: 10px 0;">
               <span class="customer-customeremail">Email: </span>
-              <input type="customeremail" v-model="customer.customeremail"></input>
+              <input type="customeremail" v-model="customer[0].customeremail"></input>
             </div>
         </form>
         <button type="button" class="button--grey" @click="submitUpdate">Update</button>
@@ -33,7 +33,7 @@ export default {
         return { customer: res.data }
       })
       .catch((e) => {
-        error({ statusCode: 404, message: 'User not found' })
+        error({ statusCode: 404, message: 'Customer not found' })
       })
   },
 
@@ -69,7 +69,7 @@ export default {
 
   head () {
     return {
-      title: `Update User: ${this.customer.customername}`
+      title: `Update Customer: ${this.customer[0].customername}`
     }
   }
 }
@@ -99,7 +99,15 @@ export default {
     font-size 24px
     font-weight 500
     color #707070
-  .customer-password
+  .customer-customername
+    font-size 24px
+    font-weight 500
+    color #707070
+  .customer-customerphone
+    font-size 24px
+    font-weight 500
+    color #707070
+  .customer-customeremail
     font-size 24px
     font-weight 500
     color #707070

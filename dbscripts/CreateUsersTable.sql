@@ -12,17 +12,11 @@ DROP TABLE IF EXISTS ProvidesDelivery;
 DROP TABLE IF EXISTS ProvidedBy;
 DROP TABLE IF EXISTS AisleContains;
 DROP TABLE IF EXISTS Aisles;
-DROP TABLE IF EXISTS Aisle;
 DROP TABLE IF EXISTS Products;
-DROP TABLE IF EXISTS Product;
 DROP TABLE IF EXISTS Employees;
-DROP TABLE IF EXISTS Employee;
 DROP TABLE IF EXISTS Suppliers;
-DROP TABLE IF EXISTS Supplier;
 DROP TABLE IF EXISTS Departments;
-DROP TABLE IF EXISTS Department;
 DROP TABLE IF EXISTS Customers;
-DROP TABLE IF EXISTS Customer;
 
 CREATE TABLE Customers(
     CustomerID SERIAL,
@@ -122,7 +116,7 @@ CREATE TABLE Purchases(
     CustomerID INT,
     PurchaseDate VARCHAR(255),
     Total FLOAT,
-    PRIMARY KEY(TransactionID),
+    PRIMARY KEY(TransactionID, ProductID),
     FOREIGN KEY(ProductID) REFERENCES Products(ProductID),
     FOREIGN KEY(CustomerID) REFERENCES Customers(CustomerID)
 );

@@ -12,6 +12,7 @@
         <nuxt-link class="button--grey link" style="margin-left: 15px;" to="/customers">View Customers</nuxt-link>
         <nuxt-link class="button--grey link" style="margin-left: 15px;" to="/departments">View Departments</nuxt-link>
         <nuxt-link class="button--grey link" style="margin-left: 15px;" to="/aisles">View Aisles</nuxt-link>
+        <nuxt-link class="button--grey link" style="margin-left: 15px;" to="/suppliers">View Suppliers</nuxt-link>
       </div>
     </div>
   </section>
