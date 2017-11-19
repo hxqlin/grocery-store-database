@@ -14,7 +14,7 @@ router.get('/suppliers', function (req, res, next) {
     })
 })
 
-/* GET products by supplierID. */
+/* GET products supplied by a given supplier. */
 router.get('/suppliers/:supplierid', function (req, res, next) {
     const supplierid = req.params.supplierid
     const query = 'SELECT DISTINCT P.ProductID, P.ProductName, P.QuantityInStock FROM ProvidedBy PB, Products P WHERE :supplierid = PB.supplierid AND PB.productID = P.productID ORDER BY P.ProductID ASC;'
@@ -51,6 +51,7 @@ router.get('/suppliers/:supplierid', function (req, res, next) {
         })
 })
 
+/* POST updated supplier information. */
 router.post('/suppliers/updateinfo', bodyParser.json(), function (req, res, next) {
     const supplierid = req.body.data.supplierid
     const suppliername = req.body.data.suppliername
@@ -74,6 +75,8 @@ router.post('/suppliers/updateinfo', bodyParser.json(), function (req, res, next
       })
   })
 
+
+/* POST a new supplier. */
   router.post('/suppliers/add', bodyParser.json(), function (req, res, next) {
     const suppliername = req.body.data.suppliername
     const supplierphone = req.body.data.supplierphone

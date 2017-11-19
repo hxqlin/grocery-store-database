@@ -14,7 +14,7 @@ router.get('/customers', function (req, res, next) {
     })
 })
 
-/* GET customer by ID. */
+/* GET customer and their transactions by ID. */
 router.get('/customers/:customerid', function (req, res, next) {
     const customerid = req.params.customerid
     const query = 'SELECT Pu.transactionid, Pu.purchasedate, Pu.quantity, Pu.total, Pr.productid, Pr.productname, Pr.brand FROM Customers C, Purchases Pu, Products Pr WHERE :customerid = C.CustomerID AND C.CustomerID = Pu.CustomerID AND Pu.ProductID = Pr.ProductID;'
@@ -51,6 +51,7 @@ router.get('/customers/:customerid', function (req, res, next) {
         })
 })
 
+/* POST updated customer information. */
 router.post('/customers/updateinfo', bodyParser.json(), function (req, res, next) {
     const customerid = req.body.data.customerid
     const customername = req.body.data.customername
@@ -74,6 +75,7 @@ router.post('/customers/updateinfo', bodyParser.json(), function (req, res, next
       })
   })
 
+/* POST a new customer. */
   router.post('/customers/add', bodyParser.json(), function (req, res, next) {
     const customername = req.body.data.customername
     const customerphone = req.body.data.customerphone

@@ -58,6 +58,10 @@ export default {
 
 .links
   padding-top 15px
+  .link
+    display relative
+    width 50%
+    margin-bottom 10px
 
 @media (max-width 860px)
   .title

@@ -1,11 +1,4 @@
-/*  
-removed some NOT NULL constraints for Product & Employee
-Check that you are using correct data types and proper SQL syntax- need AND/OR clauses and semi-colons at the end of statements
-Use correct departments eg. ‘Eggs and Dairy’ not ‘eggs’
-Need to use straight quotation marks
-Use correct data types
-TODO: fill ProvidedBy, ReceivedFrom, ProvidesDelivery, and AisleContains with the rest of the products*/
-
+/*  Drop existing tables and views, if they exist*/
 DROP TABLE IF EXISTS Purchases;
 DROP TABLE IF EXISTS ReceivedFrom;
 DROP TABLE IF EXISTS ProvidesDelivery;

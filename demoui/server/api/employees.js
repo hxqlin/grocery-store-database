@@ -34,9 +34,9 @@ router.get('/employees/:employeeid', function (req, res, next) {
     })
 })
 
+/* POST a new employee. */
 router.post('/employees/add', bodyParser.json(), function (req, res, next) {
   const employeename = req.body.data.employeename
-
   const departmentname = req.body.data.departmentname
   const position = req.body.data.position
   const sinumber = req.body.data.sinumber
@@ -66,6 +66,7 @@ router.post('/employees/add', bodyParser.json(), function (req, res, next) {
     })
 })
 
+/* POST updated employee information. */
 router.post('/employees/update', bodyParser.json(), function (req, res, next) {
   const employeeid = req.body.data.employeeid
   const employeename = req.body.data.employeename
@@ -96,6 +97,7 @@ router.post('/employees/update', bodyParser.json(), function (req, res, next) {
     })
 })
 
+/* POST to remove an employee. */
 router.post('/employees/delete', bodyParser.json(), function (req, res, next) {
   const employeeid = req.body.data.employeeid
 

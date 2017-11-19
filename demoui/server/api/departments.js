@@ -14,7 +14,7 @@ router.get('/departments', function (req, res, next) {
     })
 })
 
-/* GET aisle by DepartmentName. */
+/* GET aisles corresponding to a department. */
 router.get('/departments/:departmentname', function (req, res, next) {
     const departmentname = req.params.departmentname
     const query = 'SELECT DISTINCT A.AisleName, AC.AisleNumber, P.DepartmentName FROM AisleContains AC, Products P, Aisles A WHERE :departmentname = P.DepartmentName AND P.ProductID = AC.ProductID AND AC.AisleNumber = A.AisleNumber ORDER BY AC.AisleNumber ASC;'
@@ -28,30 +28,9 @@ router.get('/departments/:departmentname', function (req, res, next) {
         .then(aisles => {
             let itemToAdd = {'departmentname': departmentname}
             aisles.splice(0,0,itemToAdd)
-            console.log("AISLES")
             console.log(aisles)
             res.json(aisles)
         })
-})
-
-/* GET aisle by DepartmentName. */
-router.get('/departments/:departmentname', function (req, res, next) {
-  const departmentname = req.params.departmentname
-  const query = 'SELECT DISTINCT A.AisleName, AC.AisleNumber, P.DepartmentName FROM AisleContains AC, Products P, Aisles A WHERE :departmentname = P.DepartmentName AND P.ProductID = AC.ProductID AND AC.AisleNumber = A.AisleNumber ORDER BY AC.AisleNumber ASC;'
-  connection.query(query,
-      {
-          type: connection.QueryTypes.SELECT,
-          replacements: {
-              departmentname: departmentname
-          }
-      })
-      .then(aisles => {
-          let itemToAdd = {'departmentname': departmentname}
-          aisles.splice(0,0,itemToAdd)
-          console.log("AISLES")
-          console.log(aisles)
-          res.json(aisles)
-      })
 })
 
 /* POST updated name for a department.*/

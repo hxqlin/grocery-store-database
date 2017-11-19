@@ -47,6 +47,7 @@ router.get('/aisles/:aislenumber', function (req, res, next) {
         })
 })
 
+/* POST updated aisle information. */
 router.post('/aisles/updateinfo', bodyParser.json(), function (req, res, next) {
     const aislenumber = req.body.data.aislenumber
     const aislename = req.body.data.aislename
@@ -66,6 +67,7 @@ router.post('/aisles/updateinfo', bodyParser.json(), function (req, res, next) {
       })
   })
 
+  /* POST a new aisle. */
   router.post('/aisles/add', bodyParser.json(), function (req, res, next) {
     const aislename = req.body.data.aislename
     const aislenumber = req.body.data.aislenumber
