@@ -16,7 +16,7 @@ router.get('/products', function (req, res, next) {
 
 /* GET low stock product listing. */
 router.get('/products/lowstock', function (req, res, next) {
-  const query = 'SELECT * FROM LowStock;'
+  const query = 'SELECT * FROM LowStock ORDER BY ProductID ASC;'
   connection.query(query, { type: connection.QueryTypes.SELECT })
   .then(product => {
     console.log(product)
