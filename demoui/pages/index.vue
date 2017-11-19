@@ -1,7 +1,8 @@
 <template>
   <section class="container">
     <div>
-    <Logo />
+    <!-- <Logo /> -->
+    <!-- <img class="logo" src="~/assets/img/logo.png" alt="logo"> -->
       <h1 class="title">
         Grocery Store Database
       </h1>
@@ -74,4 +75,8 @@ export default {
       width 50%
       margin-bottom 15px
       display relative
+
+.logo
+  display inline-block
+  vertical-align middle
 </style>
