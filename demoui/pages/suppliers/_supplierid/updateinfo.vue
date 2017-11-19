@@ -50,10 +50,10 @@
               },
             data:
               {
-                supplierid: self.supplier.supplierid,
-                suppliername: self.supplier.suppliername,
-                supplierphone: self.supplier.supplierphone,
-                supplieraddress: self.supplier.supplieraddress
+                supplierid: self.supplier[0].supplierid,
+                suppliername: self.supplier[0].suppliername,
+                supplierphone: self.supplier[0].supplierphone,
+                supplieraddress: self.supplier[0].supplieraddress
               }})
             .then((res) => {
               // res.data should contain the url for redirecting... bad practice
