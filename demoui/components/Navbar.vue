@@ -8,7 +8,6 @@
         Github
       </a>
       <nav class="navbar__menu pn-ProductNav">
-        <!-- <nuxt-link to="/users">Users</nuxt-link> -->
         <nuxt-link to="/products">Products</nuxt-link>
         <nuxt-link to="/aisles">Aisles</nuxt-link>
         <nuxt-link to="/employees">Employees</nuxt-link>

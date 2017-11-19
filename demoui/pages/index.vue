@@ -6,7 +6,6 @@
         Grocery Store Database
       </h1>
       <div class="links">
-        <!-- <nuxt-link class="button--grey link" style="margin-left: 15px;" to="/users">View Users</nuxt-link> -->
         <nuxt-link class="button--grey link" style="margin-left: 15px;" to="/products">View Products</nuxt-link>
         <nuxt-link class="button--grey link" style="margin-left: 15px;" to="/aisles">View Aisles</nuxt-link>
         <nuxt-link class="button--grey link" style="margin-left: 15px;" to="/departments">View Departments</nuxt-link>
