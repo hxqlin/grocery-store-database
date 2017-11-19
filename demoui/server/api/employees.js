@@ -17,7 +17,7 @@ router.get('/employees', function (req, res, next) {
 /* GET employee by ID. */
 router.get('/employees/:employeeid', function (req, res, next) {
   const employeeid = req.params.employeeid
-  const query = 'SELECT * FROM Employees WHERE employeeid = :employeeid ;'
+  const query = 'SELECT * FROM Employees WHERE employeeid = :employeeid ORDER BY employeeid ASC;'
   connection.query(query,
     {
       type: connection.QueryTypes.SELECT,
