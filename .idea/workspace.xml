@@ -3,7 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="b36f3533-dce8-45fb-88f7-6aa75f85ed89" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demoui/pages/suppliers/add.vue" afterPath="$PROJECT_DIR$/demoui/pages/suppliers/add.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dbscripts/CreateTables.sql" afterPath="$PROJECT_DIR$/dbscripts/CreateTables.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demoui/pages/aisles/_aislenumber/addproduct.vue" afterPath="$PROJECT_DIR$/demoui/pages/aisles/_aislenumber/addproduct.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demoui/pages/aisles/_aislenumber/index.vue" afterPath="$PROJECT_DIR$/demoui/pages/aisles/_aislenumber/index.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demoui/pages/aisles/add.vue" afterPath="$PROJECT_DIR$/demoui/pages/aisles/add.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demoui/pages/customers/_customerid/_spendingBreakdown/index.vue" afterPath="$PROJECT_DIR$/demoui/pages/customers/_customerid/_spendingBreakdown/index.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demoui/pages/customers/_customerid/index.vue" afterPath="$PROJECT_DIR$/demoui/pages/customers/_customerid/index.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demoui/pages/departments/_departmentname/index.vue" afterPath="$PROJECT_DIR$/demoui/pages/departments/_departmentname/index.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demoui/pages/products/_productid/index.vue" afterPath="$PROJECT_DIR$/demoui/pages/products/_productid/index.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,11 +24,84 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="add.vue" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/demoui/pages/suppliers/add.vue">
+      <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demoui/pages/customers/_customerid/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="590">
-              <caret line="90" column="20" lean-forward="true" selection-start-line="90" selection-start-column="20" selection-end-line="90" selection-end-column="20" />
+            <state relative-caret-position="170">
+              <caret line="10" column="114" lean-forward="false" selection-start-line="10" selection-start-column="114" selection-end-line="10" selection-end-column="114" />
+              <folding>
+                <element signature="n#style#0;n#span#2;n#div#0;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+                <marker date="1511154633315" expanded="true" signature="2810:3093" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demoui/pages/products/_productid/index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="163" lean-forward="false" selection-start-line="6" selection-start-column="163" selection-end-line="6" selection-end-column="163" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/demoui/pages/aisles/_aislenumber/index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="646">
+              <caret line="71" column="16" lean-forward="false" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demoui/pages/products/add.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="612">
+              <caret line="36" column="68" lean-forward="false" selection-start-line="36" selection-start-column="68" selection-end-line="36" selection-end-column="68" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demoui/pages/aisles/add.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="61" lean-forward="false" selection-start-line="6" selection-start-column="61" selection-end-line="6" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addproduct.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demoui/pages/aisles/_aislenumber/addproduct.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="49" lean-forward="false" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demoui/pages/departments/index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="11" lean-forward="true" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demoui/pages/departments/_departmentname/index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="60" column="19" lean-forward="false" selection-start-line="60" selection-start-column="19" selection-end-line="60" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -30,18 +110,18 @@
       <file leaf-file-name="CreateTables.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dbscripts/CreateTables.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="545">
-              <caret line="33" column="9" lean-forward="false" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+            <state relative-caret-position="357">
+              <caret line="118" column="39" lean-forward="true" selection-start-line="118" selection-start-column="39" selection-end-line="118" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demoui/pages/customers/add.vue">
+      <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demoui/pages/customers/_customerid/_spendingBreakdown/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="12" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="17" selection-end-column="12" />
+            <state relative-caret-position="102">
+              <caret line="6" column="172" lean-forward="false" selection-start-line="6" selection-start-column="172" selection-end-line="6" selection-end-column="172" />
               <folding />
             </state>
           </provider>
@@ -79,19 +159,15 @@
         <option value="$PROJECT_DIR$/demoui/pages/product/_productid/index.vue" />
         <option value="$PROJECT_DIR$/demoui/pages/aisles/_aislenumber/updateinfo.vue" />
         <option value="$PROJECT_DIR$/demoui/server/models/aisles.js" />
-        <option value="$PROJECT_DIR$/demoui/pages/aisles/add.vue" />
         <option value="$PROJECT_DIR$/demoui/.gitignore" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/demoui/pages/departments/index.vue" />
         <option value="$PROJECT_DIR$/demoui/pages/aisles/index.vue" />
         <option value="$PROJECT_DIR$/demoui/server/api/aisles.js" />
         <option value="$PROJECT_DIR$/demoui/server/api/departments.js" />
-        <option value="$PROJECT_DIR$/demoui/pages/departments/_departmentname/index.vue" />
-        <option value="$PROJECT_DIR$/demoui/pages/aisles/_aislenumber/index.vue" />
         <option value="$PROJECT_DIR$/dbscripts/CreateUsersTable.sql" />
         <option value="$PROJECT_DIR$/demoui/pages/index.vue" />
         <option value="$PROJECT_DIR$/demoui/components/Navbar.vue" />
-        <option value="$PROJECT_DIR$/demoui/pages/customers/_customerid/index.vue" />
         <option value="$PROJECT_DIR$/demoui/server/api/index.js" />
         <option value="$PROJECT_DIR$/demoui/server/models/suppliers.js" />
         <option value="$PROJECT_DIR$/demoui/server/models/models.js" />
@@ -101,9 +177,17 @@
         <option value="$PROJECT_DIR$/demoui/pages/suppliers/_supplierid/updateinfo.vue" />
         <option value="$PROJECT_DIR$/demoui/pages/customers/_customerid/updateinfo.vue" />
         <option value="$PROJECT_DIR$/demoui/.nuxt/router.js" />
-        <option value="$PROJECT_DIR$/dbscripts/CreateTables.sql" />
         <option value="$PROJECT_DIR$/demoui/server/api/customers.js" />
         <option value="$PROJECT_DIR$/demoui/pages/suppliers/add.vue" />
+        <option value="$PROJECT_DIR$/demoui/pages/products/add.vue" />
+        <option value="$PROJECT_DIR$/demoui/pages/aisles/add.vue" />
+        <option value="$PROJECT_DIR$/demoui/pages/aisles/_aislenumber/addproduct.vue" />
+        <option value="$PROJECT_DIR$/demoui/pages/departments/_departmentname/index.vue" />
+        <option value="$PROJECT_DIR$/dbscripts/CreateTables.sql" />
+        <option value="$PROJECT_DIR$/demoui/pages/customers/_customerid/_spendingBreakdown/index.vue" />
+        <option value="$PROJECT_DIR$/demoui/pages/customers/_customerid/index.vue" />
+        <option value="$PROJECT_DIR$/demoui/pages/products/_productid/index.vue" />
+        <option value="$PROJECT_DIR$/demoui/pages/aisles/_aislenumber/index.vue" />
       </list>
     </option>
   </component>
@@ -167,7 +251,15 @@
               <item name="grocery-store-database" type="462c0819:PsiDirectoryNode" />
               <item name="demoui" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="customers" type="462c0819:PsiDirectoryNode" />
+              <item name="aisles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="grocery-store-database" type="b2602c69:ProjectViewProjectNode" />
+              <item name="grocery-store-database" type="462c0819:PsiDirectoryNode" />
+              <item name="demoui" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="aisles" type="462c0819:PsiDirectoryNode" />
+              <item name="_aislenumber" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="grocery-store-database" type="b2602c69:ProjectViewProjectNode" />
@@ -231,7 +323,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34545000" />
+    <option name="totallyTimeSpent" value="37088000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -295,16 +387,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/demoui/server/api/product.js" />
-    <entry file="file://$PROJECT_DIR$/demoui/pages/product/_productid/index.vue" />
-    <entry file="file://$PROJECT_DIR$/demoui/pages/departments/aisles/add.vue" />
-    <entry file="file://$PROJECT_DIR$/demoui/server/models/aisles.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/demoui/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -316,14 +398,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="6" lean-forward="false" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demoui/pages/aisles/add.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1326">
-          <caret line="78" column="19" lean-forward="false" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -343,30 +417,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demoui/pages/departments/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="11" lean-forward="true" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/demoui/pages/aisles/index.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="91" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="91" />
           <folding>
             <element signature="n#style#0;n#nuxt-link#0;n#div#0;n#div#0;n#div#0;n#section#0;n#template#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demoui/pages/departments/_departmentname/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="15" lean-forward="true" selection-start-line="6" selection-start-column="10" selection-end-line="10" selection-end-column="15" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#section#0;n#template#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -408,20 +464,6 @@
         <state relative-caret-position="459">
           <caret line="27" column="59" lean-forward="true" selection-start-line="27" selection-start-column="59" selection-end-line="27" selection-end-column="59" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demoui/pages/customers/_customerid/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="33" column="12" lean-forward="false" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
-          <folding>
-            <element signature="n#style#0;n#span#2;n#div#0;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
-            <marker date="1511144775166" expanded="true" signature="2695:2819" ph="{...}" />
-            <marker date="1511144775166" expanded="true" signature="2695:2827" ph="..." />
-            <marker date="1511144775166" expanded="true" signature="2700:2752" ph="{...}" />
-            <marker date="1511144775166" expanded="true" signature="2761:2819" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -478,14 +520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demoui/pages/aisles/_aislenumber/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="22" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="10" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/demoui/pages/suppliers/_supplierid/index.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="347">
@@ -531,14 +565,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/demoui/server/models/employees.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demoui/pages/products/index.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -660,26 +686,109 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dbscripts/CreateTables.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="33" column="9" lean-forward="false" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/demoui/pages/customers/add.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
-          <caret line="17" column="12" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="17" selection-end-column="12" />
+          <caret line="17" column="12" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="17" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/demoui/pages/suppliers/add.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
-          <caret line="90" column="20" lean-forward="true" selection-start-line="90" selection-start-column="20" selection-end-line="90" selection-end-column="20" />
+        <state relative-caret-position="1530">
+          <caret line="90" column="20" lean-forward="false" selection-start-line="90" selection-start-column="20" selection-end-line="90" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demoui/pages/products/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demoui/pages/products/add.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="68" lean-forward="false" selection-start-line="36" selection-start-column="68" selection-end-line="36" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demoui/pages/aisles/add.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="61" lean-forward="false" selection-start-line="6" selection-start-column="61" selection-end-line="6" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demoui/pages/aisles/_aislenumber/addproduct.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="49" lean-forward="false" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demoui/pages/departments/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="11" lean-forward="true" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demoui/pages/departments/_departmentname/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="60" column="19" lean-forward="false" selection-start-line="60" selection-start-column="19" selection-end-line="60" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dbscripts/CreateTables.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="118" column="39" lean-forward="true" selection-start-line="118" selection-start-column="39" selection-end-line="118" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demoui/pages/customers/_customerid/_spendingBreakdown/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="172" lean-forward="false" selection-start-line="6" selection-start-column="172" selection-end-line="6" selection-end-column="172" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demoui/pages/customers/_customerid/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="114" lean-forward="false" selection-start-line="10" selection-start-column="114" selection-end-line="10" selection-end-column="114" />
+          <folding>
+            <element signature="n#style#0;n#span#2;n#div#0;n#div#0;n#section#0;n#template#0;n#!!top" expanded="true" />
+            <marker date="1511154633315" expanded="true" signature="2810:3093" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demoui/pages/products/_productid/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="163" lean-forward="false" selection-start-line="6" selection-start-column="163" selection-end-line="6" selection-end-column="163" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demoui/pages/aisles/_aislenumber/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="71" column="16" lean-forward="false" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
           <folding />
         </state>
       </provider>

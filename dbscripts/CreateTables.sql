@@ -121,12 +121,12 @@ CREATE TABLE Purchases(
 );
 
 -- reset ID sequences
-ALTER SEQUENCE Customers_CustomerID_seq restart with 1000;
-ALTER SEQUENCE Suppliers_SupplierID_seq restart with 1000;
-ALTER SEQUENCE Employees_EmployeeID_seq restart with 1000;
-ALTER SEQUENCE Products_ProductID_seq restart with 1000;
-ALTER SEQUENCE ProvidesDelivery_DeliveryID_seq restart with 1000;
-ALTER SEQUENCE Purchases_TransactionID_seq restart with 1000;
+ALTER SEQUENCE Customers_CustomerID_seq restart with 31;
+ALTER SEQUENCE Suppliers_SupplierID_seq restart with 21;
+ALTER SEQUENCE Employees_EmployeeID_seq restart with 16;
+ALTER SEQUENCE Products_ProductID_seq restart with 426;
+ALTER SEQUENCE ProvidesDelivery_DeliveryID_seq restart with 61;
+ALTER SEQUENCE Purchases_TransactionID_seq restart with 61;
 
 
 -- insertion into Customers

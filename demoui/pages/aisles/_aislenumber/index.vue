@@ -4,10 +4,10 @@
       <div class="subsection">
         <span class="aisle-aislenumber" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{`Aisle #${products[0].aislenumber}` }}</span>
         <span class="aisle-aislename" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `${products[0].aislename}` }}</span><br><br>
-        <!-- <nuxt-link :to="{ path: `/aisles/${products[0].aislenumber}/updateinfo`, params: { aislenumber: products[0].aislenumber }}">Update Info</nuxt-link><br><br> -->
           <nuxt-link :to="{ path: `/aisles/${products[0].aislenumber}/addproduct`, params: { aislenumber: products[0].aislenumber }}">
               {{ 'Add Product to Aisle'}}
-            </nuxt-link>
+            </nuxt-link><br><br>
+        <span class="aisle-heading" style="padding: 10px 10px; margin: 10px 0 10px 0;">Products In Aisle:</span><br>
             <ul style="list-style-type: none; padding: 0; margin: 0;">
         <li v-for="(product, index) in products.slice(1, products.length)" :key="index" style="padding: 10px 20px; margin: 0 25px; position: relative;">
           <nuxt-link :to="{ path: `/products/${product.productid}`, params: { productid: product.productid }}">
@@ -63,10 +63,13 @@ export default {
     font-size 26px
     font-weight 500
   .aisle-aislenumber
-    font-size 24px
+    font-size 28px
     font-weight 500
   .aisle-aislename
-    font-size 24px
+    font-size 28px
+    font-weight 500
+  .aisle-heading
+    font-size 20px
     font-weight 500
   a
     text-decoration underline

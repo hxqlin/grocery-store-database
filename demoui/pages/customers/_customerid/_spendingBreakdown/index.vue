@@ -2,9 +2,15 @@
   <section class="user-view">
     <div class="content">
       <div class="subsection">
+<<<<<<< HEAD
         <span class="customer-customerid" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{`Spending Breakdown for Customer #${this.$route.params.customerid}` }}</span>
         <li v-for="(total, index) in totals" :key="index" style="padding: 10px 20px; margin: 0 25px; position: relative;">
           <span class="customer-totals" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `${total.departmentname + " Total: $" + total.sum}` }}</span><br><br>
+=======
+        <span class="customer-heading" style="padding: 10px 10px; margin: 10px 0 10px 0;">Spending Breakdown:</span><br><br>
+        <li v-for="(total, index) in totals" :key="index" style="padding: 10px 20px; margin: 0 25px; position: relative;">
+          <span class="customer-totals" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `${total.departmentname + " Department: $" + total.sum + " total."}` }}</span>
+>>>>>>> 8d9f13554a3aa168f27f314e893d626cca76d4c1
         </li>
       </div>
     </div>
@@ -49,19 +55,12 @@ export default {
   padding 10px 30px 10px 30px
   position relative
   line-height 20px
-  .subsection-title
-    margin 25px 10px
-    font-size 26px
-    font-weight 500
-  .customer-customerid
-    font-size 24px
-    font-weight 500
-  .customer-customername
+  .customer-heading
     font-size 24px
     font-weight 500
     color #707070
-  .customer-customerattributes
-    font-size 24px
+  .customer-customertotals
+    font-size 16px
     font-weight 500
     color #707070
   a

@@ -4,7 +4,7 @@
     <div class="subsection">
     <form style="margin: 15px 15px;">
       <div style="margin: 10px 0;">
-        <span class="aisle-aislenumber">Aisle Number: </span>
+        <span class="aisle-aislenumber">Aisle Number (Unique): </span>
         <input type="text" :value="aislenumber" v-model="aislenumber"></input>
       </div>
       <div style="margin: 10px 0;">

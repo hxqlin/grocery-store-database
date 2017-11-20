@@ -30,11 +30,11 @@
         <input type="text" :value="quantityinstock" v-model="quantityinstock"></input>
       </div>
       <div style="margin: 10px 0;">
-        <span class="product-costunit">Production Date: </span>
+        <span class="product-costunit">Production Date (MM-DD-YYYY): </span>
         <input type="text" :value="productiondate" v-model="productiondate"></input>
       </div>
       <div style="margin: 10px 0;">
-        <span class="product-costunit">Best Before Date: </span>
+        <span class="product-costunit">Best Before Date (MM-DD-YYYY): </span>
         <input type="text" :value="bestbeforedate" v-model="bestbeforedate"></input>
       </div>
       <div style="margin: 10px 0;">

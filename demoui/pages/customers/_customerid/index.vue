@@ -7,9 +7,10 @@
         <span class="customer-customerphone" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Phone: ${transactions[0].customerphone}` }}</span><br><br>
         <span class="customer-customeremail" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Email: ${transactions[0].customeremail}` }}</span><br><br>
         <nuxt-link :to="{ path: `/customers/${transactions[0].customerid}/updateinfo`, params: { customerid: transactions[0].customerid }}">Update Info</nuxt-link><br><br>
-        <nuxt-link :to="{ path: `/customers/${transactions[0].customerid}/spendingbreakdown`, params: { customerid: transactions[0].customerid }}">View Spending Breakdown</nuxt-link><br><br>
+        <nuxt-link :to="{ path: `/customers/${transactions[0].customerid}/spendingbreakdown`, params: { customerid: transactions[0].customerid }}">View Spending Breakdown</nuxt-link><br><br><br>
+        <span class="customer-heading" style="padding: 10px 10px; margin: 10px 0 10px 0;">Transactions:</span><br>
         <li v-for="(transaction, index) in transactions.slice(1, transactions.length)" :key="index" style="padding: 10px 20px; margin: 0 25px; position: relative;">
-          <span class="customer-transactions" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Transaction #${transaction.transactionid + " on " + transaction.purchasedate + ": " + transaction.productname + " x" + transaction.quantity + " totaling $" + transaction.total}` }}</span><br><br>
+          <span class="customer-transactions" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Transaction #${transaction.transactionid + " on " + transaction.purchasedate + ": " + transaction.productname + " x" + transaction.quantity + " totaling $" + transaction.total}` }}</span><br>
         </li>
       </div>
     </div>
@@ -71,6 +72,14 @@ export default {
     color #707070
   .customer-customeremail
     font-size 24px
+    font-weight 500
+    color #707070
+  .customer-heading
+    font-size 20px
+    font-weight 500
+    color #707070
+  .customer-transactions
+    font-size 16px
     font-weight 500
     color #707070
   a
