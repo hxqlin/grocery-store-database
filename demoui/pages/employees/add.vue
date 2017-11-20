@@ -52,7 +52,7 @@ export default {
       employeename: '',
       departmentname: '',
       position: '',
-      wage: '',
+      wage: null,
       sinumber: '',
       employeeaddress: '',
       employeephone: ''

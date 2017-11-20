@@ -52,8 +52,17 @@ router.post('/products/add', bodyParser.json(), function (req, res, next) {
   const departmentname = req.body.data.departmentname
   const pricepercostunit = req.body.data.pricepercostunit
   const costunit = req.body.data.costunit
+  const brand = req.body.data.brand
+  const quantityinstock = req.body.data.quantityinstock
+  const productiondate = req.body.data.productiondate
+  const bestbeforedate = req.body.data.bestbeforedate
+  const PLU = req.body.data.PLU
+  const UPC = req.body.data.UPC
+  const organic = req.body.data.organic
+  const cut = req.body.data.cut
+  const animal = req.body.data.animal
 
-  const query = 'INSERT INTO Products (productname, departmentname, pricepercostunit, costunit) VALUES (:productname, :departmentname, :pricepercostunit, :costunit) ;'
+  const query = 'INSERT INTO Products (productname, departmentname, pricepercostunit, costunit, brand, quantityinstock, productiondate, bestbeforedate, plu, upc, organic, cut, animal) VALUES (:productname, :departmentname, :pricepercostunit, :costunit, :brand, :quantityinstock, :productiondate, :bestbeforedate, :PLU, :UPC, :organic, :cut, :animal) ;'
   connection.query(query,
     {
       type: connection.QueryTypes.INSERT,
@@ -62,7 +71,16 @@ router.post('/products/add', bodyParser.json(), function (req, res, next) {
         productname: productname,
         departmentname: departmentname,
         pricepercostunit: pricepercostunit,
-        costunit: costunit
+        costunit: costunit,
+        brand: brand,
+        quantityinstock: quantityinstock,
+        productiondate: productiondate,
+        bestbeforedate: bestbeforedate,
+        PLU: PLU,
+        UPC: UPC,
+        organic: organic,
+        cut: cut,
+        animal: animal
       }
     })
     .then(result => {

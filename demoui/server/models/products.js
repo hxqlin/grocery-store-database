@@ -18,31 +18,40 @@ var attributes = {
         type: Sequelize.STRING
     },
     quantityinstock: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: NULL
     },
     brand: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        defaultValue: NULL
     }, 
     productiondate: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        defaultValue: NULL
     },
     bestbeforedate: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        defaultValue: NULL
     },
-    plu: {
-        type: Sequelize.INTEGER
+    PLU: {
+        type: Sequelize.INTEGER,
+        defaultValue: NULL
     },
-    upc: {
-        type: Sequelize.BIGINTEGER
+    UPC: {
+        type: Sequelize.BIGINTEGER,
+        defaultValue: NULL
     },
     organic: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: NULL
     },
     cut: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        defaultValue: NULL
     },
     animal: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        defaultValue: NULL
     }
 };
 
