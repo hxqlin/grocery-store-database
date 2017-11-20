@@ -1,6 +1,4 @@
-# CPSC304
-
-![alt text](demo.gif "Demo")
+# CPSC 304 Project: Grocery Store Database
 
 ### Setup Instructions for Linux
 
