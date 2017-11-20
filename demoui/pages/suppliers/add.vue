@@ -8,6 +8,14 @@
             <span class="supplier-suppliername">Supplier Name: </span>
             <input type="text" :value="suppliername" v-model="suppliername"></input>
           </div>
+          <div style="margin: 10px 0;">
+            <span class="supplier-supplierphone">Supplier Phone: </span>
+            <input type="supplierphone" v-model="supplierphone"></input>
+          </div>
+          <div style="margin: 10px 0;">
+            <span class="supplier-supplieraddress">Supplier Address: </span>
+            <input type="supplieraddress" v-model="supplieraddress"></input>
+          </div>
         </form>
         <button type="button" class="button--grey" @click="submitInsert">Add Supplier</button>
       </div>
@@ -22,7 +30,9 @@
       data () {
         return {
           supplierid: '',
-          suppliername: ''
+          suppliername: '',
+          supplierphone: '',
+          supplieraddress: ''
         }
       },
       methods: {
@@ -36,7 +46,9 @@
             data:
               {
                 supplierid: self.supplierid,
-                suppliername: self.suppliername
+                suppliername: self.suppliername,
+                supplierphone: self.supplierphone,
+                supplieraddress: self.supplieraddress
               }})
             .then((res) => {
               // res.data should contain the url for redirecting... bad practice
@@ -76,6 +88,14 @@
       font-size 26px
       font-weight 500
     .supplier-suppliername
+      font-size 24px
+      font-weight 500
+      color #707070
+    .supplier-supplierphone
+      font-size 24px
+      font-weight 500
+      color #707070
+    .supplier-supplieraddress
       font-size 24px
       font-weight 500
       color #707070
