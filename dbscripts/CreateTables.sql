@@ -1,4 +1,4 @@
-/*  Drop existing tables and views, if they exist*/
+-- drop existing tables and views
 DROP TABLE IF EXISTS Purchases;
 DROP TABLE IF EXISTS ReceivedFrom;
 DROP TABLE IF EXISTS ProvidesDelivery;
@@ -12,6 +12,7 @@ DROP TABLE IF EXISTS Suppliers;
 DROP TABLE IF EXISTS Departments;
 DROP TABLE IF EXISTS Customers;
 
+-- create tables and views
 CREATE TABLE Customers(
     CustomerID SERIAL,
     CustomerName VARCHAR(255),
@@ -120,6 +121,7 @@ CREATE TABLE Purchases(
     FOREIGN KEY(CustomerID) REFERENCES Customers(CustomerID)
 );
 
+-- reset ID sequences
 ALTER SEQUENCE Customers_CustomerID_seq restart with 1000;
 ALTER SEQUENCE Suppliers_SupplierID_seq restart with 1000;
 ALTER SEQUENCE Employees_EmployeeID_seq restart with 1000;
@@ -128,7 +130,7 @@ ALTER SEQUENCE ProvidesDelivery_DeliveryID_seq restart with 1000;
 ALTER SEQUENCE Purchases_TransactionID_seq restart with 1000;
 
 
--- start of customer insertion
+-- insertion into Customers
 INSERT INTO CUSTOMERS VALUES(1, 'Harry Potter', '000 731 1980', 'theboywholived@gmail.com');
 INSERT INTO CUSTOMERS VALUES(2, 'Lily Potter', '000 731 1980', 'lpotter@gmail.com');
 INSERT INTO CUSTOMERS VALUES(3, 'James Potter', '000 731 1980', 'jpotter@gmail.com');
@@ -160,7 +162,7 @@ INSERT INTO CUSTOMERS VALUES(28, 'Sirius Black', '649 563 4723', 'sblack@gmail.c
 INSERT INTO CUSTOMERS VALUES(29, 'Lavender Brown', '604 983 6941', 'lbrown@hotmail.com');
 INSERT INTO CUSTOMERS VALUES(30, 'Colin Creevey', '778 961 6435', 'ccreevey@gmail.com');
 
--- start of supplier insertion
+-- insertion into Suppliers
 INSERT INTO SUPPLIERS VALUES(1, 'Saputo Dairy Products Canada', '6800 Lougheed Highway, Burnaby, BC V5A 1W2', '1 800 672 8866');
 INSERT INTO SUPPLIERS VALUES(2, 'Gordon Food Services', '1700 Cliveden Avenue, Delta, BC V3M 6T2', '800 663 1695');
 INSERT INTO SUPPLIERS VALUES(3, 'Yen Bros. Food Service', '1988 Vernon Drive, Vancouver, BC V6A 3Y6', '604 255 6522');
@@ -182,14 +184,14 @@ INSERT INTO SUPPLIERS VALUES(18, 'Deluxe Seafood Vancouver Ltd', '#106-366 East 
 INSERT INTO SUPPLIERS VALUES(19, 'Winning Seafood Co', '1568 Venables St, Vancouver, BC V5L 2G9', '604 251-3121');
 INSERT INTO SUPPLIERS VALUES(20, 'Blundell Seafoods Ltd', '11351 River Rd, Richmond, BC V6X 1Z6', '604 270-3300');
 
--- start of department insertion
+-- insertion into Departments
 INSERT INTO DEPARTMENTS VALUES('Produce');
 INSERT INTO DEPARTMENTS VALUES('Meat and Seafood');
 INSERT INTO DEPARTMENTS VALUES('Baked Goods');
 INSERT INTO DEPARTMENTS VALUES('Pantry Items');
 INSERT INTO DEPARTMENTS VALUES('Eggs and Dairy');
 
--- start of employee insertion
+-- insertion into Employees
 INSERT INTO EMPLOYEES VALUES(1, 'Ben Ling', 'Eggs and Dairy', 'Stocker', 948398198, '2366 Main Mall, Vancouver, BC VH3 0A2', '604 822 3061', 0);
 INSERT INTO EMPLOYEES VALUES(2, 'Daenerys Targaryen', 'Eggs and Dairy', 'Manager', 7685437775, '123 House Targaryen, Dragonstone, BC VK8 2H9', '777 777 7777', 0);
 INSERT INTO EMPLOYEES VALUES(3, 'Jon Snow', 'Meat and Seafood', 'Manager', 901982091, '224 Winter Is Coming, North, BC, VA7 4K8', '783 309 1923', 0);
@@ -206,8 +208,9 @@ INSERT INTO EMPLOYEES VALUES(13, 'Hannah Lin', 'Produce', 'Manager', 933641391, 
 INSERT INTO EMPLOYEES VALUES(14, 'Jordan De Mello', 'Baked Goods', 'Manager', 976131971, '2525 West Mall, Vancouver, BC, V0L 3A3', '778 689 1369', 20);
 INSERT INTO EMPLOYEES VALUES(15, 'Ed Knorr', 'Produce', 'Stocker', 931236761, '988 Database Drive, Vancouver, BC, V0L 9A3', '604 977 2163', 10);
 
--- start of product insertion
--- produce
+-- insertion into Products
+
+-- fruits insertion
 INSERT INTO PRODUCTS VALUES(1, 'Apples (Ambrosia)', 1.59, 'lb', 'Produce', 256, null, '12-01-2017', '12-15-2017', 3438, null, 0, null, null);
 INSERT INTO PRODUCTS VALUES(2, 'Apples (Fuji)', 1.49, 'lb', 'Produce', 31, null, '12-09-2017', '12-23-2017', 4129, null, 0, null, null);
 INSERT INTO PRODUCTS VALUES(3, 'Apples (Gala)', 1.19, 'lb', 'Produce', 30, null, '12-07-2017', '12-21-2017', 4133, null, 0, null, null);
@@ -221,13 +224,13 @@ INSERT INTO PRODUCTS VALUES(10, 'Strawberries', 4.99, 'lb', 'Produce', 20, null,
 INSERT INTO PRODUCTS VALUES(11, 'Blueberries', 3.99, 'lb', 'Produce', 60, null, '12-10-2017', '12-13-2017', 4240, null, 0, null, null);
 INSERT INTO PRODUCTS VALUES(12, 'Raspberries', 3.49, 'lb', 'Produce', 2, null, '12-10-2017', '12-13-2017', 4244, null, 0, null, null);
 
+-- vegetables insertion
 INSERT INTO PRODUCTS VALUES(13, 'Lettuce (Iceberg)', 0.99, 'ct', 'Produce', 20, null, '12-01-2017', '12-08-2017', 4061, null, 0, null, null);
 INSERT INTO PRODUCTS VALUES(14, 'Lettuce (Romaine)', 1.29, 'ct', 'Produce', 23, null, '12-02-2017', '12-09-2017', 3097, null, 0, null, null);
 INSERT INTO PRODUCTS VALUES(15, 'Spinach', 1.59, 'bunch', 'Produce', 21, null, '12-10-2017', '12-13-2017', 4090, null, 0, null, null);
 INSERT INTO PRODUCTS VALUES(16, 'Watercress', 1.99, 'bunch', 'Produce', 2, null, '12-10-2017', '12-13-2017', 4815, null, 0, null, null);
 INSERT INTO PRODUCTS VALUES(17, 'Bok Choy (Baby)', 1.29, 'bunch', 'Produce', 14, null, '12-10-2017', '12-13-2017', 4545, null, 0, null, null);
 INSERT INTO PRODUCTS VALUES(18, 'Bok Choy (Shanghai)', 0.99, 'bunch', 'Produce', 15, null, '12-10-2017', '12-13-2017', 3163, null, 0, null, null);
-
 INSERT INTO PRODUCTS VALUES(19, 'Potatoes (Russet)', 0.99, 'lb', 'Produce', 2, null, '12-01-2017', '12-30-2017', 4072, null, 0, null, null);
 INSERT INTO PRODUCTS VALUES(20, 'Potatoes (Red)', 1.29, 'lb', 'Produce', 22, null, '12-02-2017', '12-31-2017', 4073, null, 0, null, null);
 INSERT INTO PRODUCTS VALUES(21, 'Potatoes (Sweet)', 1.49, 'lb', 'Produce', 10, null, '12-01-2017', '12-30-2017', 4726, null, 0, null, null);
@@ -243,7 +246,7 @@ INSERT INTO PRODUCTS VALUES(30, 'Onions (Pearl)', 2.49, 'lb', 'Produce', 27, nul
 INSERT INTO PRODUCTS VALUES(31, 'Garlic', 3.99, 'lb', 'Produce', 20, null, '11-01-2017', '12-31-2017', 3399, null, 0, null, null);
 INSERT INTO PRODUCTS VALUES(32, 'Ginger', 2.49, 'lb', 'Produce', 12, null, '11-01-2017', '12-31-2017', 4612, null, 0, null, null);
 
--- dairy (need to fix UPC & PRODUCTS IDs)
+-- dairy insertion
 INSERT INTO PRODUCTS VALUES(100, 'Milk (Skim)', 2.29, 'L', 'Eggs and Dairy', 7, 'Dairyland', '12-01-2017', '12-14-2017', null, 068700125003, 0, null, null);
 INSERT INTO PRODUCTS VALUES(101, 'Milk (1%)', 2.29, 'L', 'Eggs and Dairy', 8, 'Dairyland', '12-01-2017', '12-14-2017', null, 068700125004, 0, null, null);
 INSERT INTO PRODUCTS VALUES(102, 'Milk (2%)', 2.29, 'L', 'Eggs and Dairy', 3, 'Dairyland', '12-01-2017', '12-14-2017', null, 068700125005, 0, null, null);
@@ -266,12 +269,12 @@ INSERT INTO PRODUCTS VALUES(118, 'Cheese (Mozzarella)', 2.29, 'L', 'Eggs and Dai
 INSERT INTO PRODUCTS VALUES(119, 'Cheese (Cheddar)', 2.29, 'L', 'Eggs and Dairy', 12, 'Silk', '12-01-2017', '12-20-2017', null, 068700125013, 0, null, null);
 INSERT INTO PRODUCTS VALUES(120, 'Cheese (Parmesan)', 2.29, 'L', 'Eggs and Dairy', 10, 'Silk', '12-01-2017', '12-20-2017', null, 068700125013, 0, null, null);
 
--- eggs
+-- eggs insertion
 INSERT INTO PRODUCTS VALUES(150, 'Eggs (12 count)', 3.99, 'pack', 'Eggs and Dairy', 11, 'Kirkland Signature', '12-01-2017', '12-20-2017', null, 062639410124, 0, null, null);
 INSERT INTO PRODUCTS VALUES(151, 'Eggs (Brown, 12 count)', 4.99, 'pack', 'Eggs and Dairy', 10, 'Golden Valley', '12-01-2017', '12-20-2017', null, 062639410125, 0, null, null);
 INSERT INTO PRODUCTS VALUES(152, 'Eggs (Omega-3, 12 count)', 5.99, 'pack', 'Eggs and Dairy', 32, 'Born 3 Omega-3', '12-01-2017', '12-20-2017', null, 666933900420, 0, null, null);
 
--- meat
+-- meat and seafood insertion
 INSERT INTO PRODUCTS VALUES(200, 'Chicken Breast', 5.99, 'lb', 'Meat and Seafood', 11, 'Kirkland Signature', '12-01-2017', '12-03-2017', null, 233841823921, 0, null, 'Chicken');
 INSERT INTO PRODUCTS VALUES(201, 'Chicken Breast', 6.99, 'lb', 'Meat and Seafood', 2, 'Green Way', '12-05-2017', '12-07-2017', null, 233841823920, 1, null, 'Chicken');
 INSERT INTO PRODUCTS VALUES(202, 'Chicken Thighs', 4.99, 'lb', 'Meat and Seafood', 13, 'Kirkland Signature', '12-01-2017', '12-03-2017', null, 233841823919, 0, null, 'Chicken');
@@ -286,7 +289,7 @@ INSERT INTO PRODUCTS VALUES(210, 'Tilapia (Fresh)', 6.99, 'lb', 'Meat and Seafoo
 INSERT INTO PRODUCTS VALUES(211, 'Salmon (Fresh)', 7.99, 'lb', 'Meat and Seafood', 10, null, '12-05-2017', '12-08-2017', null, 233841823828, 0, 'Fillet', 'Salmon');
 INSERT INTO PRODUCTS VALUES(212, 'Salmon (Fresh)', 8.99, 'lb', 'Meat and Seafood', 10, null, '12-05-2017', '12-08-2017', null, 233841823829, 1, 'Fillet', 'Salmon');
 
--- baked goods
+-- baked goods insertion
 INSERT INTO PRODUCTS VALUES(300, 'Bread (White)', 2.99, 'ct', 'Baked Goods', 4, 'Villagio', '12-01-2017', '12-06-2017', null, 006872100350, 0, null, null);
 INSERT INTO PRODUCTS VALUES(301, 'Bread (Whole Wheat)', 3.99, 'ct', 'Baked Goods', 7, 'Pepperidge Farms', '12-01-2017', '12-06-2017', null, 014100071013, 0, null, null);
 INSERT INTO PRODUCTS VALUES(302, 'Everything Bagel (6 count)', 4.99, 'pack', 'Baked Goods', 15, 'Sara Lee', '12-01-2017', '12-06-2017', null, 072945610033, 0, null, null);
@@ -296,7 +299,7 @@ INSERT INTO PRODUCTS VALUES(305, 'Bread (Spelt)', 4.99, 'ct', 'Baked Goods', 20,
 INSERT INTO PRODUCTS VALUES(306, 'Sprouted Bagel (6 count)', 4.99, 'pack', 'Baked Goods', 22, 'Silver Hills Bakery', '12-01-2017', '12-06-2017', null, 014100092599, 1, null, null);
 INSERT INTO PRODUCTS VALUES(307, 'Doughnut', 0.99, 'ct', 'Baked Goods', 3, 'Bake Shop', '12-01-2017', '12-03-2017', null, null, 0, null, null);
 
--- pantry items
+-- pantry items insertion
 INSERT INTO PRODUCTS VALUES(400, 'All-Purpose Flour (Original)', 1.19, 'lb', 'Pantry Items', 32, 'Robin Hood', '10-01-2017', '12-31-2017', null, null, 0, null, null);
 INSERT INTO PRODUCTS VALUES(401, 'All-Purpose Flour (Whole Wheat)', 1.29, 'lb', 'Pantry Items', 30, 'Robin Hood', '10-01-2017', '12-31-2017', null, null, 0, null, null);
 INSERT INTO PRODUCTS VALUES(402, 'White Sugar', 0.89, 'lb', 'Pantry Items', 3, 'Rogers', '10-01-2017', '12-31-2017', null, null, 0, null, null);
@@ -324,7 +327,7 @@ INSERT INTO PRODUCTS VALUES(423, 'Sriracha Chili Sauce', 2.99, 'ct', 'Pantry Ite
 INSERT INTO PRODUCTS VALUES(424, 'Tomato Ketchup', 3.99, 'ct', 'Pantry Items', 100, 'Heinz', '11-01-2017', '12-31-2017', null, 013000001243, 0, null, null);
 INSERT INTO PRODUCTS VALUES(425, 'Soy Sauce', 3.99, 'ct', 'Pantry Items', 4, 'Kikkoman', '11-01-2017', '12-31-2017', null, 041390000829, 0, null, null);
 
--- aisles
+-- insertion into Aisles
 INSERT INTO AISLES VALUES(1, 'Fruits');
 INSERT INTO AISLES VALUES(2, 'Vegetables');
 INSERT INTO AISLES VALUES(3, 'Dairy');
@@ -334,6 +337,7 @@ INSERT INTO AISLES VALUES(6, 'Seafood');
 INSERT INTO AISLES VALUES(7, 'Baked Goods');
 INSERT INTO AISLES VALUES(8, 'Pantry Items');
 
+-- insertion into AisleContains
 INSERT INTO AISLECONTAINS VALUES(1, 1);
 INSERT INTO AISLECONTAINS VALUES(1, 2);
 INSERT INTO AISLECONTAINS VALUES(1, 3);
@@ -438,9 +442,7 @@ INSERT INTO AISLECONTAINS VALUES(8, 423);
 INSERT INTO AISLECONTAINS VALUES(8, 424);
 INSERT INTO AISLECONTAINS VALUES(8, 425);
 
-
-
--- ProvidedBy
+-- insertion into ProvidedBy
 INSERT INTO PROVIDEDBY VALUES(1,9);
 INSERT INTO PROVIDEDBY VALUES(2,13);
 INSERT INTO PROVIDEDBY VALUES(3,11);
@@ -545,7 +547,7 @@ INSERT INTO PROVIDEDBY VALUES(423,5);
 INSERT INTO PROVIDEDBY VALUES(424,6);
 INSERT INTO PROVIDEDBY VALUES(425,6);
 
--- Purchases
+-- insertion into Purchases
 INSERT INTO PURCHASES VALUES(1, 1, 1, 1, '11-01-2017', 1.59);
 INSERT INTO PURCHASES VALUES(2, 3, 3, 1, '11-07-2017', 3.57);
 INSERT INTO PURCHASES VALUES(3, 5, 2, 2, '12-01-2017', 2.78);
@@ -608,7 +610,7 @@ INSERT INTO PURCHASES VALUES(59, 414, 14, 30, '12-24-2017', 9.66);
 INSERT INTO PURCHASES VALUES(60, 416, 5, 30, '11-24-2017', 3.45);
 
 
--- ProvidesDelivery
+-- insertion into ProvidesDelivery
 INSERT INTO PROVIDESDELIVERY VALUES(1, 1);
 INSERT INTO PROVIDESDELIVERY VALUES(2, 1);
 INSERT INTO PROVIDESDELIVERY VALUES(3, 1);
@@ -670,7 +672,7 @@ INSERT INTO PROVIDESDELIVERY VALUES(58, 20);
 INSERT INTO PROVIDESDELIVERY VALUES(59, 20);
 INSERT INTO PROVIDESDELIVERY VALUES(60, 20);
 
--- ReceivedFrom
+-- insertion into eceivedFrom
 INSERT INTO RECEIVEDFROM VALUES(1,25);
 INSERT INTO RECEIVEDFROM VALUES(2,26);
 INSERT INTO RECEIVEDFROM VALUES(3,31);
