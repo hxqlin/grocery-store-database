@@ -5,7 +5,6 @@
         <div style="margin: 25px 10px;">
           <span class="subsection-title" style="vertical-align: middle;">Employees</span>
           <nuxt-link class="button--grey" style="padding: 5px 20px; text-decoration: none;" to="/employees/add">Add Employee</nuxt-link>
-          <nuxt-link class="button--grey" style="padding: 5px 20px; text-decoration: none;" to="/employees/delete">Delete Employee</nuxt-link>
         </div>
         <ul style="list-style-type: none; padding: 0; margin: 0;">
           <li v-for="(employee, index) in employees" :key="index" style="padding: 10px 20px; margin: 0 25px; position: relative;">
