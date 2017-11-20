@@ -5,7 +5,7 @@
         <span class="product-productid" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{`Product ${product.productid}` }}</span>
         <span class="product-productname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `${product.productname}` }}</span><br><br>
         <span class="product-productattributes" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Department: ${product.departmentname}` }}</span><br><br>
-        <span class="product-productdepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Price: ${product.pricepercostunit}/${product.costunit}` }}</span><br><br>
+        <span class="product-productdepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Price: $${product.pricepercostunit}/${product.costunit}` }}</span><br><br>
         <span class="product-productdepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Quantity in Stock: ${product.quantityinstock}` }}</span><br><br>
         <span class="product-productdepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Brand: ${product.brand}` }}</span><br><br>
         <span class="product-productdepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Production Date: ${product.productiondate}` }}</span><br><br>
