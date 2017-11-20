@@ -2,8 +2,9 @@
   <section class="user-view">
     <div class="content">
       <div class="subsection">
+        <span class="customer-customerid" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{`Spending Breakdown for Customer #${this.$route.params.customerid}` }}</span>
         <li v-for="(total, index) in totals" :key="index" style="padding: 10px 20px; margin: 0 25px; position: relative;">
-          <span class="customer-totals" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `${total.departmentname + " Department: $" + total.sum + " total."}` }}</span><br><br>
+          <span class="customer-totals" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `${total.departmentname + " Total: $" + total.sum}` }}</span><br><br>
         </li>
       </div>
     </div>
@@ -16,7 +17,7 @@ import axios from '~/plugins/axios'
 export default {
   customerid: 'customerid',
   asyncData ({ params, error }) {
-    return axios.get('/api/customers/spendingBreakdown/' + params.customerid)
+    return axios.get('/api/customers/spendingbreakdown/' + params.customerid)
       .then((res) => {
         return { totals: res.data }
       })
