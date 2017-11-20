@@ -6,7 +6,7 @@
         <form style="margin: 15px 15px;">
             <div style="margin: 10px 0;">
               <span class="customer-customername">Customer Name: </span>
-              <input type="text" :value="customer[0].customername" v-model="customer[0].customername"></input>
+              <input type="text" v-model="customer[0].customername"></input>
             </div>
             <div style="margin: 10px 0;">
               <span class="customer-customerphone">Phone: </span>
@@ -52,10 +52,10 @@ export default {
           },
         data:
           {
-            customerid: self.customer.customerid,
-            customername: self.customer.customername,
-            customerphone: self.customer.customerphone,
-            customeremail: self.customer.customeremail
+            customerid: self.customer[0].customerid,
+            customername: self.customer[0].customername,
+            customerphone: self.customer[0].customerphone,
+            customeremail: self.customer[0].customeremail
           }})
         .then((res) => {
           // res.data should contain the url for redirecting... bad practice
@@ -69,7 +69,7 @@ export default {
 
   head () {
     return {
-      title: `Update Customer: ${this.customer[0].customername}`
+      title: `Update Customer: ${this.customer[0].customerid}`
     }
   }
 }
