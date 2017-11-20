@@ -4,7 +4,7 @@
       <div class="subsection">
         <span class="product-productid" style="padding: 10px 0 10px 10px; margin: 10px 0 10px 0;">{{`Product ${product.productid}` }}</span>
         <span class="product-productname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `${product.productname}` }}</span><br><br>
-        <span class="product-productattributes" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Department: ${product.departmentname}` }}</span><br><br>
+        <span class="product-productattributes" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Department: ${product.departmentname}` }}</span><br><br><br>
         <span class="product-productdepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Price: $${product.pricepercostunit}/${product.costunit}` }}</span><br><br>
         <span class="product-productdepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Quantity in Stock: ${product.quantityinstock}` }}</span><br><br>
         <span class="product-productdepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Brand: ${product.brand}` }}</span><br><br>
@@ -14,7 +14,7 @@
         <span class="product-productdepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `UPC: ${product.upc}` }}</span><br><br>
         <span class="product-productdepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Organic: ${product.organic}` }}</span><br><br>
         <span class="product-productdepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Cut: ${product.cut}` }}</span><br><br>
-        <span class="product-productdepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Animal: ${product.animal}` }}</span><br><br>
+        <span class="product-productdepartmentname" style="padding: 10px 10px; margin: 10px 0 10px 0;">{{ `Animal: ${product.animal}` }}</span><br><br><br>
         <nuxt-link :to="{ path: `/products/${product.productid}/updatecost`, params: { productid: product.productid }}">Update Cost</nuxt-link><br><br>
         <nuxt-link :to="{ path: `/products/${product.productid}/updatequantity`, params: { productid: product.productid }}">Update Quantity</nuxt-link>
       </div>
@@ -62,17 +62,17 @@ export default {
   line-height 20px
   .subsection-title
     margin 25px 10px
-    font-size 26px
+    font-size 28px
     font-weight 500
   .product-productid
-    font-size 24px
+    font-size 28px
     font-weight 500
   .product-productname
-    font-size 24px
+    font-size 28px
     font-weight 500
     color #707070
   .product-productattributes
-    font-size 24px
+    font-size 28px
     font-weight 500
     color #707070
   a

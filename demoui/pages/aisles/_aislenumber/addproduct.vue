@@ -6,7 +6,7 @@
     <form style="margin: 15px 15px;">
       
       <div style="margin: 10px 0;">
-        <span class="aisle-aislenumber">Product ID: </span>
+        <span class="aisle-aislenumber">Existing Product ID: </span>
         <input type="productid" v-model="aisle.productid"></input>
       </div>
     </form>
