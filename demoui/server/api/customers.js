@@ -51,6 +51,23 @@ router.get('/customers/:customerid', function (req, res, next) {
         })
 })
 
+/* GET Spending Breakdown by ID. */
+router.get('/customers/spendingBreakdown/:customerid', function (req, res, next) {
+    const customerid = req.params.customerid
+    const query = 'SELECT Pr.DepartmentName, SUM(Pu.total) FROM Purchases Pu, Products Pr WHERE Pu.customerid = :customerid AND Pu.productid = Pr.productid GROUP BY Pu.customerid, Pr.DepartmentName ORDER BY Pu.customerid ASC;'
+    connection.query(query,
+        {
+            type: connection.QueryTypes.SELECT,
+            replacements: {
+                customerid: customerid
+            }
+        })
+        .then(totals => {
+                console.log(totals)
+                res.json(totals)
+        })
+})
+
 /* POST updated customer information. */
 router.post('/customers/updateinfo', bodyParser.json(), function (req, res, next) {
     const customerid = req.body.data.customerid
