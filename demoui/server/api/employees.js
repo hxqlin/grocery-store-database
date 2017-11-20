@@ -104,9 +104,11 @@ router.post('/employees/delete', bodyParser.json(), function (req, res, next) {
   const query = 'DELETE FROM Employees WHERE employeeid = :employeeid ;'
   connection.query(query,
     {
-      type: connection.QueryTypes.UPDATE,
+      type: connection.QueryTypes.DELETE,
       replacements: {
+        
         employeeid: employeeid
+
       }
     })
     .then(result => {
