@@ -21,6 +21,42 @@
         <span class="product-costunit">Cost Unit: </span>
         <input type="text" :value="costunit" v-model="costunit"></input>
       </div>
+      <div style="margin: 10px 0;">
+        <span class="product-costunit">Brand: </span>
+        <input type="text" :value="brand" v-model="brand"></input>
+      </div>
+      <div style="margin: 10px 0;">
+        <span class="product-costunit">Quantity in Stock: </span>
+        <input type="text" :value="quantityinstock" v-model="quantityinstock"></input>
+      </div>
+      <div style="margin: 10px 0;">
+        <span class="product-costunit">Production Date: </span>
+        <input type="text" :value="productiondate" v-model="productiondate"></input>
+      </div>
+      <div style="margin: 10px 0;">
+        <span class="product-costunit">Best Before Date: </span>
+        <input type="text" :value="bestbeforedate" v-model="bestbeforedate"></input>
+      </div>
+      <div style="margin: 10px 0;">
+        <span class="product-costunit">PLU: </span>
+        <input type="text" :value="PLU" v-model="PLU"></input>
+      </div>
+      <div style="margin: 10px 0;">
+        <span class="product-costunit">UPC: </span>
+        <input type="text" :value="UPC" v-model="UPC"></input>
+      </div>
+      <div style="margin: 10px 0;">
+        <span class="product-costunit">Organic: </span>
+        <input type="text" :value="organic" v-model="organic"></input>
+      </div>
+      <div style="margin: 10px 0;">
+        <span class="product-costunit">Cut: </span>
+        <input type="text" :value="cut" v-model="cut"></input>
+      </div>
+      <div style="margin: 10px 0;">
+        <span class="product-costunit">Animal: </span>
+        <input type="text" :value="animal" v-model="animal"></input>
+      </div>
     </form>
     <button type="button" class="button--grey" @click="submitInsert">Add Product</button>
     </div>
@@ -39,7 +75,16 @@ export default {
       productname: '',
       departmentname: '',
       pricepercostunit: '',
-      costunit: ''
+      costunit: '',
+      brand: null,
+      quantityinstock: null,
+      productiondate: null,
+      bestbeforedate: null,
+      PLU: null,
+      UPC: null,
+      organic: null,
+      cut: null,
+      animal: null
     }
   },
 
@@ -58,7 +103,16 @@ export default {
             productname: self.productname,
             departmentname: self.departmentname,
             pricepercostunit: self.pricepercostunit,
-            costunit: self.costunit
+            costunit: self.costunit,
+            brand: self.brand,
+            quantityinstock: self.quantityinstock,
+            productiondate: self.productiondate,
+            bestbeforedate: self.bestbeforedate,
+            PLU: self.PLU,
+            UPC: self.UPC,
+            organic: self.organic,
+            cut: self.cut,
+            animal: self.animal
           }})
         .then((res) => {
           // res.data should contain the url for redirecting... bad practice
