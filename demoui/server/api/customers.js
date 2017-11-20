@@ -17,7 +17,7 @@ router.get('/customers', function (req, res, next) {
 /* GET customer and their transactions by ID. */
 router.get('/customers/:customerid', function (req, res, next) {
     const customerid = req.params.customerid
-    const query = 'SELECT Pu.transactionid, Pu.purchasedate, Pu.quantity, Pu.total, Pr.productid, Pr.productname, Pr.brand FROM Customers C, Purchases Pu, Products Pr WHERE :customerid = C.CustomerID AND C.CustomerID = Pu.CustomerID AND Pu.ProductID = Pr.ProductID;'
+    const query = 'SELECT Pu.transactionid, Pu.purchasedate, Pu.quantity, Pu.total, Pr.productid, Pr.productname, Pr.brand FROM Customers C, Purchases Pu, Products Pr WHERE :customerid = C.CustomerID AND C.CustomerID = Pu.CustomerID AND Pu.ProductID = Pr.ProductID ORDER BY Pu.TransactionID, Pr.productname ASC;'
     connection.query(query,
         {
             type: connection.QueryTypes.SELECT,
@@ -54,7 +54,7 @@ router.get('/customers/:customerid', function (req, res, next) {
 /* GET Spending Breakdown by ID. */
 router.get('/customers/spendingBreakdown/:customerid', function (req, res, next) {
     const customerid = req.params.customerid
-    const query = 'SELECT Pr.DepartmentName, SUM(Pu.total) FROM Purchases Pu, Products Pr WHERE Pu.customerid = :customerid AND Pu.productid = Pr.productid GROUP BY Pu.customerid, Pr.DepartmentName ORDER BY Pu.customerid ASC;'
+    const query = 'SELECT Pr.DepartmentName, SUM(Pu.total) FROM Purchases Pu, Products Pr WHERE Pu.customerid = :customerid AND Pu.productid = Pr.productid GROUP BY Pu.customerid, Pr.DepartmentName ORDER BY Pr.departmentname ASC;'
     connection.query(query,
         {
             type: connection.QueryTypes.SELECT,
