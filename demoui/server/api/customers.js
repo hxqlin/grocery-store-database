@@ -51,8 +51,8 @@ router.get('/customers/:customerid', function (req, res, next) {
         })
 })
 
-/* GET Spending Breakdown by ID. */
-router.get('/customers/spendingBreakdown/:customerid', function (req, res, next) {
+/* GET spending breakdown by customer ID. */
+router.get('/customers/spendingbreakdown/:customerid', function (req, res, next) {
     const customerid = req.params.customerid
     const query = 'SELECT Pr.DepartmentName, SUM(Pu.total) FROM Purchases Pu, Products Pr WHERE Pu.customerid = :customerid AND Pu.productid = Pr.productid GROUP BY Pu.customerid, Pr.DepartmentName ORDER BY Pr.departmentname ASC;'
     connection.query(query,
