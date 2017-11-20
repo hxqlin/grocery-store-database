@@ -14,6 +14,26 @@ router.get('/aisles', function (req, res, next) {
     })
 })
 
+/* POST a product to the specified aisle. */
+router.post('/aisles/addproduct', bodyParser.json(), function (req, res, next) {
+  const aislenumber = req.body.data.aislenumber
+  const productid = req.body.data.productid
+
+  const query = 'INSERT INTO AISLECONTAINS VALUES(:aislenumber, :productid);'
+  connection.query(query,
+    {
+      type: connection.QueryTypes.INSERT,
+      replacements: {
+        aislenumber: aislenumber,
+        productid: productid
+      }
+    })
+    .then(result => {
+      // result[1] is the number of rows changed
+      res.send('/aisles/' + aislenumber)
+    })
+})
+
 /* GET products by AisleNumber. */
 router.get('/aisles/:aislenumber', function (req, res, next) {
     const aislenumber = req.params.aislenumber
