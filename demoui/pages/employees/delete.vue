@@ -64,7 +64,7 @@ export default {
 
   head () {
     return {
-      title: `Add New Employee`
+      title: `Delete Employee`
     }
   }
 }
