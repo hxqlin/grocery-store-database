@@ -203,9 +203,9 @@ INSERT INTO EMPLOYEES VALUES(9, 'Robb Stark', 'Pantry Items', 'Stocker', 9446519
 INSERT INTO EMPLOYEES VALUES(10, 'Margaery Tyrell', 'Baked Goods', 'Manager', 961694366, '226 Main Street, Highgarden, BC, V7L 3H7', '778 962 2264', 20);
 INSERT INTO EMPLOYEES VALUES(11, 'Khal Drogo', 'Eggs and Dairy', 'Stocker', 943116456, '6324 West Mall, Vancouver, BC, V7A 5M5', '604 443 6187', 10);
 INSERT INTO EMPLOYEES VALUES(12, 'Yuchen Lin', 'Pantry Items', 'Stocker', 986456189, '999 Brilliant Boy Ave, Vancouver, BC, V8P 9L1', '976 359 1659', 10);
-INSERT INTO EMPLOYEES VALUES(13, 'Hannah Lin', 'Produce', 'Manager', 933641391, '1616 East Mall, Vancouver, BC, V0L 3M1', '604 919 3136', 20);
-INSERT INTO EMPLOYEES VALUES(14, 'Jordan De Mello', 'Baked Goods', 'Manager', 976131971, '2525 West Mall, Vancouver, BC, V0L 3A3', '778 689 1369', 20);
-INSERT INTO EMPLOYEES VALUES(15, 'Ed Knorr', 'Produce', 'Stocker', 931236761, '988 Database Drive, Vancouver, BC, V0L 9A3', '604 977 2163', 10);
+INSERT INTO EMPLOYEES VALUES(13, 'Hannah Lin', 'Produce', 'Manager', 933641391, '1616 East Mall, Vancouver, BC, V0L 3M1', '604 919 3136', 25);
+INSERT INTO EMPLOYEES VALUES(14, 'Jordan De Mello', 'Baked Goods', 'Manager', 976131971, '2525 West Mall, Vancouver, BC, V0L 3A3', '778 689 1369', 25);
+INSERT INTO EMPLOYEES VALUES(15, 'Ed Knorr', 'Produce', 'Stocker', 931236761, '988 Database Drive, Vancouver, BC, V0L 9A3', '604 977 2163', 15);
 
 -- insertion into Products
 
