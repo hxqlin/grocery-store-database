@@ -19,7 +19,7 @@
     "express": "^4.15.3",
     "nuxt": "^1.0.0-rc3",
     "pg": "^7.3.0",
-    "sequelize": "^4.17.0",
+    "sequelize": "^5.15.1",
     "source-map-support": "^0.4.15"
   },
   "devDependencies": {
