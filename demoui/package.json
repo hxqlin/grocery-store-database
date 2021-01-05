@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@nuxtjs/pwa": "^1.0.2",
-    "axios": "^0.16.2",
+    "axios": "^0.21.1",
     "body-parser": "^1.18.2",
     "cross-env": "^5.0.1",
     "express": "^4.15.3",
